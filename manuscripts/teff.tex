@@ -35,23 +35,25 @@
 \affiliation{Department of Theory and Bio-Systems, Max Planck Institute of Colloids and Interfaces, 14424 Potsdam, Germany}
 \email{markus.miettinen@iki.fi}
 
-\title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
+%\title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
+\title{Using open data to rapidly bench\-mark bio\-molecular simulations: Phospholipid internal dynamics}
 \begin{document}
 
 
 \begin{abstract}
-Molecular dynamics (MD) simulations are a widely used to
+Molecular dynamics (MD) simulations are widely used to
     study the atomistic structure and dynamics of biomembranes. It
     remains unknown, however, how well the conformational dynamics
     observed in MD simulations correspond to those occurring in real
     life phospholipids. The accuracy of such time scales in MD can be
-    assessed by comparing against the effective correlation times of
+    assessed by comparing against the effective correlation times $\tau_\mathrm e$ of
     the C-H bonds measured in nuclear magnetic resonance experiments
     (J. Chem. Phys. 142 044905 (2015)).
 
-    Here, we analysed the conformational dynamics of phospholipids as
-    produced by several commonly used MD models (force fields). None
-    of the tested force fields reproduced all the effective
+    Here, we extend this previous analysis by considering carefully the error estimation of MD-determined $\tau_\mathrm e$,
+    and analyze the conformational dynamics of phospholipids as
+    produced by several commonly used MD models (force fields).
+    None of the tested force fields reproduced all the effective
     correlation times within experimental error, much like they do
     not provide accurate conformational ensemble (J. Phys. Chem. B 119 15075 (2015)). However, the
     dynamics observed in CHARMM36 and Slipids were more realistic
@@ -65,79 +67,96 @@ open access to standardised and searchable pools of experimental data has
 %shaped the state of the art of 
 revolutionized
 research in life sciences.
-Constantly growing and improving in fidelity~\cite{hobohm1992,levitt2007,meszaros2019}
+The databanks~\cite{Gaber:2019a}, constantly growing and improving in fidelity~\cite{hobohm1992,levitt2007,meszaros2019}
 %as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves
-due to collaborative effort, the databanks~\cite{Gaber:2019a} enable scientific progress that is well beyond the resources of one single research group, giving rise to entirely new ways of doing science in the form of bio- and cheminformatics, and enabling data-driven discovery of 
+due to collaborative effort, enable scientific progress that is well beyond the resources of one single research group, giving rise to entirely new ways of doing science in the form of bio- and cheminformatics, and enabling data-driven development of 
 characterisation techniques~\cite{burley2018}, %(such as molecular replacement~\cite{rossmann62} in macromolecular x-ray crystallography and 3D electron microscopy) 
 drugs~\cite{kirchmair08}, and materials~\cite{huang2016}.
 %
 %Today these data banks are regarded irreplaceable core resources. The cost of reproducing all the data in PDB has been estimated to be X and destruction of the databank would lead to a near complete halt both academic and commercial research.
 %
 %Much of the development of the PDB and other biomolecular databanks into the core resources they are today has been fueled by
-In addition to experimental results, the push from %scientific journals and
-funders towards public availability and conservation of data has recently extended to molecular dynamics (MD) simulation trajectories of biomolecules, and discussion on how and by whom such databases of dynamic information would be set up is currently active~\cite{Hildebrand:2019a,Abraham:2019a,Gygli:2020a,Abriata:2020a,Hospital:2020a}.
+%In addition to experimental results, the push from %scientific journals and
+%funders towards
+The idea of public availability and conservation of data has recently extended also to molecular dynamics (MD) simulation trajectories of biomolecules, and discussion on how and by whom these databases for dynamic information would be set up is currently active~\cite{Hildebrand:2019a,Abraham:2019a,Gygli:2020a,Abriata:2020a,Hospital:2020a}.
 %
-\todo{Mention GPCRmd~\cite{Rodriguez-Espigares:2019a}?}
-Notably, for atomistic MD simulations of lipid membranes,
-the NRMlipids Project ({\tt nmrlipids.blogspot.fi}) has already since 2013 built such a databank~\cite{Miettinen:2019c}.
-%Inspired by the success of bio- and cheminformatics,
-Using this freely available resource
-({\tt zenodo.org/communities/nmrlipids})
-we demonstrate here, for the first time, the viability of creating new scientific knowledge solely through analysis of pre-existing, open access MD simulation data.
+\todo{Mention GPCRmd~\cite{Rodriguez-Espigares:2019a}? SAMULI: I think yes.}
+%Notably,
 
-Lipids, in their biologically relevant state as the core components of the cell's membranes, are intrinsically unstructured.
-To properly describe such molecules, a whole ensemble of conformations as well as the dynamics linking them is needed.
-To obtain such description, MD simulations of lamellar phospholipid bilayer systems are widely 
-%Although biological membranes are complex mixtures of multiple lipid types as well as other molecules,
-%bilayer with one or few lipid types serve as an important model system, that have been successfully used
-used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX}, and
-hold vast potential to decipher, e.g., molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}.
-However, to be truly useful MD should:
-%The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold.
-\mbox{1) Give the right equilibrium statistics.}
-In order to extract reliable statistics, it is crucial to assess that the simulations have converged: The conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, previous work has indicated that for lipids even 500\,ns simulations might be insufficient~\cite{vogel12,ferreira15}.
+Since 2013 the NRMlipids Project (\url{ nmrlipids.blogspot.fi}) has
+promoted an open collaboration approach,
+where the whole research process, from the initial ideas and discussions to
+the analysis methods, data and publications, are publicly available all the time \cite{botan15}.
+While the main focus of the NMRlipids Project has been in conformational ensembles
+of lipid headgroups and ion binding to lipid membranes \cite{botan15,catte16,antila19},
+it has also accumulated a collection 
+%such a databank~\cite{Miettinen:2019c} for
+of atomistic MD simulations of lipid membranes containing hundreds of trajectories ({\tt zenodo.org/communities/nmrlipids}).
+These data are also partially indexed at \url{www.nmrlipids.fi}.
+%\todo{HA: bit of a conceptual jump hereto the next paragrap, added the sentence below to soften it
+%SAMULI: I have proposed modifications here which hopefully help.}
+Such databanks are particularly relevant for disordered molecules, such as %Our system of interest,
+biological lipids composing cellular membranes, which cannot be descibed by coordinates of single structure in contrast to
+folded proteins or DNA strands.
+%, in their biologically relevant state as the core components of the cell's membranes, are intrinsically unstructured.
+Realistic MD simulations can provide conformational ensemble and dynamics of such molecules as well as
+enable studies of their biological functions in complex biomolecules assemblies.
+However, current MD simulation force fields largely fail to capture conformational ensembles of lipid headgroups and
+disordered proteins \cite{botan15,antila19,??}.
+Therefore, the quality of MD simulations in databanks and other applications must be carefully assessed against
+experimental data.
+For lipid bilayers, such evaluation is possible against NMR and scattering data \cite{ollila16}.
+%To properly describe such molecules, a whole ensemble of conformations as well as the dynamics linking them is needed.
+%To obtain such description, MD simulations of lamellar phospholipid bilayer systems are widely 
+%%Although biological membranes are complex mixtures of multiple lipid types as well as other molecules,
+%%bilayer with one or few lipid types serve as an important model system, that have been successfully used
+%used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX}, and
+%hold vast potential to decipher, e.g., molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references?}.
+
+Here, we demonstrate how publicly available set of MD simulation data can be utilized to
+rapidly evaluate how fast individual lipid molecules sample their conformational ensemble
+against experimental data in different force fields with unprecedented extent. 
+%Using this freely available resource we demonstrate here, for the first time, the viability of creating new scientific knowledge solely through analysis of pre-existing, open access MD simulation data.
+MD simulations with correct lipid dynamics are desired, for example, for the interpretation of
+NMR or other experiments detecting molecular dynamics and to understand dynamics of biological processes where
+lipid deformations have rate limiting role such as membrane fusion \cite{??}.
+In addition, 
+%However, to be truly useful MD should
+%%The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold.
+%give the right 1) equilibrium statistics and 2) dynamics.
+%To extract reliable statistics,
+information on dynamics is crucial to assess if simulations have converged.%:
+%The conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, for lipids even 500\,ns simulations might be insufficient~\cite{vogel12,ferreira15}.
 %Simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.
 %
-\mbox{2) Give the right dynamics.}
-For a complete picture of membrane function, knowledge on the bilayer dynamics is %in addition to equilibrium measurements are
-needed. The ability of MD to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. Notably, the availability of such a realistic MD model could greatly guide both the configuration and the interpretation of NMR experiments used to extract dynamical information from lipid assemblies.
+%Along with equilibrium statistics, the ability of MD to reproduce the bilayer dynamics is equally crucial for an accurate picture of membrane function. %in addition to equilibrium measurements are. 
+%The correct relative abundance of different dynamical processes is needed for reliable interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. Notably, the availability of such a realistic MD model could greatly guide both the configuration and the interpretation of NMR experiments used to extract dynamical information from lipid assemblies.
 
-%We will check the lipid dynamics in existing MD models using the existing NMRlipids databank.
-%
-%More specifically,
-Here we analyze a wide set of publicly available phosphatidylcholine (PC) lipid bilayer MD trajectories. We test whether different MD models (force fields) reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features. Such features can be used to draw general conclusions on the system, to avoid potential pitfalls in future simulations of bilayers, and to suggest future directions for experimental research.  In addition to simulations of one component bilayers under standard conditions, we study the effects of varying hydration, cholesterol content, and NaCl concentration.
+%%We will check the lipid dynamics in existing MD models using the existing NMRlipids databank.
+%%
+%%More specifically,
+%By analyzing a wide set of publicly available phosphatidylcholine (PC) lipid bilayer MD trajectories, we test whether different MD models (force fields) reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics of various models share common features. Such features can be used to draw general conclusions on the system, to avoid potential pitfalls in future simulations of bilayers, and to suggest future directions for experimental research.  In addition to simulations of one component bilayers under standard conditions, we study the effects of varying hydration, cholesterol content, and NaCl concentration.
 
-We analyze lipid dynamics based on two quantities measured in previous $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
-The effective C--H bond correlation time $\tau_\mathrm{e}$ and
-the spin-lattice relaxation rate $R_{1}$,
-both %experimentally available through NMR measurements, and
-directly calculable from atomistic MD simulations.
-The
-$\tau_\mathrm e$ are effectively an average over all the time scales relevant for the lipid internal dynamics,
-and respond intuitively to changes in these: 
-%Most importantly, i
-Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics. %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
-\cite{ferreira15}
-%
-The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experiments~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by MD models in simulations~\cite{feller02,wohlert06,klauda08,klauda08II}.
-In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
-%However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
-%Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. 
+
 
 %Our choice for the system of interest is inspired by the importance of phospholipids %not only
 %as the building blocks of cell membranes.
 %but also as emerging candidates for micro- and nanotechnology, such as the use of liposomes as microcapsules in targeted drug delivery~\cite{sercombe15}. These molecules consist of a hydrophilic phosphate head group, which is connected to two hydrophobic fatty acid tails via a glycerol backbone. The ability of lipids to self assemble into bilayer membrane (and other) configurations is a direct consequence of this dual nature.
 
-\begin{comment}
-and the conformations adopted by the molecules play a crucial role in determining properties of these lipid assemblies, such as the dipole potential~\cite{Gawrisch92} and the curvature~\cite{XXX}\todo{Markus, any favourite references on curvature?} 
-
-Although biological membranes are complex mixtures of multiple different lipids as well as other molecules, lamellar phospholipid bilayers with one or few lipid types have been successfully used as simplified models systems to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08}. \todo{Markus, do you want to add your favourite topics/references, espc. experimental}. The ability of the simple model membranes to reproduce the biological functioning of headgroup/glycerol structure in cells is backed up by experimental evidence~\cite{gally81}.  In particular, MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between the structure and the function.
-
-Unfortunately, recent comparison of lipid \mbox{C--H} order parameters from bilayer simulations to nuclear magnetic resonance (NMR) measurements has shown that none of the currently available lipid MD models perfectly reproduces the conformational ensemble sampled by the headgroup~\cite{botan15}. Here, we take a step further and investigate the dynamics of those MD models. 
-\end{comment}
-
-In summary, our work provides first comprehensive comparison of dynamics of different phosphatidylcholine MD models, where both pure bilayers and the model response to changing conditions and composition is explored. The study is conducted using data-driven exploration of pre-existing, publicly available simulation trajectories to demonstrate the power of open, well documented MD data in creating new knowledge at a lowered computational cost and high potential for automation.  
-
+%We believe that
+Our comprehensive comparison of dynamics between different MD models for phosphatidylcholine lipids
+with varying biologically relevant compositions and conditions paves the way for the development of more realistic lipid force fields.
+%where both pure bilayers and the model response to changing conditions and composition is explored.
+%The study is conducted using pre-existing, publicly available simulation trajectories to demonstrate the power of open,
+%well documented MD data in creating new knowledge at a lowered computational cost and high potential for automation.  
+Furthermore, the analysis of extensive set of data from different models shed light on the complex
+dynamics lipid in their biological relevant disordered state.
+Our results demonstrate the power of publicly available simulation trajectories  %open, well documented MD data
+in creating new knowledge at a lowered computational cost and high potential for automation.  
+%the pre-existing, 
+We believe that our work paves the way for novel applications of publicly
+available MD simulations databanks, as well as demonstrates their usefullness not only for lipid bilayers
+but also for other biomolecular systems.
 
 %we intentionally restrict ourselves to re-use existing, publicly available simulation trajectories. This is to demonstrate the power of open, well documented data in creating new knowledge at a lowered cost. The main source of data was the collection of lipid bilayer simulations originating from the NMRlipids project~\cite{botan15,catte16}
 
@@ -150,7 +169,24 @@ In summary, our work provides first comprehensive comparison of dynamics of diff
 
 
 \section{Methods}
-\section{Theoretical Background}\label{sec:theory}
+\subsection{Evaluation of conformational dynamics of lipids against NMR data}\label{sec:theory}
+We analyze lipid dynamics based on two quantities available from published $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
+The effective C--H bond correlation time $\tau_\mathrm{e}$ and
+the spin-lattice relaxation rate $R_{1}$,
+both %experimentally available through NMR measurements, and
+directly quantifiable from atomistic MD simulations.
+The
+$\tau_\mathrm e$ are effectively an average over all the time scales relevant for the lipid internal dynamics,
+and respond intuitively to changes in these: 
+%Most importantly, i
+Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics. %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
+\cite{ferreira15}
+%
+The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experiments~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by MD models in simulations~\cite{feller02,wohlert06,klauda08,klauda08II}.
+In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
+%However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
+%Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems.
+
 $^{13}$C NMR experiments investigating lipid conformational dynamics take advantage of the fact that the relaxation of $^{13}$C magnetization dominantly happens via the dipolar coupling of the carbon with the magnetic moments of the protons bound to it, with the symmetry axis of the interaction aligning with the C--H bond. The spectral density depicting the $^{13}$C relaxation rates (at frequency $\omega$) is expressed as
 \begin{equation}
 j{(\omega)}=2\int_{0}^{\infty}\cos(\omega\tau)g(\tau)\mathrm d\tau ,
@@ -167,9 +203,9 @@ g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion. The two components, along with the oscillation due to magic angle spinning at the $\sim$kHz region, are depicted in Fig.~\ref{fig:schem_teff}. Correlation time of 4.2 ms has been estimated for multilamellar POPC samples at 300 K for the slow modes, whereas  in liquid crystalline lipid bilayers the faster $g_{\mathrm{f}}(\tau)$ decays to a plateau value $S^{2}_{\rm{CH}}$ within a few hundred nanoseconds~\cite{ferreira15}. The C--H bond order parameters
 \begin{equation}
 \label{eq:OP}
-S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta-1\rangle ,
+S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta(t)-1\rangle ,
 \end{equation}
-where $\theta$ is the angle between the bond and the bilayer normal, are measured in NMR experiments from this plateau. As $S_{\rm{CH}}$ describes the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations. The characteristic time can be quantified via the effective correlation time
+where $\theta(t)$ is the angle between the bond and the bilayer normal, are measured in NMR experiments from this plateau. As $S_{\rm{CH}}$ describes the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations. The characteristic time can be quantified via the effective correlation time
 \begin{equation}
 \label{eq:teff}
 \tau_\mathrm{e}=\int_{0}^{\infty}\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}\mathrm d\tau.
@@ -818,7 +854,7 @@ at 13 waters per lipid.
 
 
 The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
-The headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
+the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
 (Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
 in the headgroup and glycerol regions. 
 
@@ -870,7 +906,7 @@ in CHARMM36 the slowdown manifests as an abrupt increase of the uncertainty esti
 %HA: a synonym for slow-down?
 
 Owing to the large uncertainties, we only point out the qualitative trends of the lower error estimates on the glycerol segments.
-For CHARMM36 the it stays almost constant all the way until 7\,w/l,
+For CHARMM36 it stays almost constant all the way until 7\,w/l,
 for Berger and MacRog the lower error estimate suggests a retardation of the dynamics starting already from $\sim$20\,w/l.
 
 These simulational findings suggest that
@@ -913,7 +949,7 @@ whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 \caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
 in experiments and simulations.}
 \label{fig:dehydrationR1}
-\todo{HA: Redo \& merge this with the upper image}
+\todo{HA: Redo \& merge this with the Fig.~\ref{fig:hydration}}
 \end{figure}
 
 The slow down discussed here is of significance
@@ -941,39 +977,68 @@ Correlation times extracted from CHARMM36 vary only a little (low ion binding) w
 \label{fig:salt}
 \end{figure}
 
+\subsection*{Correlation time of $S_\mathrm{CH}$ versus $\tau_\mathrm e$.}
+To determine the C--H bond order parameter $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP})
+in MD, one first calculates an instantaneous order parameter
+\begin{equation}
+\label{eq:instantaneousOP}
+S_{\rm{CH}}(t)=\frac{1}{2}\left( 3\cos^{2}\theta(t)-1 \right),
+\end{equation}
+where $\theta(t)$ is the angle between the C--H bond and the membrane normal at time $t$.
+As this quantity is sampled along the trajectory, its average
+$\langle S_\mathrm{CH}(t) \rangle$
+approaches $S_\mathrm{CH}$.
+For reliable determination of $S_\mathrm{CH}$,
+it would be of interest to know the correlation time of this relaxation,
+because it determines the minimum simulation length required.
+
+To this end, it is also of interest to know
+how this correlation time relates to $\tau_\mathrm{e}$.
+%
+As discussed (see Fig.~\ref{fig:schem_teff}), 
+in a bilayer the C--H bond's
+second order rotational correlation function $g(\tau)$, see Eq.~\eqref{eq:BCF}, approaches $S^2_\mathrm{CH}$ with time. The speed of this approach tells how fast the C--H bond orientations are sampled.
+%
+However, the correlation time of $S_\mathrm{CH}$,
+which is calculated using the {\it a priori} knowledge of the membrane normal direction (Eq.~\eqref{eq:instantaneousOP}),
+does not need to equal $\tau_\mathrm e$.
+Rather, one would intuitively expect it to be shorter than $\tau_\mathrm e$,
+because the rotational averaging around the membrane normal direction is already implicitly taken into account in Eq.~\eqref{eq:instantaneousOP}.
+
+A further complication is that the relaxational process of the C--H bond direction (used to determine $\tau_\mathrm e$) can be single or multi-exponential.
+If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times, and it is a bit hard to say just based on $\tau_\mathrm e$ how long one needs to sample to reach the $S_\mathrm{CH}$, because this depends also on the weights of the processes.
+
+Figure~\ref{fig:Teff-vs-Tsch} shows this correlation for systems studied in this work; we see\ldots
+\todo{Laske bilayerissa $S_\mathrm{CH}$:n korrelaatioaika (yksittaisessa lipidissa) vs $\tau_\mathrm e$. Tee scatter plot.}
 
 \section{Conclusions}
+Open access databanks of MD trajectories enables the creation new scientific information without running a single new simulation. Here,
+we demonstrated this by investigating the dynamics of a wide range of phosphatidylcholine molecular dynamics models using the existing trajectories from the NMRlipids databank.
 
-\todo{Laske bilayerissa Sch korrelaatiot yksittaisille lipidelle vs taueff}
----
+We found that MD qualitatively captures the $^{13}$C-NMR effective correlation time ($\tau_\mathrm e$) profile of POPC---the slow glycerol backbone and the faster motions of the headgroup and tail regions---but most MD force fields are prone to too slow dynamics of the glycerol C--H bonds (Fig.~\ref{fig:teff_R1}).
+%
+While no force field reproduces all the experimental data,
+CHARMM36 and Slipids have an overall impressive $\tau_\mathrm e$.
+This is particularly true for CHARMM36, as it is also known to
+well reproduce the experimental conformational ensemble~\cite{botan15}.
+%
+That said, we find that CHARMM36 struggles with the balance of dynamics in the headgroup region:
+The $R_1$ rates, sensitive for $\sim$1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments (Fig.~\ref{fig:cumulativeR1s}).
 
-Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
-After all, $\tau_\mathrm e$ does measure the reorientation of the C--H bond, which is clearly related to how fast the $S_\mathrm{CH}$ is sampled.
+\todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
 
-A: In a lipid bilayer, the second order rotational correlation function approaches $S^2_\mathrm{CH}$. The speed of this approach tells how fast the C--H bond orientations are sampled. In the relaxation experiment this speed is measured.
+In addition to standard conditions, we explored how the dynamics react to addition of cholesterol or NaCl, or to removal of water.
+%
+MD qualitatively captures that when cholesterol is mixed into a POPC bilayer, the conformational dynamics in the tail and glycerol regions slows down; however, some force fields predict an (erroneous) slowdown also for the headgroup (Fig.~\ref{fig:chol}).
+%
+With increasing NaCl concentration, a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude increase in $\tau_\mathrm e$; this could open up the possibility of using $\tau_\mathrm e$ in quantifying cation binding to lipid bilayers.
+%
+When reducing the water content, MD exhibits slowdown of headgroup and backbone dynamics below $\sim$10 waters per lipid in qualitative agreement with experimental data. \todo{ Hydration needs some kind of statement of significance.}
 
-In the C--H bond order parameter experiment one measures how much of the second order rotational correlation is left after all the available C--H bond orientations in the bilayer have been sampled.
+By gathering a set of $^{13}$C-NMR data on the phosphatidylcholine dynamics and charting the typical features of the existing MD models against it, this study lays the foundation for further improvement of the force fields. While work is still needed in capturing even the correct conformations~\cite{botan15}, realistic dynamics will be an essential part of developing MD into a true computational microscope.
 
-That is,  $\tau_\mathrm e$ does indeed measure how fast the $S^2_\mathrm{CH}$ is sampled.
-
-If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times.
-
-In the multi-exponential case it is a bit hard to say just based on $\tau_\mathrm e$, how long one needs to sample the $S_\mathrm{CH}$, because this depends also on the above-mentioned weights of the processes.
-
-The main advantage of $\tau_\mathrm e$ is that the larger (smaller) it is, the slower (faster) the process is. The same is not true for $R_1$ or other spin relaxation parameters, because their connection to the molecular dynamics is complicated, and goes through the spectral density, see Eq.~\eqref{eq:R1}.
-
----
-
-
-
-Here, we have investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories. The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.  In general, the these force fields reproduce the experimentally detected $R_{1}$ values adequately, indicating that processes at time scales $\sim$1 ns are represented but problems arise at longer time-scales. While none of the force fields is able to reproduce all the experimental values, the CHARMM36 POPC model performs well when compared to the effective correlation times, while the Slipids and Lipid14 force field provide realistic $R_{1}$ in the PC headgroup and glycerol regions. However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
-
-
-In addition to the bilayers under standard conditions, we also explored how the dynamics react to the addition of cholesterol, salt, and to the reduction of hydration level. When cholesterol is mixed into the POPC bilayer, the conformational dynamics of the tails and the glycerol regions slows down. Again, the MD models are able to qualitatively capture this, but some also predict an increase in the correlation times for the headgroup carbons, possibly leading to erroneous conclusions. In increasing salt concentration a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude of slowdown in the correlation times. This could open up the possibility of using effective correlation times in quantifying the ion binding to lipid bilayers. When reducing the water content, the MD models exhibited somewhat constant correlation times down to $\sim$15 waters per lipid in agreement with experimental data. After this, a slow down was observed.\todo{hydration needs some kind of statement of significance.}
-
-By gathering a set of experimental information on the phosphatidylcholine dynamics and underlining some of the typical features of the MD models, this study sets a foundation and a potential roadmap for further improvement of the current force fields. While work is still needed in capturing even the correct order parameters, the dynamics is equally essential part of developing MD into a true computational microscope; after all, it is possible to obtain the correct order parameters just by freezing the system into a set of selected conformations.\todo{not very smoothly put, help!}  
-
-Finally, this work demonstrates the power of open data in creating new knowledge out of existing trajectories at a reduced computational and labor cost. Although no new simulations were performed for the purpose of this work, we were able to conduct a comprehensive study on the dynamics of MD models under several conditions. An interesting extension would be exploring other lipid headgroups individually as well as performing a comparison of MD model dynamics between headgroup types, as the available simulation data goes well beyond simulations of lipids with the phosphocholine headgroup. If the data are well indexed and documented, this process could be easily automated and has the potential to facilitate faster progress, eg., in the development of lipid (and other) MD models. Naturally, such database would provide a fruitful platform to other machine learning applications as well. 
+Importantly, this work demonstrates the power of open data in creating new knowledge out of existing trajectories at a reduced computational and labor cost. %Although no new simulations were performed for the purpose of this work, we were able to conduct a comprehensive study on the dynamics of MD models under several conditions. An interesting extension would be exploring other lipid headgroups individually as well as performing a comparison of MD model dynamics between headgroup types, as the available simulation data goes well beyond simulations of lipids with the phosphocholine headgroup.
+If the data are well indexed and documented, this process could be automated and has the potential to facilitate faster progress, e.g., in the development of MD force fields, for example through machine learning approaches.
 
 
 \acknowledgement
