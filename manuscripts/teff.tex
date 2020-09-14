@@ -871,6 +871,25 @@ in the headgroup and glycerol regions.
 \centering
 \includegraphics[width=\columnwidth]{../Figs/hydration_2020.pdf} 
 
+\subsection*{Effect of dehydration.}
+The impact of dehydration on the structure and dynamics of lipid bilayers is of considerable interest as  membrane fusion is always preceeded by removal of water between the opposing membranes and therefore may affect the rate of fusion. Lipid bilayers in dehydrated states are also found, e.g., in skin tissue. 
+
+Figure~\ref{fig:hydration}A shows how a mild dehydration affects
+C--H bond dynamics in the PC headgroup and glycerol backbone;
+the plot compares the experimental effective correlation times $\tau_\mathrm e$
+measured for POPC at full hydration and for DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine)
+at 13 waters per lipid.
+
+
+The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
+the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
+(Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
+in the headgroup and glycerol regions. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\columnwidth]{../Figs/hydration_2020.pdf} 
+
 \caption{Effect of drying on %the
 effective correlation times %$\tau_\mathrm e$
 in headgroup and glyc\-er\-ol backbone.
@@ -880,7 +899,7 @@ do not significantly differ from the
 $\tau_\mathrm e$ for POPC at full hydration. %(28\,w/l)
 (B) Calculated $\tau_\mathrm e$  for
 POPC at decreasing hydration in three MD models.
-Note that three Berger data points are from DLPC bilayers {\color{red} dashed}.
+Note that three Berger data points (4, 12, 16, and 24~w/l) are from DLPC bilayers.
 Symbols give the mean of segment hydrogens,
 if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
 (extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
@@ -888,8 +907,6 @@ the area delimited by the error bars is shaded for visualization.
 See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
 \todo{How to refer to full hydration POPC data?}\\
-\todo{Add also the black and orange (i.e. experimental) data points to B.}
-\todo{DLPC Berger points dashed or just in caption}
 \end{figure}
 
 Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
@@ -899,24 +916,9 @@ the relatively short lengths of the openly available trajectories %with dehydrat
 (Table~\ref{tab:hydr})
 led to large uncertainty estimates. %for simulation data are large. %which makes discussion challenging.
 %
-However, in the $\gamma$ segment
-there is clearly no effect above 13\,w/l in CHARMM36 and MacRog,
-in agreement with the experiments;
-reducing water content further induces a slow down, 
-especially in MacRog below 10\,w/l. 
-%
-Similarly, the
-$\beta$ and $\alpha$ segments
-show no detectable change above 13\,w/l
-for CHARMM36 and Berger,
-in agreement with the experiments;
-below 10 w/l Berger exhibits a slowdown, and
-in CHARMM36 the slowdown manifests as an abrupt increase of the uncertainty estimate.
-%HA: a synonym for slow-down?
 
-Owing to the large uncertainties, we only point out the qualitative trends of the lower error estimates on the glycerol segments.
-For CHARMM36 it stays almost constant all the way until 7\,w/l,
-for Berger and MacRog the lower error estimate suggests a retardation of the dynamics starting already from $\sim$20\,w/l.
+Owing to the uncertainties, we only point out the qualitative trends. For all carbons in the headgroup and glycerol segments, the simulated  $\tau_\mathrm e$ indicates slow down upon dehydration. This is manifested in the increase in the magnitude of the error estimate (cf. the Berger data for $\beta$ and $\alpha$) as well as in the increase of the lower limit of the error. 
+For CHARMM36 the lower error estimates almost constant all the way until 7\,w/l, whereas for Berger and MacRog they indicate a retardation of the dynamics starting already from $\sim$20\,w/l.
 
 These simulational findings suggest that
 experiments reducing hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
@@ -938,7 +940,7 @@ and is qualitatively reproduced by all the simulation models~\cite{botan15}.
 %{\color{green} Ref.~\citenum{Faure:1997a}: Each DMPC in fluid phase binds $\sim$10 D$_2$O.}
 
 
-Figure~\ref{fig:dehydrationR1} shows
+Figure~\ref{fig:hydration}C shows
 a collection of experimental $^{13}$C-NMR $R_1$ rates
 measured at 125\,MHz for the headgroup segments
 at different water contents;
@@ -958,67 +960,36 @@ whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 \caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
 in experiments and simulations.}
 \label{fig:dehydrationR1}
-\todo{HA: Redo \& merge this with the Fig.~\ref{fig:hydration}}
+\todo{HA:  merge this with the Fig.~\ref{fig:hydration}}
 \end{figure}
 
-The slow down discussed here is of significance
-not only when simulating a bilayer (stack) under low hydration,
-but also for studies of inter\-membrane interactions, such as membrane fusion, because these naturally lead to dehydrated conditions when the lipid assemblies approach. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
+The characteristics of the slow down discussed here are of significance
+not only for computational studies of inter\-membrane interactions, such as membrane fusion,  but also when simulating a bilayer (stack) under low hydration. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
 
 
 \subsection*{Effect of cation binding.}
-\todo{MARKUS: I have started to think that we maybe should drop this section, because we do not have any experimental data to compare against. However, if we do decide to keep it, to me it seems that our main point here is not on the effects monovalent salt, but rather on the effects of cation binding. Therefore, it would be better to plot $\Delta\tau_\mathrm e$ as a function of the bound cation charge, as we did in Fig.~3 of Ref.~\citenum{catte16}; then we could also include calcium data.}
+\todo{This section will (possibly) be on ECC simulations and how teff chances with (divalent?) ion binding}
 
-Finally, we comment on the response of the MD model dynamics to increasing amounts of monovalent salt.
-To our knowledge, no experimental $^{13}$C-NMR $R_1$ or $\tau_\mathrm e$ data exists as a function of monovalent salt concentration; therefore, the following discussion is kept qualitative.
-Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding. Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt. %however, to our knowledge no experimental measurements have been conducted to quantify this.
+Finally, we comment on the response of the MD model dynamics to increasing amounts of salt.
+%To our knowledge, no experimental $^{13}$C-NMR $R_1$ or $\tau_\mathrm e$ data exists as a function of monovalent salt concentration; therefore, the following discussion is kept qualitative.
+Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding, but change in the presence increasing amounts of divalent ions. %Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt. %however, to our knowledge no experimental measurements have been conducted to quantify this.
 
-The molecular electrometer has been used to show that most molecular dynamics force fields overestimate the binding of monovalent ions to PC bilayers~\cite{catte16}: In the simulations the modulation of the $\alpha$ and $\beta$ carbon order parameters by increasing NaCl concentration was overestimated compared to the experiments, and accompanied by accumulation of ions at the bilayer surface. In Fig.~\ref{fig:salt} we compare three force fields, one that is known to exhibit pronounced overbinding~\cite{catte16} (MacRog) and two producing more realistic binding affinity (Slipids and CHARMM36). The lateral distribution of Na$^{+}$ ions near the bilayer is quantified in Fig.~\ref{fig:salt}A whereas Fig.~\ref{fig:salt}B shows the chance in $\tau_{\rm{e}}$ for increasing salt concentration. Ion accumulation results in a slow down in the effective correlation time. %that is somewhat proportional to the strength of ion binding.
-Correlation times extracted from CHARMM36 vary only a little (low ion binding) when ion concentration is increased, whereas a slightly more pronounced change is observed with Slipids, and MacRog exhibits a clear slow-down (significant ion binding). This indicates that, similarly to the order parameters, $\tau_{\rm{e}}$ may be useful in investigating the ion binding affinity of lipid bilayers and experimental work exploring this avenue would be interesting.   
+The molecular electrometer has been used to show that most molecular dynamics force fields overestimate the binding of monovalent ions to PC bilayers~\cite{catte16}: In the simulations the modulation of the $\alpha$ and $\beta$ carbon order parameters by increasing NaCl concentration was overestimated compared to the experiments, and accompanied by accumulation of ions at the bilayer surface. Here, we use existing data from a force field, the ECC model, that is know to have mostly realistic ion binding. 
 
-\todo{validity of statement regarding Slipids}
+
+This indicates that, similarly to the order parameters, $\tau_{\rm{e}}$ may be useful in investigating the ion binding affinity of lipid bilayers and experimental work exploring this avenue would be interesting.   
+
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.36]{./figures/salt.pdf} 
-\caption{The impact of increasing ionic strength on effective correlation times. a) The density distribution (average over both leaflets) of Na$^{+}$ ions as function of distance $z$ from the bilayer center. The plots for each force field are presented from left to right in the order of increasing ion accumulation. b) Effective correlation times for $\alpha$ and $\beta$ C--H bonds in growing NaCl concentration from CHARMM36, Slipids, MacRog POPC simulations. Details on the simulation data are provided in Table~\ref{tab:salt}.}
+\caption{A picture of alpha and beta teff vs bound CA ions in the ECC model}
 \label{fig:salt}
+\todo{analysis running}
 \end{figure}
 
-\subsection*{Correlation time of $S_\mathrm{CH}$ versus $\tau_\mathrm e$.}
-To determine the C--H bond order parameter $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP})
-in MD, one first calculates an instantaneous order parameter
-\begin{equation}
-\label{eq:instantaneousOP}
-S_{\rm{CH}}(t)=\frac{1}{2}\left( 3\cos^{2}\theta(t)-1 \right),
-\end{equation}
-where $\theta(t)$ is the angle between the C--H bond and the membrane normal at time $t$.
-As this quantity is sampled along the trajectory, its average
-$\langle S_\mathrm{CH}(t) \rangle$
-approaches $S_\mathrm{CH}$.
-For reliable determination of $S_\mathrm{CH}$,
-it would be of interest to know the correlation time of this relaxation,
-because it determines the minimum simulation length required.
-
-To this end, it is also of interest to know
-how this correlation time relates to $\tau_\mathrm{e}$.
-%
-As discussed (see Fig.~\ref{fig:schem_teff}), 
-in a bilayer the C--H bond's
-second order rotational correlation function $g(\tau)$, see Eq.~\eqref{eq:BCF}, approaches $S^2_\mathrm{CH}$ with time. The speed of this approach tells how fast the C--H bond orientations are sampled.
-%
-However, the correlation time of $S_\mathrm{CH}$,
-which is calculated using the {\it a priori} knowledge of the membrane normal direction (Eq.~\eqref{eq:instantaneousOP}),
-does not need to equal $\tau_\mathrm e$.
-Rather, one would intuitively expect it to be shorter than $\tau_\mathrm e$,
-because the rotational averaging around the membrane normal direction is already implicitly taken into account in Eq.~\eqref{eq:instantaneousOP}.
-
-A further complication is that the relaxational process of the C--H bond direction (used to determine $\tau_\mathrm e$) can be single or multi-exponential.
-If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times, and it is a bit hard to say just based on $\tau_\mathrm e$ how long one needs to sample to reach the $S_\mathrm{CH}$, because this depends also on the weights of the processes.
-
-Figure~\ref{fig:Teff-vs-Tsch} shows this correlation for systems studied in this work; we see\ldots
-\todo{Laske bilayerissa $S_\mathrm{CH}$:n korrelaatioaika (yksittaisessa lipidissa) vs $\tau_\mathrm e$. Tee scatter plot.}
+\section{Conclusions}
 
 \section{Conclusions}
 Open access databanks of MD trajectories enables the creation new scientific information without running a single new simulation. Here,
