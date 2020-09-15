@@ -791,18 +791,24 @@ Identifying them and speeding them up would improve the model dynamics.
 However, the connection between the fitted correlation times and the correlation times of distinct motional processes, such as dihedral rotations and lipid wobbling, turns out to be highly non-trivial; we thus refrain from further analysis here.
 
 \subsection*{Effect of cholesterol.}
+Cholesterol is essential component in cell membranes with various biological functions \cite{??}.
+While cholesterol is well known to order the acyl chains in cell membranes,
+its effect on headgroup is more controversial \cite{??}. Lipid headgroups are proposed
+to reorganize to shield cholesterol from interaction with water \cite{??}. However,
+significant conformational changes in headgroup are not observed in NMR experiments upon addition
+of even 50\% of cholesterol, while acyl chains exhibit substantial ordering,
+suggesting that acyl chain and headgroup regions behave essentially independently \cite{ferreira13,botan15}.
+On the other hand, the headgroups could shield water-cholesterol interactions
+without changes in internal conformational ensemble by reorienting headgroups laterally on
+top of cholesterol. In this case, the dynamics of headgroup dynamics should be affected by cholesterol. 
+
 The experimental effective correlation times $\tau_\mathrm e$
 (Fig.~\ref{fig:chol}A, top panels)
-show that when cholesterol is added,
-the glycerol region conformational dynamics
-slow down markedly.
+slow down markedly when cholesterol is added. Tail segments slow down too, with most detectable effect close to the glycerol backbone.
 %
-The tail segments slow down too,
-the effect increasing towards the backbone.
-
 In stark contrast, however,
 the $\tau_\mathrm e$ of headgroup segments ($\gamma$, $\beta$, $\alpha$)
-are unaffected by cholesterol.
+are unaffected by cholesterol. 
 %
 Furthermore, cholesterol induces no measurable change in the
 headgroup $\beta$ and $\alpha$ segment
@@ -812,8 +818,9 @@ the experimental $R_{1}$ rates (Fig.~\ref{fig:chol}A, lower panels).
 That said,
 there is a small but measurable impact on $R_1$ at $\gamma$.
 
+\todo{Markus: look at the new figure, CHARMM36 error estimates pose difficulties here, change C36 data?}
 All the force fields investigated qualitatively reproduce the increase in $\tau_\mathrm e$ (see Fig.~\ref{fig:chol}B):
-Slipids gives the best magnitude estimates, while CHARMM36 and MacRog clearly overestimate the changes at the glycerol, C2, and C3 carbons. Notably, MacRog \todo{and Berger?} erroneously predict slow down also for the $\beta$ and $\alpha$ carbons, for which experiments detect no change.
+Slipids gives the best magnitude estimates, while CHARMM36 and MacRog clearly overestimate the changes at the glycerol, C2, and C3 carbons. Notably, Macrog erroneously predict slow down also for the headgroup $\beta$ and $\alpha$ carbons, for which experiments detect no change. \todo{see new error bars for Macrog}
 %
 Note that,  while CHARMM36 correctly shows no chance in $\tau_\mathrm{e}$
 of the $\gamma$, $\beta$, and $\alpha$ carbons,
@@ -824,34 +831,22 @@ Such inaccuracies might be reflected in the recent findings~\cite{leeb18}
 that 
 %(at least at small cholesterol concentrations)
 the headgroups of PCs neighbouring a cholesterol (within 6.6\,\AA) spend more time on top of the cholesterol than elsewhere;
-such arrested rotations could manifest on $\tau_\mathrm e$ and $R_1$.
+\todo{Samuli wants to remove this, why? such arrested rotations could manifest on $\tau_\mathrm e$ and $R_1$.}
 %
 Interestingly, 
-the tail $\Delta R_{1}$ seem to be pretty well reproduced by
+the tail $\Delta R_{1}$ seem to be qualitatively reproduced by
 all three all-atom force fields, whereas Berger fails to capture the change at the oleoyl double bond.
 
 %Along with the slow-down of dynamics, all the models show an increase in the $\vert S_{\rm{CH}}\vert$ upon addition of cholesterol at the tail region (\todo{Show data?}), reflecting the reduced available volume for the POPC.\todo{Is this a known effect/explanation?}
 
 %The change observed here, however, is particularly sensitive to the length of the trajectory as cholesterol-induced increase in effective correlation time is likely to lead to worse convergence of the correlation function within the limited simulation time, and more drastic underestimation of $\tau_\mathrm{e}$ is expected than for simulations without cholesterol. This will, consequently, cause a tendency towards underestimation on the strength of the cholesterol-driven modulation of the effective correlation time.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\columnwidth]{./figures/cholesterol.pdf}  
-	\caption{Effect of bilayer cholesterol content.
-	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and full hydration.
-	(B) The change in $\tau_\mathrm{e}$ ($\Delta\tau_\mathrm{e}$, top panels) and $R_{1}$ ($\Delta R_{1}$, bottom),
-	both in experiments and in MD simulations, when bilayer composition changes from pure POPC to 50\% cholesterol.
-	Berger not shown for $\Delta\tau_\mathrm{e}$, because the open data available were insufficient to determine meaningful error estimates.
-	Error estimates for the simulated $\Delta\tau_\mathrm e$ are the maximal possible
-	based on the errors at 0\% and 50\% cholesterol;
-	for other data regular error propagation is used.
-	Table~\ref{tab:chol} provides further simulation details;
-	for segment labeling, see Fig.~\ref{fig:teff_R1}.
-	}
-	\label{fig:chol}
-\todo{@Hanne: Double check that the calculation of errors in (B) was as the caption describes.}
-\todo{Check if cholesterol data is in full hydration}
-\end{figure}
+In summary, the experiments suggest that acyl chain ordering upon cholesterol addition is accompanied
+with slower internal dynamics in hydrophobic core and glycerol backbone region, while headgroup dynamics is almost
+intact even with 50\% of cholesterol, supporting the idea~\cite{citetoarcihved} that acyl chains and headgroup can respond
+almost independently on even large membrane distractions.
+In line with general picture from order parameters \cite{ollila16}, MD simulations capture the changes
+in acyl chain region rather well, but changes in headgroup and glycerol backbone can be overestimated.
 
 
 \subsection*{Effect of drying.}
