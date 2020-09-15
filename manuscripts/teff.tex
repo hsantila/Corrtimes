@@ -252,18 +252,20 @@ d_{\mathrm{CH}}=\frac{\hslash\gamma_{\mathrm{H}}\gamma_{\mathrm{C}}\mu_{0}}{4\pi
 where $\hslash$ is the reduced Planck constant, $\gamma_{\mathrm{C}}$ and $\gamma_{\mathrm{H}}$ are the gyromagnetic constants for $^{1}H$ and $^{13}C$, $\mu_{0}$ is the vacuum permeability, and $\langle r^{3}_{\mathrm{CH}}\rangle$ denotes the average cubic length of the C-H bond.
 \end{comment}
 
-\subsection{Experimental data acquisition and analysis}
+subsection{Experimental data acquisition and analysis}
 %
-All the experimental quantities were collected from the literature \todo{Except are they, or mostly from Tiago and re-analysed from raw data?} sources referred at the respective figures \todo{How to refer to experimental data from Tiago?}.   
+All the experimental quantities were collected from the literature sources referred at the respective figures.   
 
 \subsection{Simulational data acquisition and analysis}
 %
-The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}).
+The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen based on how well the simulation conditions matched the available experimental data (temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (lenght of simulation, system size).
+
+
 Table~\ref{tab:standr} details, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration, whereas
 Table~\ref{tab:chol} lists simulations including cholesterol;
 Table~\ref{tab:hydr} simulations with varying hydration; and
 Table~\ref{tab:salt} at increasing NaCl concentration.
-Additional computational details for each of the simulations are available at the cited Zenodo entry.
+Additional computational details for each of the simulations are available at the cited Zenodo entry. 
 
 \begin{table}[t!]
 \caption{Analyzed simulations of POPC lipid bilayers at standard conditions.}
@@ -280,7 +282,7 @@ files\footnote{Reference for the openly available simulation files.} \tabularnew
 \hline 
 %Berger-POPC-07~\cite{ollila07a}
 %	& 128 & 7290 & 298 & 50  & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline[1.0ex]
-Berger-X~\cite{findrightffref}
+Berger~\cite{berger97,bachar04}
 	& 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline[1.0ex]	
 CHARMM36~\cite{klauda10}
 	& 256 & 8704 & 300 & 300 & {[}\!\!\citenum{charmm36filesT300}{]} \tabularnewline
@@ -322,10 +324,14 @@ Berger-POPC-07~\cite{ollila07a}
 	& 0\%	& 0	& 128	& 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
 /H\"{o}ltje-CHOL-13~\cite{holtje01,ferreira13} 
 	& 50\%	& 64	& 64		& 10314  & 298  & 50  & {[}\!\!\citenum{bergerFILESpopc50chol}{]} \tabularnewline[1.0ex]
+%CHARMM36~\cite{klauda10} 
+%	& 0\%	& 0 	& 128 	& 5120  & 303  & 140  & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
+%/CHARMM36~\cite{lim12} 
+% 	& 50\%	& 80	& 80		& 4496  & 303  & 200  & {[}\!\!\citenum{charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
 CHARMM36~\cite{klauda10} 
-	& 0\%	& 0 	& 128 	& 5120  & 303  & 140  & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
+	& 0\%	& 0 	& 200 	& 9000  & 310  & 500  & {[}\!\!\citenum{T310charmm36files}{]} \tabularnewline
 /CHARMM36~\cite{lim12} 
- 	& 50\%	& 80	& 80		& 4496  & 303  & 200  & {[}\!\!\citenum{charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
+ 	& 50\%	& 200	& 200		& 18000  & 310  & 500  & {[}\!\!\citenum{T310charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
 MacRog~\cite{kulig15}
 	& 0\%	& 0	& 128	& 6400  & 310  & 500  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline
 /MacRog~\cite{kulig15}
@@ -358,7 +364,7 @@ files\footnote{Reference for the openly available simulation files.} \tabularnew
 Berger-POPC-07~\cite{ollila07a} 
 	& POPC  & 57  & 128  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
 	& POPC  & 7  & 128  & 896  & 298  & 60  & {[}\!\!\citenum{bergerDEHYDfiles}{]} \tabularnewline	
-Berger-X~\cite{findrightffref}
+Berger~\cite{berger97,bachar04}
 	& POPC & 40 & 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline[1.0ex]		
 Berger-DLPC-13~\cite{kanduc13}
 	& DLPC\footnote{1,2-didodecanoyl-sn-glycero-3-phosphocholine. \label{fn:DLPC}}  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
@@ -382,14 +388,9 @@ MacRog\cite{kulig15}
 }
 \label{tab:hydr}
 \end{minipage}
-\todo{
-	The data points here do not match those in Fig.~\ref{fig:hydration}B.
-	MacRog in Fig.~\ref{fig:hydration}B: 50, 25, 10, 5 w/l, and
-	C36 in Fig.~\ref{fig:hydration}B: 40, 31, 15, 7 w/l.
-	}\\
-\todo{The $t_\mathrm{anal}$ for MacRog here do not match Ref.~\citenum{macrogdehydFILES} ($100$\,ns $\to50$\,ns)?}
-\end{table}
 
+\end{table}
+\begin{comment}
 %\begin{multicols}{2}
 %\twocolumn
 \begin{table}[]
@@ -444,14 +445,16 @@ Slipids \cite{jambeck12b}%/---
 \end{table}
 %\onecolumn
 %\end{multicols}
+\end{comment}
 
-The simulation data were analyzed using in-house scripts. These are available on GitHub \cite{citehere} along with a Python notebook outlining an example analysis run.
+The simulation data were analyzed using in-house scripts. These are available on GitHub (\url{https://github.com/hsantila/Corrtimes/tree/master/teff_analysis}) along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with different atom naming conventions, we employ mapping files and the related definition format developed within the NMRlipids Project to recognize the atoms and bonds of interest when analyzing the trajectory.
+
 After downloading the necessary files from Zenodo, the trajectory was processed with Gromacs \texttt{gmx trjconv} to make the molecules whole.
-The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{calcOrderParameters.py}\cite{citegithubhere} script that uses the MDanalysis\cite{XXX} Python library.
+The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{calcOrderParameters.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
 The \mbox{C--H} bond correlation functions
 $g(\tau)$, see Eq.~\eqref{eq:BCF},
-were calculated with Gromacs5.1.4\cite{XXX} \texttt{gmx rotacf};
+were calculated with Gromacs5.1.4\cite{abraham2015gromacs} \texttt{gmx rotacf};
 note that on simulational (fast) time scales $g = g_\mathrm{s} g_\mathrm{f}= g_\mathrm{f}$.
 %
 To obtain the $g'_\mathrm f$,
@@ -459,15 +462,12 @@ the $S_\mathrm{CH}$ were used to
 normalize the $g_\mathrm f$ following Eq.~\eqref{eq:nBCF}.
 
 The effective correlation times $\tau_\mathrm e$ were then calculated by integrating $g'_\mathrm f(\tau)$,
-see Eqs.~\eqref{eq:teff} and~\eqref{eq:nBCF},
-over time from $\tau=0$ until $\tau = t_0$.
-Here
-$t_0 = \min
+(~\eqref{eq:nBCF}), from $\tau=0$ until $\tau = t_0$.
+Here, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached zero, $t_0 = \min
 	\{
 	t\,|\,g'(t)=0
 	\}
-$,
-that is, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached zero.
+$.
 %
 If $g'_\mathrm f$ did not reach zero within 
 $t_\mathrm{anal}/2$, the 
@@ -499,11 +499,11 @@ Performing linear error propagation on Eq.~\eqref{eq:nBCF} gives
 \Delta S_\mathrm{CH}.
 \end{split}
 \end{align}
-Here the $\Delta S_\mathrm{CH}$ was determined as in the NMR\-lipids Project~\cite{botan15}:
-as the standard error of the mean of the $S_\mathrm{CH}$ of all the $N_\mathrm l$ individual lipids in the system.
+Here the $\Delta S_\mathrm{CH}$ was determined 
+as the standard error of the mean of the $S_\mathrm{CH}$ over the $N_\mathrm l$ individual lipids in the system~\cite{botan15}
 %
 Similarly, we quantified the error on $g_{\mathrm{f}}(\tau)$
-by first determining an individual correlation function $g^m_{\mathrm{f}}(\tau)$ for each lipid $m$
+by first determining the correlation function $g^m_{\mathrm{f}}(\tau)$ for each individual lipid $m$
 over the whole trajectory, and then obtaining the error estimate
 $\Delta g_{\mathrm{f}}(\tau)$
 as the standard error of the mean over the $N_\mathrm l$ lipids.
@@ -542,7 +542,7 @@ that this is not yet sufficient, because there could be slow processes that our 
 able to see. Although these would contribute to $\tau_\mathrm e$ with a low weight,
 their contribution over long times could still add up to a sizable effect on $\tau_\mathrm e$.
 %
-That said, it seems feasible to assume (see Fig. \ref{fig:schem_teff}A) that there are no longer-time contributions
+That said, it is feasible to assume (see Fig. \ref{fig:schem_teff}A) that there are no longer-time contributions
 to $g_\mathrm f$ than something that decays with a time constant of $10^{-6}$~s.
 %
 We use this as our worst case estimate to assess the upper bound for $\tau_\mathrm e$, and
@@ -557,11 +557,17 @@ t_\mathrm u= \min
 $
 onwards comes solely from this slowest process.
 %
+
 The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
-$
-\Delta g'_\mathrm f(t_\mathrm u) \times \left(\exp(-t_\mathrm u / 10^{-6}\,\mathrm s) - \exp(-1)\right) \times 10^{-6}\,\mathrm s.
-$
-\todo{Discuss the possibility of skewed error distributions?}
+\begin{equation}
+\left( g'_f(t_u)+\Delta g'_f(t_u) \right)
+\int_{t_u}^T \exp(-(t-t_u)/T) dt
+=
+\left( g'_f(t_u)+\Delta g'_f(t_u) \right)
+\times
+( 1 - \exp( (t_u-T)/T ) )
+\times T
+\end{equation}
 
 %The effective correlation times $\tau_\mathrm e$ were calculated by integrating, see Eq.~\eqref{eq:teff}, $g'_\mathrm f(\tau)$ over time from $\tau=0$ until $\tau = t_0$.
 
@@ -581,20 +587,20 @@ based on the Fourier transformation\cite{ferreira15}
 j{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{N}\alpha_{i}\frac{\tau_{i}}{1+\omega\tau_{i}} .
 \end{equation}
 %
-The $R_{1}$ rate of a given C--H bond was
-first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per bond were then assumed independent:
+The $R_{1}$ rate of a given C--H pair was
+first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per pair were then assumed independent:
 Their mean gave the $R_1$ rate of the bond, and 
 standard error of the mean its uncertainty.
 %
-The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H bonds.
+The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H pairs.
 %
-When several carbons contribute to the experimental $R_1$ rate of a carbon segment, the carbon-wise $R_1$ rates were averaged to obtain the segment-wise $R_1$ rate.
+When several carbons contribute to a single experimental R1 rate due to the overlapping peaks (for example in C$_2$ carbon in acyl chains and $\gamma$ carbons),
+the R1 from simulations was then obtained as an average over all overlapping carbons.
 %
 The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H bonds.
 
-To gain some qualitative insight on the time scales at which the main contributions to the (headgroup) $R_1$ rates arise,
-we also looked at 'cumulative' $R_1$ rates, $R_1(\tau)$. These
-contained just those contributions in the sum of Eq.~\eqref{eq:j} for which $\tau_i<\tau$.
+To gain some qualitative insight on the time scales at which the main contributions to the $R_1$ rates arise,
+we also calculated 'cumulative' $R_1$ rates, $R_1(\tau)$, which contained contributions of the sum in Eq.~\eqref{eq:j} for which $\tau_i<\tau$.
 Note that here the $g'_\mathrm{f}$ averaged over lipids was used;
 therefore, the 'cumulative' $R_1(\tau\to\infty)$ does not necessarily have exactly
 the same numerical value as the actual $R_1$.
