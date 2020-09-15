@@ -611,7 +611,6 @@ When the simulation trajectory is not long enough for the correlation function t
 However, in practice the fit is often highly unreliable in depicting the long tails of the correlation function, and thus we chose to quantify $\tau_\mathrm{e}$ using the area under $g'_\mathrm f$, and estimate its uncertainty as detailed above.
 
 
-
 \section{Results and Discussion}
 
 In the following, we discuss phospholipid conformational  dynamics in
@@ -642,20 +641,15 @@ To this end, we avoid overly detailed discussion on the models and rather concen
 \subsection*{Effective correlation times $\tau_\mathrm e$ at standard conditions.}
 The left panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in the six different MD force fields (color).
 
-Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails. Quantitatively, MD has a tendency towards
-slightly too fast dynamics in the membrane core,
-but
-at the water-facing interface MD is typically too slow.
+Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails. Quantitatively, MD has a tendency to produce too slow dynamics in the glycerol region.
 CHARMM36 and Slipids show the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong (decreasing) trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
 
-The detected slow glycerol backbone dynamics in MD is consistent with previous results for the Berger model~\cite{ferreira15}. It also agrees with the  insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
+The detected slow glycerol backbone dynamics in MD is consistent with previous results for the Berger model~\cite{ferreira15}. It also in line with the insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
 
 %We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
 
-Note that the temperature varied across these openly available simulation data. However, it was in no case lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
-Were the simulations done at the experimental 298\,K, the overestimation of $\tau_\mathrm{e}$ at the glycerol backbone by MD would get worse as $\tau_\mathrm{e}$  increases at decreasing temperature
----as indicated by the CHARMM36 data covering several temperatures.
-\todo{HA: add new CHARMM36 data to plot}
+Note that the temperature varied across these openly available simulation data. However, it was in no case lower than in the experiment. 
+Were the simulations done at the experimental 298\,K, the overestimation of $\tau_\mathrm{e}$ at the glycerol backbone by MD would get worse as $\tau_\mathrm{e}$  increases at decreasing temperature.
 
 \begin{figure*}[!ht]
 \centering
@@ -700,8 +694,7 @@ For example,
 %LET'S MENTION ONLY THE VERY GOOD ONES
 Slipids performs well at the $\beta$ and $\alpha$ segments;
 CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
-Lipid14 and ECC for the oleoyl double bond; and
-MacRog for the tail end segments.
+Lipid14, ECC, and MacRog for the oleoyl double bond.
 
 Notably, there are also instances where the $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$: Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. Conversely, a matching $R_{1}$ can be accompanied by a larger-than-experimental $\tau_\mathrm{e}$.
 % such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
@@ -709,13 +702,11 @@ Notably, there are also instances where the $R_1$ comparison distinctly differs 
 To appreciate such differences,  recall that in order to capture our experimental $R_1$ rates (measured at 125\,MHz) a force field has to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale, whereas
 $\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
 
-MacRog for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments provides a prominent example where
+MacRog for the $\beta$, $\alpha$, and g$_1$ segments provides a prominent example where
 the $R_1$ rates are well reproduced, but $\tau_\mathrm e$ times systematically overestimated.
 Such a combination suggests that MD does well at the 1\,ns scale, but has too slow long-time dynamics.
 
-The opposite---where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not---is demonstrated by all five all-atom force fields for the $\gamma$ segment,
-%for Slipids around the double bond,
-and by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at the other time scales.
+The opposite---where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not---is demonstrated by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at the other time scales.
 As CHARMM36 overall performs rather well for both $R_1$ and $\tau_\mathrm{e}$,
 we proceed to study this shortcoming on the headgroup $R_1$ rates
 in some more detail.
@@ -730,11 +721,10 @@ in some more detail.
 Figure~\ref{fig:cumulativeR1s}A zooms in on the headgroup ($\gamma$, $\beta$, $\alpha$) segments,
 whose $\tau_\mathrm e$ were not clearly visible on the scale of Fig.~\ref{fig:teff_R1}.
 %
-For all three, CHARMM36 matches the experimental $\tau_\mathrm e$,
-but overestimates $R_1$.
+For $\beta$, $\alpha$, CHARMM36 matches the experimental $\tau_\mathrm e$,
+but overestimates $R_1$, while Slipids captures both measurables near perfectly.  
 %
-No other force field does any better for $\gamma$, but
-for $\beta$ and $\alpha$ Slipids provides almost perfect dynamics.
+No force field provides both $\tau_\mathrm e$ and $R_1$ for $\gamma$.
 
 \begin{figure}[!h]
 \centering
@@ -744,7 +734,7 @@ for $\beta$ and $\alpha$ Slipids provides almost perfect dynamics.
 (B) 'Cumulative' $R_1$ (see Methods for definition) of the
 $\gamma$ (top panel), $\beta$ (middle), and $\alpha$ (bottom) segments.
 (C) Prefactor weighs $\alpha_i$ from Eq.~\eqref{eq:weights} of $\gamma$ (top), $\beta$ (middle), and $\alpha$ (bottom).
-In B and C, a sliding average over 5 neighboring data points is shown.
+In B and C, a sliding average over 3 neighboring data points is shown.
 }
 \label{fig:cumulativeR1s}
 \end{figure}
@@ -779,7 +769,7 @@ In contrast, Slipids, which has simultaneously $R_1$ and $\tau_\mathrm e$ correc
 has its largest weights at $\tau<200$\,ps.
 %
 Indeed, considerable weights
-at short time scales ($<10$\,ps in $\alpha$ for Lipid14, ECC, Berger) and
+at short time scales ($<10$\,ps in $\alpha$ for Lipid14, ECC, Berger, CHARMM36) and
 at long time scales ($>10$\,ns in both $\beta$ and $\alpha$ for MacRog and Berger)
 do not manifest at all in the $R_1$ rates.
 %
@@ -848,23 +838,6 @@ almost independently on even large membrane distractions.
 In line with general picture from order parameters \cite{ollila16}, MD simulations capture the changes
 in acyl chain region rather well, but changes in headgroup and glycerol backbone can be overestimated.
 
-
-\subsection*{Effect of drying.}
-Figure~\ref{fig:hydration}A shows how a mild dehydration affects
-C--H bond dynamics in the PC headgroup and glycerol backbone;
-the plot compares the experimental effective correlation times $\tau_\mathrm e$
-measured for POPC at full hydration and for DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine)
-at 13 waters per lipid.
-
-
-The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
-the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
-(Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
-in the headgroup and glycerol regions. 
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\columnwidth]{../Figs/hydration_2020.pdf} 
 
 \subsection*{Effect of dehydration.}
 The impact of dehydration on the structure and dynamics of lipid bilayers is of considerable interest as  membrane fusion is always preceeded by removal of water between the opposing membranes and therefore may affect the rate of fusion. Lipid bilayers in dehydrated states are also found, e.g., in skin tissue. 
