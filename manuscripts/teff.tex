@@ -844,7 +844,6 @@ almost independently on even large membrane distractions.
 In line with general picture from order parameters \cite{ollila16}, MD simulations capture the changes
 in acyl chain region rather well, but changes in headgroup and glycerol backbone can be overestimated.
 
-
 \subsection*{Effect of dehydration.}
 The impact of dehydration on the structure and dynamics of lipid bilayers is of considerable interest as  membrane fusion is always preceeded by removal of water between the opposing membranes and therefore may affect the rate of fusion. Lipid bilayers in dehydrated states are also found, e.g., in skin tissue. 
 
@@ -877,10 +876,11 @@ Note that three Berger data points (4, 12, 16, and 24~w/l) are from DLPC bilayer
 Symbols give the mean of segment hydrogens,
 if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
 (extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
-the area delimited by the error bars is shaded for visualization.
+the area delimited by the error bars is shaded for visualization. (C) Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
+in experiments and simulations, with experiments indicating an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from \cite{reftoarchive} (filled square), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} (diamond), and DMPC data at 13 w/l from Ref.~\citenum{pham15} (hollow square). 
 See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
-\todo{How to refer to full hydration POPC data?}\\
+\todo{add ref to archive for full hydration POPC data}\\
 \end{figure}
 
 Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
@@ -892,7 +892,7 @@ led to large uncertainty estimates. %for simulation data are large. %which makes
 %
 
 Owing to the uncertainties, we only point out the qualitative trends. For all carbons in the headgroup and glycerol segments, the simulated  $\tau_\mathrm e$ indicates slow down upon dehydration. This is manifested in the increase in the magnitude of the error estimate (cf. the Berger data for $\beta$ and $\alpha$) as well as in the increase of the lower limit of the error. 
-For CHARMM36 the lower error estimates almost constant all the way until 7\,w/l, whereas for Berger and MacRog they indicate a retardation of the dynamics starting already from $\sim$20\,w/l.
+For CHARMM36 the lower error estimates stay almost constant all the way until 7\,w/l, whereas for Berger and MacRog they indicate a retardation of the dynamics starting already from $\sim$20\,w/l.
 
 These simulational findings suggest that
 experiments reducing hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
@@ -923,24 +923,15 @@ DMPC at 13\,w/l~\cite{pham15}, % 125 MHz, 300K
 and POPC at 20 and 5\,w/l~\cite{Volke:1995a} %125.76 MHz, 298K
 are shown.
 %
-An increasing trend with decreasing hydration is observed for all the segments,
+Experimentally, an increasing trend with decreasing hydration is observed for all the segments,
 indicating changes of headgroup dynamics at short ($\sim$1\,ns) time scales.
 Interestingly, only CHARMM36 captures this,
 whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 %
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\columnwidth]{../Figs/dehydrationR1.jpeg} 
-\caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
-in experiments and simulations.}
-\label{fig:dehydrationR1}
-\todo{HA:  merge this with the Fig.~\ref{fig:hydration}}
-\end{figure}
 
 The characteristics of the slow down discussed here are of significance
 not only for computational studies of inter\-membrane interactions, such as membrane fusion,  but also when simulating a bilayer (stack) under low hydration. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
-
 
 \subsection*{Effect of cation binding.}
 \todo{This section will (possibly) be on ECC simulations and how teff chances with (divalent?) ion binding}
