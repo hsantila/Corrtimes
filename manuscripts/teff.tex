@@ -923,29 +923,6 @@ The characteristics of the slow down discussed here are of significance
 not only for computational studies of inter\-membrane interactions, such as membrane fusion,  but also when simulating a bilayer (stack) under low hydration. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
 
-\subsection*{Effect of cation binding.}
-\todo{This section will (possibly) be on ECC simulations and how teff chances with (divalent?) ion binding}
-
-Finally, we comment on the response of the MD model dynamics to increasing amounts of salt.
-%To our knowledge, no experimental $^{13}$C-NMR $R_1$ or $\tau_\mathrm e$ data exists as a function of monovalent salt concentration; therefore, the following discussion is kept qualitative.
-Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding, but change in the presence increasing amounts of divalent ions. %Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt. %however, to our knowledge no experimental measurements have been conducted to quantify this.
-
-The molecular electrometer has been used to show that most molecular dynamics force fields overestimate the binding of monovalent ions to PC bilayers~\cite{catte16}: In the simulations the modulation of the $\alpha$ and $\beta$ carbon order parameters by increasing NaCl concentration was overestimated compared to the experiments, and accompanied by accumulation of ions at the bilayer surface. Here, we use existing data from a force field, the ECC model, that is know to have mostly realistic ion binding. 
-
-
-This indicates that, similarly to the order parameters, $\tau_{\rm{e}}$ may be useful in investigating the ion binding affinity of lipid bilayers and experimental work exploring this avenue would be interesting.   
-
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.36]{./figures/salt.pdf} 
-\caption{A picture of alpha and beta teff vs bound CA ions in the ECC model}
-\label{fig:salt}
-\todo{analysis running}
-\end{figure}
-
-\section{Conclusions}
-
 \section{Conclusions}
 Open access databanks of MD trajectories enables the creation new scientific information without running a single new simulation. Here,
 we demonstrated this by investigating the dynamics of a wide range of phosphatidylcholine molecular dynamics models using the existing trajectories from the NMRlipids databank.
