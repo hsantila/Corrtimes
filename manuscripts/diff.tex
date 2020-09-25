@@ -1,4 +1,7 @@
 \documentclass[journal=jcisd8,manuscript=article,layout=twocolumn]{achemso}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL /Users/bb/Downloads/teff.tex   Fri Sep 25 12:55:23 2020
+%DIF ADD teff.tex                       Fri Sep 25 12:53:19 2020
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage{widetext}
@@ -37,6 +40,85 @@
 \title{Using open data to rapidly bench\-mark bio\-molecular simulations: Phospholipid internal dynamics}
 %\title{Using open data to rapidly bench\-mark simulations of unstructured biomolecules}
 %\title{Using open data to rapidly bench\-mark internal dynamics of unstructured biomolecules in molecular dynamics simulations}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF LISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 
@@ -156,9 +238,11 @@ but for all biomolecular systems.
 
 %we intentionally restrict ourselves to re-use existing, publicly available simulation trajectories. This is to demonstrate the power of open, well documented data in creating new knowledge at a lowered cost. The main source of data was the collection of lipid bilayer simulations originating from the NMRlipids project~\cite{botan15,catte16}
 
-\clearpage
-\section{Methods}
-\subsection*{Evaluation of lipid conformational dynamics against NMR data.}\label{sec:theory}
+\DIFaddbegin \clearpage
+\DIFaddend \section{Methods}
+\DIFdelbegin \subsection{\DIFdel{Evaluation of conformational dynamics of lipids against NMR data}}%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection*{\DIFadd{Evaluation of lipid conformational dynamics against NMR data.}}\DIFaddend \label{sec:theory}
 In a lipid bilayer in liquid crystalline phase, each individual lipid molecule samples an internal conformational
 ensemble and rotates around
 %the symmetry axis of the bilayer which coincides with
@@ -169,9 +253,11 @@ the second order autocorrelation functions of C--H bonds %at time $\tau$
 \label{eq:BCF}
 g(\tau)=\langle P_{2}\left(\vec{\mu}(t)\cdot \vec{\mu}(t+\tau)\right)\rangle ,
 \end{equation}
-where angular brackets depict averaging over time,
-$\vec{\mu}(t)$ is the unit vector in the direction of the C--H bond at time $t$, and $P_{2}$ is the second order Legendre polynomial $P_2(x)=\frac{1}{2}(3x^2-1)$.
-For lipids in a bilayer, the internal dynamics and rotation around membrane normal
+where \DIFaddbegin \DIFadd{angular brackets depict averaging over time,
+}\DIFaddend $\vec{\mu}(t)$ is the unit vector in the direction of the C--H bond at time $t$\DIFaddbegin \DIFadd{, }\DIFaddend and $P_{2}$ is the second order Legendre polynomial \DIFdelbegin \DIFdel{.
+The angular brackets depict averaging over time.
+}\DIFdelend \DIFaddbegin \DIFadd{$P_2(x)=\frac{1}{2}(3x^2-1)$.
+}\DIFaddend For lipids in a bilayer, the internal dynamics and rotation around membrane normal
 have timescales below $\mu$s, leading to the decay of the correlation function to a non-zero plateau value (Fig.~\ref{fig:schem_teff}).
 This plateau is the square of the C-H bond order parameter, $S^{2}_{\rm{CH}}$, 
 \begin{equation}
@@ -179,27 +265,45 @@ This plateau is the square of the C-H bond order parameter, $S^{2}_{\rm{CH}}$,
 S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta(t)-1\rangle ,
 \end{equation}
 where $\theta(t)$ is the angle between the bond and the bilayer normal.
-$S_\mathrm{CH}$ can be independently measured using dipolar coupling in $^{13}$C NMR or quadrupolar coupling in $^{2}$H NMR experiments,
-and is highly useful in order to evaluate conformational ensembles of lipids \cite{Ollila:2016a}.
+\DIFdelbegin \DIFdel{This order parameter can be }\DIFdelend \DIFaddbegin \DIFadd{$S_\mathrm{CH}$ can be independently }\DIFaddend measured using dipolar coupling in $^{13}$C NMR or quadrupolar coupling in $^{2}$H NMR \DIFaddbegin \DIFadd{experiments}\DIFaddend ,
+and is highly useful in order to evaluate conformational ensembles of lipids \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{ollila16}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Ollila:2016a}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 %, are measured in NMR experiments from this plateau.
+%DIF < As $S_{\rm{CH}}$ describes the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations. 
 
 In order to analyze the internal dynamics of lipids, 
-the C-H bond autocorrelation function is often written as a product %of two functions
-\begin{equation}
+the C-H bond autocorrelation function is often \DIFdelbegin \DIFdel{expressed as %DIF < the product of two functions
+}\DIFdelend \DIFaddbegin \DIFadd{written as a product %DIF > of two functions
+}\DIFaddend \begin{equation}
 g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 \end{equation}
-where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion between lamellae with different orientations, and also periodic motions due to the use of magic angle spinning conditions (Fig.~\ref{fig:schem_teff}).
-Ferreira et al.~\cite{ferreira15} have shown that for all phospholipid carbons the spin-lattice relaxation rate in the rotating frame, $R_{1\rho}$, becomes constant above a spin lock frequency of 50 kHz indicating that the motion correlation times contributing to $g_{\mathrm{f}}$ and $g_{\mathrm{s}}$ are well below $\mu$s and well above 100 $\mu$s, respectively.
+where $g_{\mathrm{f}}(\tau)$ \DIFdelbegin \DIFdel{represents the fast dynamics below $\sim \mu$s timescales, %DIF < from lipid conformational dynamics,
+%DIF < characterizes fast decays owing to, for example, the molecular  rotations,
+}\DIFdelend \DIFaddbegin \DIFadd{characterizes fast decays owing to, for example, the molecular  rotations, }\DIFaddend and $g_{\mathrm{s}}(\tau)$ describes slow \DIFdelbegin \DIFdel{decay }\DIFdelend \DIFaddbegin \DIFadd{decays that originate }\DIFaddend from, e.g., lipid diffusion between lamellae with different orientations\DIFdelbegin \DIFdel{and
+}\DIFdelend \DIFaddbegin \DIFadd{, and also periodic motions due to the use of }\DIFaddend magic angle spinning \DIFdelbegin \DIFdel{in solid state NMR experiments }\DIFdelend \DIFaddbegin \DIFadd{conditions }\DIFaddend (Fig.~\ref{fig:schem_teff}).
+%DIF < The two components, along with the oscillation due to magic angle spinning at the $\sim$kHz region, are depicted in Fig.~\ref{fig:schem_teff}.
+\DIFdelbegin \DIFdel{In multilamellar POPC samples at 300 K in liquid crystalline state, the correlation time of 4.2 ms was estimated for $g_{\mathrm{s}}(\tau)$, whereas $g_{\mathrm{f}}(\tau)$ decays to a plateau value  within a few hundred nanoseconds~\mbox{%DIFAUXCMD
+\cite{ferreira15}}\hspace{0pt}%DIFAUXCMD
+.
+%DIF < The C--H bond order parameters
+%DIF < The characteristic time can be quantified via the effective correlation time
+}\DIFdelend \DIFaddbegin \DIFadd{Ferreira et al.~\mbox{%DIFAUXCMD
+\cite{ferreira15} }\hspace{0pt}%DIFAUXCMD
+have shown that for all phospholipid carbons the spin-lattice relaxation rate in the rotating frame, $R_{1\rho}$, becomes constant above a spin lock frequency of 50 kHz indicating that the motion correlation times contributing to $g_{\mathrm{f}}$ and $g_{\mathrm{s}}$ are well below $\mu$s and well above 100 $\mu$s, respectively.
 This separation of time-scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ observed in Fig.~\ref{fig:schem_teff}.
+}
 
-Now, as $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations.
-The internal dynamics containing multiple timescales can be quantified using the effective correlation time
+\DIFadd{Now, as $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations.
+}\DIFaddend The internal dynamics containing multiple timescales can be quantified using the effective correlation time
 \begin{equation}
 \label{eq:teff}
 \tau_\mathrm{e}=\int_{0}^{\infty}\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}\mathrm d\tau,
 \end{equation}
 which is related to the integrated area below the correlation function in Fig.~\ref{fig:schem_teff} B.
-The integrand in Eq.~\eqref{eq:teff} defines the reduced and normalized correlation function
+The integrand \DIFdelbegin \DIFdel{is Eq.\ref{eq:teff} }\DIFdelend \DIFaddbegin \DIFadd{in Eq.~}\eqref{eq:teff} \DIFaddend defines the reduced and normalized correlation function
 \begin{equation}
 \label{eq:nBCF}
 g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}.
@@ -207,11 +311,13 @@ g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm
 %That is, $\tau_\mathrm e$ is defined as the area under $g'_{\mathrm{f}}(\tau)$, as
 %graphically depicted in Fig.~\ref{fig:schem_teff}b.
 \todo{Maybe also add 1C that explicitly shows $g'_{\mathrm{f}}$?}
-It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.\todo{Redundant sentence?}
+%DIF < It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.  
+\DIFaddbegin \DIFadd{It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.}\todo{Redundant sentence?}
+\DIFaddend 
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{./figures/gfun_draft.pdf} 
-\caption{Illustration of the autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
+\caption{\DIFdelbeginFL \DIFdelFL{The }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Illustration of the }\DIFaddendFL autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau \DIFdelbeginFL \DIFdelFL{quantifying the $S_{\mathrm{CH}}$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{on which $g(\tau)=S^2_{\mathrm{CH}}$ }\DIFaddendFL while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve \DIFdelbeginFL \DIFdelFL{gives a way of quantifying the $\tau_\mathrm{e}$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$}\DIFaddendFL . }
 \label{fig:schem_teff}
 
 \end{figure} 
@@ -219,25 +325,40 @@ It is easily seen that in the presence of more long-lived correlations $\tau_\ma
 
 The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
 the $^2$H or $^{13}$C spin relaxation times or effective correlation times calculated from simulation
-trajectory with the experimental data \cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}.
+trajectory with the experimental data \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,ollila16}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 However, lipids exhibit complex internal dynamics with multiple timescales that cannot be fully captured
 with a single parameter. Therefore, several experimental parameters, detected for example with different
 magnetic fields or temperatures, are required to evaluate dynamics in simulations or to interpret dynamics
-from experiments \cite{Roberts:2009a,leftin11}.
+from experiments \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{??}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Roberts:2009a,leftin11}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 
-Here, we analyze lipid dynamics based on two quantities that are readily available
-from published~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} $^{13}$C-NMR experiments and
+Here, we \DIFdelbegin \DIFdel{use use two parameters:
+the effective correlation times, }\DIFdelend \DIFaddbegin \DIFadd{analyze lipid dynamics based on two quantities that are readily available
+from published~\mbox{%DIFAUXCMD
+\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} }\hspace{0pt}%DIFAUXCMD
+$^{13}$C-NMR experiments and
 directly quantifiable from atomistic MD simulations:
-The effective C--H bond correlation times $\tau_\mathrm{e}$, and
-the spin-lattice relaxation rates $R_1$.
+The effective C--H bond correlation times }\DIFaddend $\tau_\mathrm{e}$, and
+\DIFdelbegin \DIFdel{$R_1$ spin relaxation rates from $^{13}$C-NMR experiments~\mbox{%DIFAUXCMD
+\cite{ferreira15,pham15,Volke:1995a}}\hspace{0pt}%DIFAUXCMD
+.
+}\DIFdelend \DIFaddbegin \DIFadd{the spin-lattice relaxation rates $R_1$.
+}
 
-%We analyze lipid dynamics based on two quantities available from published $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
+\DIFaddend %We analyze lipid dynamics based on two quantities available from published $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
 %The effective C--H bond correlation time $\tau_\mathrm{e}$ and
 %the spin-lattice relaxation rate $R_{1}$,
 %both %experimentally available through NMR measurements, and
 %directly quantifiable from atomistic MD simulations.
-As discussed above (Eq.~\eqref{eq:teff}), the $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid internal dynamics, and
-have an intuitive relation to dynamics: Larger values always indicate a slowdown.  
+\DIFdelbegin \DIFdel{The effective correlation times }\DIFdelend \DIFaddbegin \DIFadd{As discussed above (Eq.~}\eqref{eq:teff}\DIFadd{), the $\tau_\mathrm{e}$ }\DIFaddend detect essentially an average over \DIFaddbegin \DIFadd{all }\DIFaddend the time scales relevant for the lipid internal dynamics, and
+have \DIFaddbegin \DIFadd{an }\DIFaddend intuitive relation to dynamics\DIFdelbegin \DIFdel{as larger }\DIFdelend \DIFaddbegin \DIFadd{: Larger }\DIFaddend values always indicate \DIFdelbegin \DIFdel{slower dynamics}\DIFdelend \DIFaddbegin \DIFadd{a slowdown}\DIFaddend .  
 %Most importantly, i
 %Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics \cite{ferreira15}.
 %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
@@ -245,33 +366,48 @@ have an intuitive relation to dynamics: Larger values always indicate a slowdown
 %
 %The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experiments~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by MD models in simulations~\cite{feller02,wohlert06,klauda08,klauda08II}.
 %In contrast to $\tau_\mathrm e$,
+\DIFdelbegin \DIFdel{On the other hand, }\DIFdelend \DIFaddbegin 
 
-In contrast, it is impossible to directly connect an increase/decrease of $R_1$ to speedup/slowdown of specific motions.
-This is because $R_1$ values are only sensitive to processes whose timescales fall within a certain window:
+\DIFadd{In contrast, it is impossible to directly connect an increase/decrease of }\DIFaddend $R_1$ \DIFdelbegin \DIFdel{values are most }\DIFdelend \DIFaddbegin \DIFadd{to speedup/slowdown of specific motions.
+This is because $R_1$ values are only }\DIFaddend sensitive to processes \DIFdelbegin \DIFdel{with the timescales around $\sim$1--10~ns with typical
+%DIF < in a rather narrow time scale window set by the
+magnetic field strengths.
+%DIF <  frequency,
+}\DIFdelend \DIFaddbegin \DIFadd{whose timescales fall within a certain window:
 Smaller $R_1$ only tells that there are less processes occurring in this window.
-%The spin-lattice relaxation rate $R_1$ defines the time-scale on which $^{13}$C longitudal magnetization equilibrates.
-More specifically,
-$R_1$ is related to molecular dynamics through
-\begin{align}
+}\DIFaddend %The spin-lattice relaxation rate $R_1$ defines the time-scale on which $^{13}$C longitudal magnetization equilibrates.
+\DIFaddbegin \DIFadd{More specifically,
+}\DIFaddend $R_1$ is related to molecular dynamics through
+\DIFdelbegin \DIFdel{equation
+}\DIFdelend \begin{align}
 \label{eq:R1}
 \begin{split}
 R_{1}=&\frac{d^2_{\mathrm{CH}}N_{\mathrm{H}}}{20}\left[j(\omega_{\mathrm{H}}-\omega_{\mathrm{C}})\right. \\
 &\left.+3j(\omega_{\mathrm{C}})+6j(\omega_{\mathrm{H}}+\omega_{\mathrm{C}})\right] ,
 \end{split}
 \end{align}
-where $N_{\mathrm{H}}$ is the number of bound hydrogens, $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$ the $^1$H and $^{13}$C NMR Larmor frequencies, and $d_{\mathrm{CH}}$ the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
-%\todo{Why there is a minus sign above? TMF: because the horns of the Pake pattern come from the 90 degree orientation of the rigid C-H bond and P2(cos(90)) is negative. this is the convention in NMR simulation programs. not an important detail and skipping the negative sign is also fine.}
+where $N_{\mathrm{H}}$ is the number of bound hydrogens, $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$ \DIFdelbegin \DIFdel{are the Larmor frequencies
+for $^{1}$}\DIFdelend \DIFaddbegin \DIFadd{the $^1$}\DIFaddend H and $^{13}$C \DIFaddbegin \DIFadd{NMR Larmor frequencies}\DIFaddend , and $d_{\mathrm{CH}}$ \DIFdelbegin \DIFdel{is }\DIFdelend the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
+\DIFdelbegin %DIFDELCMD < \todo{why there is a minus sign above?}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \todo{Why there is a minus sign above? TMF: because the horns of the Pake pattern come from the 90 degree orientation of the rigid C-H bond and P2(cos(90)) is negative. this is the convention in NMR simulation programs. not an important detail and skipping the negative sign is also fine.}
 %$^{13}$C NMR experiments investigating lipid conformational dynamics take advantage of the fact that the relaxation of $^{13}$C magnetization dominantly happens via the dipolar coupling of the carbon with the magnetic moments of the protons bound to it, with the symmetry axis of the interaction aligning with the C--H bond.
-The spectral density $j(\omega)$ is the Fourier transformation
-%depicting the $^{13}$C relaxation rates (at frequency $\omega$) is expressed as
-\begin{equation}
-j{(\omega)}=2\int_{0}^{\infty}\cos(\omega\tau)g(\tau)\mathrm d\tau
-\end{equation}
-of the rotational correlation function $g(\tau)$ defined in Eq.~\eqref{eq:BCF}.
-%which is 
-Clearly, the connection between $R_1$ and molecular dynamics is not straightforward;
-%are not intuitively related to changes in process speeds: A
-however, the magnitude of $R_1$ does reflect the relative significance of processes
+The spectral density \DIFaddbegin \DIFadd{$j(\omega)$ }\DIFaddend is the Fourier transformation
+%DIF > depicting the $^{13}$C relaxation rates (at frequency $\omega$) is expressed as
+\DIFaddbegin \begin{equation}
+\DIFadd{j}{\DIFadd{(\omega)}}\DIFadd{=2\int_{0}^{\infty}\cos(\omega\tau)g(\tau)\mathrm d\tau
+}\end{equation}
+\DIFaddend of the rotational correlation function %DIF < depicting the $^{13}$C relaxation rates (at frequency $\omega$) is expressed as
+\DIFdelbegin \begin{displaymath}
+\DIFdel{j}{\DIFdel{(\omega)}}\DIFdel{=2\int_{0}^{\infty}\cos(\omega\tau)g(\tau)\mathrm d\tau.
+}\end{displaymath}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{$g(\tau)$ defined in Eq.~}\eqref{eq:BCF}\DIFadd{.
+}\DIFaddend %which is 
+\DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{Clearly, the }\DIFaddend connection between $R_1$ and molecular dynamics is not straightforward\DIFdelbegin \DIFdel{,
+but
+}\DIFdelend \DIFaddbegin \DIFadd{;
+}\DIFaddend %are not intuitively related to changes in process speeds: A
+\DIFaddbegin \DIFadd{however, the }\DIFaddend magnitude of $R_1$ \DIFdelbegin \DIFdel{reflects }\DIFdelend \DIFaddbegin \DIFadd{does reflect }\DIFaddend the relative significance of \DIFdelbegin \DIFdel{the }\DIFdelend processes
 %in the sensitive time window decreases,
 %but not if the corresponding processes become faster or slower.
 %However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
@@ -279,11 +415,19 @@ however, the magnitude of $R_1$ does reflect the relative significance of proces
 %The dependency of $R_{1}$ on the spectral densities $j$ at the Larmor frequencies means that the $R_{1}$ value depicts
 %the
 %relative amounts of relaxation processes
-with timescales near the inverse of $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$.
+with \DIFdelbegin \DIFdel{time-scales }\DIFdelend \DIFaddbegin \DIFadd{timescales }\DIFaddend near the inverse of \DIFdelbegin \DIFdel{proton and $^{13}$C Larmor frequencies (typically
+}\DIFdelend \DIFaddbegin \DIFadd{$\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$.
 These depend on the field strength used in the NMR experiments; typically
-$R_1$ is most sensitive to motions with time scales $\sim$1--10~ns.
+$R_1$ is most sensitive to motions with time scales }\DIFaddend $\sim$1--10~ns\DIFdelbegin \DIFdel{).
+%DIF < Since the Larmor frequencies depend on the field strength used in the NMR measurements, this
+%DIF < typically makes $R_{1}$
+%DIF < sensitive to
+%DIF < Importantly, a change in $R_{1}$ thus indicates a difference in the relative
+%DIF < amounts of processes within the detection window, and therefore does not give information on the modulation of the total sampling rate.  
+}\DIFdelend \DIFaddbegin \DIFadd{.
 A change in $R_{1}$, therefore, indicates a change in the relative amounts of processes
 occurring around a given timescale, but does not give information on the direction (speedup/slowdown) of these changes.
+}\DIFaddend 
 
 
 
@@ -297,12 +441,18 @@ d_{\mathrm{CH}}=\frac{\hslash\gamma_{\mathrm{H}}\gamma_{\mathrm{C}}\mu_{0}}{4\pi
 where $\hslash$ is the reduced Planck constant, $\gamma_{\mathrm{C}}$ and $\gamma_{\mathrm{H}}$ are the gyromagnetic constants for $^{1}H$ and $^{13}C$, $\mu_{0}$ is the vacuum permeability, and $\langle r^{3}_{\mathrm{CH}}\rangle$ denotes the average cubic length of the C-H bond.
 \end{comment}
 
-\subsection*{Experimental data acquisition and analysis.}
-%
+\DIFdelbegin \DIFdel{subsection}%DIFDELCMD < {%%%
+\DIFdel{Experimental data acquisition and analysis}%DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection*{\DIFadd{Experimental data acquisition and analysis.}}
+\DIFaddend %
 All the experimental quantities were collected from the literature sources referred at the respective figures.   
 
-\subsection*{Simulational data acquisition and analysis.}
-%
+\DIFdelbegin \subsection{\DIFdel{Simulational data acquisition and analysis}}
+%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection*{\DIFadd{Simulational data acquisition and analysis.}}
+\DIFaddend %
 The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen based on how well the simulation conditions matched the available experimental data (temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (lenght of simulation, system size).
 
 
@@ -416,7 +566,7 @@ Berger-DLPC-13~\cite{kanduc13}
 	& DLPC\footref{fn:DLPC}  & 16  & 72  & 1152  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc16}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 12  & 72  & 864  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc12}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 4  & 72  & 288  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc4}{]} \tabularnewline[1.0ex]
-	
+
 CHARMM36\cite{klauda10} 
 	& POPC  & 40  & 128  & 5120  & 303  & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
 	& POPC  & 34	&  128  & 5120 & 300 & 500  & {[}\!\!\citenum{macrogfilesT300}{]}\tabularnewline[1.0ex]	
@@ -884,9 +1034,17 @@ all three all-atom force fields, whereas Berger fails to capture the change at t
 
 In summary, the experiments suggest that acyl chain ordering upon cholesterol addition is accompanied
 with slower internal dynamics in hydrophobic core and glycerol backbone region, while headgroup dynamics is almost
-intact even with 50\% of cholesterol, supporting the idea~\cite{Antila:2020a} that acyl chains and headgroup can respond
+intact even with 50\% of cholesterol, supporting the idea~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{citetoarcihved} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Antila:2020a} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend that acyl chains and headgroup can respond
 almost independently on even large membrane distractions.
-In line with general picture from order parameters \cite{Ollila:2016a}, MD simulations capture the changes
+In line with general picture from order parameters \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{ollila16}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Ollila:2016a}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend , MD simulations capture the changes
 in acyl chain region rather well, but changes in headgroup and glycerol backbone can be overestimated.
 
 \subsection*{Effect of dehydration.}
@@ -922,10 +1080,16 @@ Symbols give the mean of segment hydrogens,
 if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
 (extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
 the area delimited by the error bars is shaded for visualization. (C) Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
-in experiments and simulations, with experiments indicating an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from Ref.~\citenum{Antila:2020a} (filled square), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} (diamond), and DMPC data at 13 w/l from Ref.~\citenum{pham15} (hollow square). 
+in experiments and simulations, with experiments indicating an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from \DIFdelbeginFL \DIFdelFL{\mbox{%DIFAUXCMD
+\cite{reftoarchive} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Ref.~\mbox{%DIFAUXCMD
+\citenum{Antila:2020a} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddendFL (filled square), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} (diamond), and DMPC data at 13 w/l from Ref.~\citenum{pham15} (hollow square). 
 See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
-\end{figure}
+\DIFdelbeginFL %DIFDELCMD < \todo{add ref to archive for full hydration POPC data}\\
+%DIFDELCMD < %%%
+\DIFdelendFL \end{figure}
 
 Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
 Combination of
@@ -1010,7 +1174,8 @@ If the data are well indexed and documented, this process could be automated and
 \acknowledgement
   This material is based upon work supported by XXX under Grant No. XXX. The project is/isn't part of the NMRlipids open collaboration (nmrlipids.blogspot.fi)
 
-\bibliography{lipids,ff,simu,pdb,journals,technical} %,bbRefs}
+\DIFdelbegin %DIFDELCMD < \bibliography{lipids,ff,simu,pdb,journals} %%%
+\DIFdelend \DIFaddbegin \bibliography{lipids,ff,simu,pdb,journals,technical} \DIFaddend %,bbRefs}
 
 \begin{tocentry}
  % \includegraphics[width=77mm]{abstract_figure}
