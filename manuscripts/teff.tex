@@ -55,7 +55,7 @@ use a large set of open data trajectories made public by the NMRlipids project (
 perform an unprecedented test on
 the conformational dynamics of phospholipids as
 produced by several commonly used MD models (force fields).
-We consider carefully the error estimation of MD-determined $\tau_\mathrm e$, and find
+We find that
 none of the tested force fields to reproduce all the effective correlation times within experimental error, much like they do
 not provide accurate conformational ensembles (J. Phys. Chem. B 119 15075 (2015)). However, the dynamics observed in CHARMM36 and Slipids were more realistic than those seen in the Amber Lipid14, OPLS-based MacRog, and
  GROMOS-based Berger force fields, where dynamics of the glycerol backbone was unrealistically slow. \todo{Tiago: We need a punchline highlighting that the results and findings obtained are extremely important for the lipid MD simulation community and that they were only possible due to the open data}
@@ -160,11 +160,11 @@ but for all biomolecular systems.
 \section{Methods}
 \subsection*{Evaluation of lipid conformational dynamics in MD against NMR data.}\label{sec:theory}
 The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
-the $^2$H or $^{13}$C spin relaxation times or effective correlation times calculated from simulation
+the $^2$H or $^{13}$C spin relaxation times, or effective correlation times calculated from simulation
 trajectory with the experimental data \cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}.
 As lipids exhibit complex internal dynamics with multiple timescales that cannot be fully captured
-with a single parameter, several experimental parameters, detected for example with different
-magnetic fields or temperatures, are required to evaluate dynamics in simulations or to interpret dynamics
+with a single parameter, several experimental quantities, detected for example with different
+magnetic fields or temperatures, are required to fully evaluate dynamics in simulations or to interpret dynamics
 from experiments \cite{Roberts:2009a,leftin11}.
 %
 Here, we analyze lipid dynamics based on two quantities that are readily available
@@ -176,9 +176,9 @@ the spin-lattice relaxation rates $R_1$.
 
 \subsubsection*{Effective C--H bond correlation times $\tau_\mathrm{e}$.}
 In a lipid bilayer in liquid crystalline phase, each individual lipid molecule samples an internal conformational
-ensemble and rotates around
+ensemble and rotates around the axis normal to
 %the symmetry axis of the bilayer which coincides with
-the membrane normal direction.
+the membrane.
 The conformational dynamics of a lipid molecule can be characterized using
 the second order autocorrelation functions of C--H bonds %at time $\tau$
 \begin{equation}
@@ -210,7 +210,7 @@ Ferreira et al.~\cite{ferreira15} have experimentally demonstrated that for all 
 the motion correlation times contributing to $g_{\mathrm{f}}$ and $g_{\mathrm{s}}$ are well below $\mu$s and well above 100 $\mu$s, respectively.
 This separation of time-scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ illustrated in Fig.~\ref{fig:schem_teff}.
 
-Now, as $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively reflects the time needed to sample these conformations.
+Since $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively reflects the time needed to sample these conformations.
 The internal dynamics containing multiple timescales can be quantified using the effective correlation time
 \begin{equation}
 \label{eq:teff}
@@ -224,20 +224,19 @@ g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm
 \end{equation}
 %That is, $\tau_\mathrm e$ is defined as the area under $g'_{\mathrm{f}}(\tau)$, as
 %graphically depicted in Fig.~\ref{fig:schem_teff}b.
-It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.\todo{Redundant sentence?}
+It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{./figures/gfun_draft.pdf} 
 \caption{Illustration of the autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
-\todo{Maybe also add 1C that explicitly shows $g'_{\mathrm{f}}$?}
 \end{figure} 
 
 
 
 \subsubsection*{Spin-lattice relaxation rates $R_1$.}
-As discussed above (Eq.~\eqref{eq:teff}), the $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid internal dynamics, and
-have an intuitive relation to dynamics: Larger values always indicate a slowdown.  
+While the $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid internal dynamics, and
+have an intuitive relation to dynamics, 
 %Most importantly, i
 %Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics \cite{ferreira15}.
 %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
@@ -245,10 +244,8 @@ have an intuitive relation to dynamics: Larger values always indicate a slowdown
 %
 %The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experiments~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by MD models in simulations~\cite{feller02,wohlert06,klauda08,klauda08II}.
 %In contrast to $\tau_\mathrm e$,
-
-In contrast, it is impossible to directly connect an increase/decrease of $R_1$ to speedup/slowdown of specific motions.
-This is because $R_1$ values are only sensitive to processes whose timescales fall within a certain window:
-Smaller $R_1$ only tells that there are less processes occurring in this window.
+it is impossible to directly connect an increase/decrease of $R_1$ rates to speedup/slowdown of specific motions.
+This is because $R_1$ values are only sensitive to processes whose timescales fall within a certain window.
 %The spin-lattice relaxation rate $R_1$ defines the time-scale on which $^{13}$C longitudal magnetization equilibrates.
 More specifically,
 $R_1$ is related to molecular dynamics through
@@ -269,9 +266,9 @@ j{(\omega)}=2\int_{0}^{\infty}\cos(\omega\tau)g(\tau)\mathrm d\tau
 \end{equation}
 of the rotational correlation function $g(\tau)$ defined in Eq.~\eqref{eq:BCF}.
 %which is 
-Clearly, the connection between $R_1$ and molecular dynamics is not straightforward;
+The connection between $R_1$ and molecular dynamics is not straightforward;
 %are not intuitively related to changes in process speeds: A
-however, the magnitude of $R_1$ does reflect the relative significance of processes
+The magnitude of $R_1$ does, however, reflect the relative significance of processes
 %in the sensitive time window decreases,
 %but not if the corresponding processes become faster or slower.
 %However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
@@ -279,8 +276,7 @@ however, the magnitude of $R_1$ does reflect the relative significance of proces
 %The dependency of $R_{1}$ on the spectral densities $j$ at the Larmor frequencies means that the $R_{1}$ value depicts
 %the
 %relative amounts of relaxation processes
-with timescales near the inverse of $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$.
-These depend on the field strength used in the NMR experiments; typically
+with timescales near the inverse of $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$ which depend on the field strength used in the NMR experiments; typically
 $R_1$ is most sensitive to motions with time scales $\sim$1--10~ns.
 A change in $R_{1}$, therefore, indicates a change in the relative amounts of processes
 occurring around a given timescale, but does not give information on the direction (speedup/slowdown) of these changes.
@@ -307,9 +303,8 @@ The simulation trajectories used in this work were collected from the Zenodo rep
 
 
 Table~\ref{tab:standr} details, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration, whereas
-Table~\ref{tab:chol} lists simulations including cholesterol;
-Table~\ref{tab:hydr} simulations with varying hydration; and
-Table~\ref{tab:salt} at increasing NaCl concentration.
+Table~\ref{tab:chol} lists simulations including cholesterol, and
+Table~\ref{tab:hydr} simulations with varying hydration.
 Additional computational details for each of the simulations are available at the cited Zenodo entry. 
 
 \begin{table}[t!]
@@ -492,22 +487,20 @@ Slipids \cite{jambeck12b}%/---
 %\end{multicols}
 \end{comment}
 
-The simulation data were analyzed using in-house scripts. These are available on GitHub (\url{https://github.com/hsantila/Corrtimes/tree/master/teff_analysis}) along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with different atom naming conventions, we employ mapping files and the related definition format developed within the NMRlipids Project to recognize the atoms and bonds of interest when analyzing the trajectory.
+The simulation data were analyzed using in-house scripts. These are available on GitHub (\url{https://github.com/hsantila/Corrtimes/tree/master/teff_analysis}) along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with different atom naming conventions, we employ mapping files and the related definition format developed within the NMRlipids project to recognize the atoms and bonds of interest when analyzing the trajectory.
 
 After downloading the necessary files from Zenodo, the trajectory was processed with Gromacs \texttt{gmx trjconv} to make the molecules whole.
 The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{calcOrderParameters.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
 The \mbox{C--H} bond correlation functions
-$g(\tau)$, see Eq.~\eqref{eq:BCF},
-were calculated with Gromacs5.1.4\cite{abraham2015gromacs} \texttt{gmx rotacf};
-note that on simulational (fast) time scales $g = g_\mathrm{s} g_\mathrm{f}= g_\mathrm{f}$.
-%
-To obtain the $g'_\mathrm f$,
+$g(\tau)$ (see Eq.~\eqref{eq:BCF})
+were calculated with Gromacs5.1.4\cite{abraham2015gromacs} \texttt{gmx rotacf} (
+note that on simulational (fast) time scales $g = g_\mathrm{s} g_\mathrm{f}= g_\mathrm{f}$) after which
 the $S_\mathrm{CH}$ were used to
-normalize the $g_\mathrm f$ following Eq.~\eqref{eq:nBCF}.
+normalize the $g_\mathrm f$ to obtain the $g'_\mathrm f$, following Eq.~\eqref{eq:nBCF}.
 
 The effective correlation times $\tau_\mathrm e$ were then calculated by integrating $g'_\mathrm f(\tau)$,
-(~\eqref{eq:nBCF}), from $\tau=0$ until $\tau = t_0$.
+(Eq.~\eqref{eq:nBCF}), from $\tau=0$ until $\tau = t_0$.
 Here, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached zero, $t_0 = \min
 	\{
 	t\,|\,g'(t)=0
@@ -517,7 +510,7 @@ $.
 If $g'_\mathrm f$ did not reach zero within 
 $t_\mathrm{anal}/2$, the 
 $\tau_\mathrm e$ was not determined,
-and we report only its upper and lower error estimates.
+and we report only its upper and lower estimates.
 
 To quantify the error on $\tau_\mathrm e$, we first estimate the error on $g'_\mathrm f(\tau)$,%
 %At a given timepoint $\tau$,
@@ -545,7 +538,7 @@ Performing linear error propagation on Eq.~\eqref{eq:nBCF} gives
 \end{split}
 \end{align}
 Here the $\Delta S_\mathrm{CH}$ was determined 
-as the standard error of the mean of the $S_\mathrm{CH}$ over the $N_\mathrm l$ individual lipids in the system~\cite{botan15}
+as the standard error of the mean of the $S_\mathrm{CH}$ over the $N_\mathrm l$ individual lipids in the system~\cite{botan15}.
 %
 Similarly, we quantified the error on $g_{\mathrm{f}}(\tau)$
 by first determining the correlation function $g^m_{\mathrm{f}}(\tau)$ for each individual lipid $m$
@@ -553,7 +546,7 @@ over the whole trajectory, and then obtaining the error estimate
 $\Delta g_{\mathrm{f}}(\tau)$
 as the standard error of the mean over the $N_\mathrm l$ lipids.
 %
-Importantly, this gives an uncertainty estimate at each time point $\tau$.
+Importantly, this gives an uncertainty estimate for $g_{\mathrm{f}}(\tau)$ at each time point $\tau$.
 
 To obtain the lower bound on $\tau_\mathrm e$, we integrate the function
 $g'_{\mathrm{f}}(\tau) - \Delta g'_{\mathrm{f}}(\tau)$ over time from $\tau=0$ until $\tau=t_\mathrm l$.
@@ -619,7 +612,7 @@ The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
 The $R_{1}$ rates were calculated using Eq.~\eqref{eq:R1}.
 %
 The spectral density $j(\omega)$ was obtained from the normalized correlation function $g'_\mathrm f$
-by fitting it with a sum of $N=71$ exponentials
+by fitting it with a sum of $N=61$ exponentials
 \begin{equation}
 \label{eq:weights}
 g'_\mathrm{f}(\tau)\approx\sum_{i=1}^{N}\alpha_{i}e^{-\tau/\tau_{i}},
@@ -634,17 +627,17 @@ j{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{N}\alpha_{i}\frac{\tau_{i}}{1+\omega\t
 %
 The $R_{1}$ rate of a given C--H pair was
 first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per pair were then assumed independent:
-Their mean gave the $R_1$ rate of the bond, and 
+Their mean gave the $R_1$ rate of the C--H pair, and 
 standard error of the mean its uncertainty.
 %
 The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H pairs.
 %
-When several carbons contribute to a single experimental R1 rate due to the overlapping peaks (for example in C$_2$ carbon in acyl chains and $\gamma$ carbons),
-the R1 from simulations was then obtained as an average over all overlapping carbons.
+When several carbons contribute to a single experimental $R_1$ rate due to the overlapping peaks (for example in C$_2$ carbon in acyl chains and $\gamma$ carbons),
+the $R_1$ from simulations was then obtained as an average over all overlapping carbons.
 %
-The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H bonds.
+The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H pairs.
 
-To gain some qualitative insight on the time scales at which the main contributions to the $R_1$ rates arise,
+To gain some qualitative insight on the time scales at which the main contributions to the $R_{1}$ rates arise,
 we also calculated 'cumulative' $R_1$ rates, $R_1(\tau)$, which contained contributions of the sum in Eq.~\eqref{eq:j} for which $\tau_i<\tau$.
 Note that here the $g'_\mathrm{f}$ averaged over lipids was used;
 therefore, the 'cumulative' $R_1(\tau\to\infty)$ does not necessarily have exactly
