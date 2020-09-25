@@ -158,7 +158,23 @@ but for all biomolecular systems.
 
 \clearpage
 \section{Methods}
-\subsection*{Evaluation of lipid conformational dynamics against NMR data.}\label{sec:theory}
+\subsection*{Evaluation of lipid conformational dynamics in MD against NMR data.}\label{sec:theory}
+The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
+the $^2$H or $^{13}$C spin relaxation times or effective correlation times calculated from simulation
+trajectory with the experimental data \cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}.
+As lipids exhibit complex internal dynamics with multiple timescales that cannot be fully captured
+with a single parameter, several experimental parameters, detected for example with different
+magnetic fields or temperatures, are required to evaluate dynamics in simulations or to interpret dynamics
+from experiments \cite{Roberts:2009a,leftin11}.
+%
+Here, we analyze lipid dynamics based on two quantities that are readily available
+from published~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} $^{13}$C-NMR experiments and
+directly quantifiable from atomistic MD simulations:
+The effective C--H bond correlation times $\tau_\mathrm{e}$, and
+the spin-lattice relaxation rates $R_1$.
+
+
+\subsubsection*{Effective C--H bond correlation times $\tau_\mathrm{e}$.}
 In a lipid bilayer in liquid crystalline phase, each individual lipid molecule samples an internal conformational
 ensemble and rotates around
 %the symmetry axis of the bilayer which coincides with
@@ -172,7 +188,7 @@ g(\tau)=\langle P_{2}\left(\vec{\mu}(t)\cdot \vec{\mu}(t+\tau)\right)\rangle ,
 where angular brackets depict averaging over time,
 $\vec{\mu}(t)$ is the unit vector in the direction of the C--H bond at time $t$, and $P_{2}$ is the second order Legendre polynomial $P_2(x)=\frac{1}{2}(3x^2-1)$.
 For lipids in a bilayer, the internal dynamics and rotation around membrane normal
-have timescales below $\mu$s, leading to the decay of the correlation function to a non-zero plateau value (Fig.~\ref{fig:schem_teff}).
+have timescales below $\mu$s, leading to a decay of the correlation function to a non-zero plateau value (Fig.~\ref{fig:schem_teff}).
 This plateau is the square of the C-H bond order parameter, $S^{2}_{\rm{CH}}$, 
 \begin{equation}
 \label{eq:OP}
@@ -184,21 +200,23 @@ and is highly useful in order to evaluate conformational ensembles of lipids \ci
 %, are measured in NMR experiments from this plateau.
 
 In order to analyze the internal dynamics of lipids, 
-the C-H bond autocorrelation function is often written as a product %of two functions
+the C-H bond autocorrelation function (Eq.~\eqref{eq:BCF}) is often written as a product %of two functions
 \begin{equation}
 g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 \end{equation}
-where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion between lamellae with different orientations, and also periodic motions due to the use of magic angle spinning conditions (Fig.~\ref{fig:schem_teff}).
-Ferreira et al.~\cite{ferreira15} have shown that for all phospholipid carbons the spin-lattice relaxation rate in the rotating frame, $R_{1\rho}$, becomes constant above a spin lock frequency of 50 kHz indicating that the motion correlation times contributing to $g_{\mathrm{f}}$ and $g_{\mathrm{s}}$ are well below $\mu$s and well above 100 $\mu$s, respectively.
-This separation of time-scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ observed in Fig.~\ref{fig:schem_teff}.
+where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, e.g., the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion between lamellae with different orientations, and periodic motions due to the use of magic angle spinning conditions (Fig.~\ref{fig:schem_teff}).
+Ferreira et al.~\cite{ferreira15} have experimentally demonstrated that for all phospholipid carbons
+%the spin-lattice relaxation rate in the rotating frame, $R_{1\rho}$, becomes constant above a spin lock frequency of 50 kHz indicating that
+the motion correlation times contributing to $g_{\mathrm{f}}$ and $g_{\mathrm{s}}$ are well below $\mu$s and well above 100 $\mu$s, respectively.
+This separation of time-scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ illustrated in Fig.~\ref{fig:schem_teff}.
 
-Now, as $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations.
+Now, as $S_{\rm{CH}}$ describe the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively reflects the time needed to sample these conformations.
 The internal dynamics containing multiple timescales can be quantified using the effective correlation time
 \begin{equation}
 \label{eq:teff}
 \tau_\mathrm{e}=\int_{0}^{\infty}\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}\mathrm d\tau,
 \end{equation}
-which is related to the integrated area below the correlation function in Fig.~\ref{fig:schem_teff} B.
+which is related to the gray-shaded area below the correlation function in Fig.~\ref{fig:schem_teff}.
 The integrand in Eq.~\eqref{eq:teff} defines the reduced and normalized correlation function
 \begin{equation}
 \label{eq:nBCF}
@@ -206,36 +224,18 @@ g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm
 \end{equation}
 %That is, $\tau_\mathrm e$ is defined as the area under $g'_{\mathrm{f}}(\tau)$, as
 %graphically depicted in Fig.~\ref{fig:schem_teff}b.
-\todo{Maybe also add 1C that explicitly shows $g'_{\mathrm{f}}$?}
 It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.\todo{Redundant sentence?}
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{./figures/gfun_draft.pdf} 
 \caption{Illustration of the autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
-
+\todo{Maybe also add 1C that explicitly shows $g'_{\mathrm{f}}$?}
 \end{figure} 
 
 
-The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
-the $^2$H or $^{13}$C spin relaxation times or effective correlation times calculated from simulation
-trajectory with the experimental data \cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}.
-However, lipids exhibit complex internal dynamics with multiple timescales that cannot be fully captured
-with a single parameter. Therefore, several experimental parameters, detected for example with different
-magnetic fields or temperatures, are required to evaluate dynamics in simulations or to interpret dynamics
-from experiments \cite{Roberts:2009a,leftin11}.
 
-Here, we analyze lipid dynamics based on two quantities that are readily available
-from published~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} $^{13}$C-NMR experiments and
-directly quantifiable from atomistic MD simulations:
-The effective C--H bond correlation times $\tau_\mathrm{e}$, and
-the spin-lattice relaxation rates $R_1$.
-
-%We analyze lipid dynamics based on two quantities available from published $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
-%The effective C--H bond correlation time $\tau_\mathrm{e}$ and
-%the spin-lattice relaxation rate $R_{1}$,
-%both %experimentally available through NMR measurements, and
-%directly quantifiable from atomistic MD simulations.
+\subsubsection*{Spin-lattice relaxation rates $R_1$.}
 As discussed above (Eq.~\eqref{eq:teff}), the $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid internal dynamics, and
 have an intuitive relation to dynamics: Larger values always indicate a slowdown.  
 %Most importantly, i
