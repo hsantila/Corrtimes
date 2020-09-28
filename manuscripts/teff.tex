@@ -972,28 +972,25 @@ we demonstrated this by investigating the dynamics of a wide range of phosphatid
 
 We found that MD qualitatively captures the $^{13}$C-NMR effective correlation time ($\tau_\mathrm e$) profile of POPC---the slow glycerol backbone and the faster motions of the headgroup and tail regions---but most MD force fields are prone to too slow dynamics of the glycerol C--H bonds (Fig.~\ref{fig:teff_R1}).
 %
-While no force field reproduces all the experimental data,
+While no force field perfectly reproduces all the experimental data,
 CHARMM36 and Slipids have an overall impressive $\tau_\mathrm e$.
 This is particularly true for CHARMM36, as it is also known to
-well reproduce the experimental conformational ensemble~\cite{botan15}.
+well represent the experimental conformational ensemble~\cite{botan15}.
 %
 That said, we find that CHARMM36 struggles with the balance of dynamics in the headgroup region:
 The $R_1$ rates, sensitive for $\sim$1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments (Fig.~\ref{fig:cumulativeR1s}).
 
-\todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
+%\todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
 
-In addition to standard conditions, we explored how the dynamics react to addition of cholesterol or NaCl, or to removal of water.
+In addition to standard conditions, we explored how the dynamics react to addition of cholesterol and removal of water.
 %
-MD qualitatively captures that when cholesterol is mixed into a POPC bilayer, the conformational dynamics in the tail and glycerol regions slows down; however, some force fields predict an (erroneous) slowdown also for the headgroup (Fig.~\ref{fig:chol}).
+MD qualitatively captures the slow-down of conformational dynamics in the tail and glycerol regions  when cholesterol is mixed into a POPC bilayer; however, some force fields erroneously predict changes also in the short-scale dynamics of the headgroup carbons (Fig.~\ref{fig:chol}).
 %
-With increasing NaCl concentration, a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude increase in $\tau_\mathrm e$; this could open up the possibility of using $\tau_\mathrm e$ in quantifying cation binding to lipid bilayers.
-%
-When reducing the water content, MD exhibits slowdown of headgroup and backbone dynamics below $\sim$10 waters per lipid in qualitative agreement with experimental data. \todo{ Hydration needs some kind of statement of significance.}
+Upon reducing the water content, MD exhibits slow-down of headgroup and backbone dynamics below $\sim$10 waters per lipid in qualitative agreement with experimental data. That said, only CHARMM36 qualitatively captures the experimentally detected increase of $R_1$ rates upon dehydration.  
 
 By gathering a set of $^{13}$C-NMR data on the phosphatidylcholine dynamics and charting the typical features of the existing MD models against it, this study lays the foundation for further improvement of the force fields. While work is still needed in capturing even the correct conformations~\cite{botan15}, realistic dynamics will be an essential part of developing MD into a true computational microscope.
 
-Importantly, this work demonstrates the power of open data in creating new knowledge out of existing trajectories at a reduced computational and labor cost. %Although no new simulations were performed for the purpose of this work, we were able to conduct a comprehensive study on the dynamics of MD models under several conditions. An interesting extension would be exploring other lipid headgroups individually as well as performing a comparison of MD model dynamics between headgroup types, as the available simulation data goes well beyond simulations of lipids with the phosphocholine headgroup.
-If the data are well indexed and documented, this process could be automated and has the potential to facilitate faster progress, e.g., in the development of MD force fields, for example through machine learning approaches.
+Importantly, this work demonstrates the potential of open data in achieving this at a reduced computational and labor cost. A pool of well indexed and documented data provides an ideal platform for automation, and thus has the potential to facilitate faster progress in pinpointing the typical failures of existing models, in identifying key differences in models describing chemical variations under the same molecule type (eg. different lipid headgroups), and developing better models through machine learning approaches.
 
 
 \acknowledgement
