@@ -69,7 +69,7 @@ open access to standardised and searchable pools of experimental data has
 revolutionized
 scientific
 research. %in life sciences.
-Constantly growing and mostly improving in fidelity
+Constantly growing and improving in fidelity
 %as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves
 due to collaborative effort~\cite{levitt2007,Brzezinski:2020a,Harris:2003a,Steinegger:2020a}, %For IDPs:Necci:2020a?
 %Wlodawer:2020a
@@ -107,8 +107,8 @@ the whole scientific research process---from initial ideas and discussions to
 analysis methods, data, and publications---is all the time publicly available~\cite{botan15}.
 While its main focus has been on conformational ensembles
 of different lipid headgroups and on ion binding to lipid membranes \cite{botan15,catte16,Antila:2019a},
-the NMR\-lipids Project has also built a databank~\cite{Miettinen:2019c} containing hundreds
-of atomistic MD trajectories of lipid bilayers  (\url{zenodo.org/communities/nmrlipids}),
+the NMR\-lipids Project has also built a databank~\cite{Miettinen:2019c} (\url{zenodo.org/communities/nmrlipids}) containing hundreds
+of atomistic MD trajectories of lipid bilayers and
 %These data are also partially
 indexed at \url{nmrlipids.fi}.
 
@@ -128,7 +128,7 @@ the quality of MD simulations
 must always be carefully assessed against structurally sensitive experiments.
 For lipid bilayers, such evaluation is possible against NMR and scattering data~\cite{Ollila:2016a}.
 
-Here we demonstrate the use of a pre-existing, publicly available set of MD trajectories to
+Here, we demonstrate the use of a pre-existing, publicly available set of MD trajectories to
 rapidly evaluate the fidelity of phospholipid conformational dynamics in state-of-the-art force fields.
 The speed at which individual molecules sample their conformational ensemble
 %against experimental data in different force fields with unprecedented extent. 
@@ -231,10 +231,10 @@ C--H bond dynamics is related to the spin-lattice relaxation rate through
 \label{eq:R1}
 \begin{split}
 R_{1}=&\frac{d^2_{\mathrm{CH}}N_{\mathrm{H}}}{20}\left[j(\omega_{\mathrm{H}}-\omega_{\mathrm{C}})\right. \\
-&\left.+3j(\omega_{\mathrm{C}})+6j(\omega_{\mathrm{H}}+\omega_{\mathrm{C}})\right].
+&\left.+3j(\omega_{\mathrm{C}})+6j(\omega_{\mathrm{H}}+\omega_{\mathrm{C}})\right],
 \end{split}
 \end{align}
-Here $\omega_{\mathrm{H}}$ is the $^1$H and $\omega_{\mathrm{C}}$ the $^{13}$C-NMR Larmor frequency, $N_{\mathrm{H}}$ the number of bound hydrogens, and $d_{\mathrm{CH}}$ the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
+where $\omega_{\mathrm{H}}$ is the $^1$H and $\omega_{\mathrm{C}}$ the $^{13}$C-NMR Larmor frequency, $N_{\mathrm{H}}$ the number of bound hydrogens, and $d_{\mathrm{CH}}$ the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
 %\todo{Why there is a minus sign above? TMF: because the horns of the Pake pattern come from the 90 degree orientation of the rigid C-H bond and P2(cos(90)) is negative. this is the convention in NMR simulation programs. not an important detail and skipping the negative sign is also fine.}
 %$^{13}$C NMR experiments investigating lipid conformational dynamics take advantage of the fact that the relaxation of $^{13}$C magnetization dominantly happens via the dipolar coupling of the carbon with the magnetic moments of the protons bound to it, with the symmetry axis of the interaction aligning with the C--H bond.
 The spectral density $j(\omega)$ is given by the Fourier transformation
@@ -276,7 +276,7 @@ The simulation trajectories used in this work were collected from the Zenodo rep
 Table~\ref{tab:standr} details, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration, whereas
 Table~\ref{tab:chol} lists simulations including cholesterol, and
 Table~\ref{tab:hydr} simulations with varying hydration.
-Additional computational details for each of the simulations are available at the cited Zenodo entry. 
+Additional computational details for the simulations are available at the cited Zenodo entry. 
 
 \begin{table}[t!]
 \caption{Analyzed simulations of POPC lipid bilayers at standard conditions.}
@@ -461,7 +461,7 @@ Slipids \cite{jambeck12b}%/---
 The simulation data were analyzed using in-house scripts. These are available on GitHub (\url{https://github.com/hsantila/Corrtimes/tree/master/teff_analysis}) along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with different atom naming conventions, we employ mapping files and the related definition format developed within the NMRlipids project to recognize the atoms and bonds of interest when analyzing the trajectory.
 
 After downloading the necessary files from Zenodo, the trajectory was processed with Gromacs \texttt{gmx trjconv} to make the molecules whole.
-The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{calcOrderParameters.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
+The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{OrderParameter.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
 The \mbox{C--H} bond correlation functions
 $g(\tau)$ (see Eq.~\eqref{eq:BCF})
@@ -569,13 +569,13 @@ onwards comes solely from this slowest process.
 
 The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
 \begin{equation}
+\begin{split}
 \left( g'_f(t_u)+\Delta g'_f(t_u) \right)
 \int_{t_u}^T \exp(-(t-t_u)/T) dt
-=
+=\\
 \left( g'_f(t_u)+\Delta g'_f(t_u) \right)
-\times
-( 1 - \exp( (t_u-T)/T ) )
-\times T
+( 1 - \exp( (t_u-T)/T ) )T
+\end{split}
 \end{equation}
 
 %The effective correlation times $\tau_\mathrm e$ were calculated by integrating, see Eq.~\eqref{eq:teff}, $g'_\mathrm f(\tau)$ over time from $\tau=0$ until $\tau = t_0$.
@@ -588,7 +588,7 @@ by fitting it with a sum of $N=61$ exponentials
 \label{eq:weights}
 g'_\mathrm{f}(\tau)\approx\sum_{i=1}^{N}\alpha_{i}e^{-\tau/\tau_{i}},
 \end{equation}
-with logarithmically spaced time-scales $\tau_{i}$ ranging from 0.1~ps to 1~$\mu$s, 
+with logarithmically spaced time-scales $\tau_{i}$ ranging from 1~ps to 1~$\mu$s, 
 and then calculating the spectral density of this fit
 based on the Fourier transformation\cite{ferreira15}
 \begin{equation}
@@ -604,7 +604,7 @@ standard error of the mean its uncertainty.
 The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H pairs.
 %
 When several carbons contribute to a single experimental $R_1$ rate due to the overlapping peaks (for example in C$_2$ carbon in acyl chains and $\gamma$ carbons),
-the $R_1$ from simulations was then obtained as an average over all overlapping carbons.
+the $R_1$ from simulations was obtained as an average over all overlapping carbons.
 %
 The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H pairs.
 
@@ -627,7 +627,7 @@ However, in practice the fit is often highly unreliable in depicting the long ta
 
 
 \section{Results and Discussion}
-
+\begin{comment}
 The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
 the $^2$H or $^{13}$C spin relaxation times, or effective correlation times calculated from simulation
 trajectory with the experimental data \cite{feller02,wohlert06,klauda08,klauda08II,ferreira15,Ollila:2016a}.
@@ -635,6 +635,7 @@ As lipids exhibit complex internal dynamics with multiple timescales that cannot
 with a single parameter, several experimental quantities, detected for example with different
 magnetic fields or temperatures, are required to fully evaluate dynamics in simulations or to interpret dynamics
 from experiments \cite{Roberts:2009a,leftin11}.
+\end{comment}
 
 In the following, we discuss phospholipid conformational  dynamics in
 six different MD force fields. We do this first for %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36 
@@ -643,7 +644,7 @@ see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for
 %
 %An assessment of the bilayer dynamics under one set of conditions does not a give complete picture of the membrane functioning.
 and then proceed to
-cover a wider range of experimentally, biologically, and computationally relevant conditions. We investigate how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}), when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}), and when monovalent salt is added to the solution (Table~\ref{tab:salt} and Fig.~\ref{fig:salt}).
+cover a wider range of experimentally, biologically, and computationally relevant conditions, where we explore how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}) and when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}).
 
 One should keep in mind that none of the force fields we study
 produces all the C--H bond order parameters, $S_\mathrm{CH}$, within experimental accuracy~\cite{botan15}.
@@ -653,7 +654,7 @@ produces all the C--H bond order parameters, $S_\mathrm{CH}$, within experimenta
 This means that the structural ensembles simulated do not exactly match
 the structural ensemble occurring in reality.%, that is, these simulations are not a true computational microscope.
 %
-Consequently, the
+ Consequently, the
 $\tau_\mathrm{e}$ times and $R_1$ rates
 depict the dynamics of sampling a somewhat different phase space
 for each model. %that differs from what is being observed in the experiments.
@@ -803,9 +804,9 @@ However, the connection between the fitted correlation times and the correlation
 Cholesterol is essential component in cell membranes with various biological functions.
 While cholesterol is well known to order the acyl chains in cell membranes,
 its effect on headgroup is more controversial \cite{huang99,ferreira13}. Lipid headgroups are proposed
-to reorganize to shield cholesterol from interaction with water \cite{huang99}. However, no
+to reorganize to shield cholesterol from interaction with water \cite{huang99}. However, while acyl chains exhibit substantial ordering, no
 significant conformational changes in headgroup are observed in NMR experiments upon addition
-of even 50\% of cholesterol, while acyl chains exhibit substantial ordering,
+of even 50\% of cholesterol,
 suggesting that acyl chain and headgroup regions behave essentially independently \cite{ferreira13,botan15}.
 On the other hand, the headgroups could shield water-cholesterol interactions
 without changes in internal conformational ensemble by reorienting headgroups laterally on
