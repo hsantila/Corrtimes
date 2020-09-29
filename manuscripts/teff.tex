@@ -41,24 +41,8 @@
 
 
 \begin{abstract}
-Molecular dynamics (MD) simulations are widely used to
-    study the atomistic structure and dynamics of biomembranes. It
-    remains unknown, however, how well the conformational dynamics
-    observed in MD simulations correspond to those occurring in real
-    life phospholipids. The accuracy of such time scales in MD can be
-    assessed by comparing against the effective correlation times $\tau_\mathrm e$ of
-    the C-H bonds measured in nuclear magnetic resonance experiments
-    (J. Chem. Phys. 142 044905 (2015)).
-
-Here, we
-use a large set of open data trajectories made public by the NMRlipids project (\url{ nmrlipids.blogspot.fi}) to
-perform an unprecedented test on
-the conformational dynamics of phospholipids as
-produced by several commonly used MD models (force fields).
-We find that
-none of the tested force fields to reproduce all the effective correlation times within experimental error, much like they do
-not provide accurate conformational ensembles (J. Phys. Chem. B 119 15075 (2015)). However, the dynamics observed in CHARMM36 and Slipids were more realistic than those seen in the Amber Lipid14, OPLS-based MacRog, and
- GROMOS-based Berger force fields, where dynamics of the glycerol backbone was unrealistically slow. \todo{Tiago: We need a punchline highlighting that the results and findings obtained are extremely important for the lipid MD simulation community and that they were only possible due to the open data}
+Although molecular dynamics (MD) simulations are widely used to study the structure and dynamics of biomembranes, it remains unknown how well their conformational dynamics correspond to those observed in real life phospholipids. Here, we use a large set of openly available phosphatidylcholine simulation data to benchmark the conformational dynamics of several commonly used MD models (force fields) agaist the effective correlation times and spin-lattice relaxation rates measured nuclear magnetic resonance experiments.
+We find that none of the tested models fully reproduce the conformational dynamics as depicted by these measurables. That said, the dynamics of CHARMM36 and Slipids were more realistic than those seen in the Amber Lipid14, OPLS-based MacRog, and GROMOS-based Berger force fields, where conformational sampling of the glycerol region of the lipids was too slow. The (qualitatively) good performance of CHARMM36 persists when cholesterol is added to the bilayer, and when the hydration level is reduced, although the model may still provide misleading dynamics, especially at short time scales. The findings demonstrate the value of open data in rapidly assessing the suitability of each model to the task at hand---a crucial step in any MD study. Furthermore, by highlighting typical downfalls of the current MD models, open data can aid in developing the MD force fields to provide a true computational microscope to the simulation community.
 
 \end{abstract}
 
