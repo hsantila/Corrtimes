@@ -219,7 +219,7 @@ g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{../Figs/gfun_draft.pdf} 
-\caption{Illustration of the C--H bond autocorrelation function $g(\tau)$. a) The fast (white background) and the slow (green) mode of the correlation function. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
+\caption{The C--H bond autocorrelation function $g(\tau)$. (A) Illustration of the fast (white background) and the slow (green) mode of the correlation function. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. Oscillations at the slow mode region are due to magic angle spinning. (B) Typical C--H bond autocorrelation function obtained from a MD simulation showing a decent towards $g(\tau)=S^2_{\mathrm{CH}}$. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
 \end{figure} 
 
@@ -662,7 +662,7 @@ To this end, we avoid overly detailed discussion on the models and rather concen
 
 
 \subsection*{Effective correlation times $\tau_\mathrm e$ at standard conditions.}
-The left panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in the six different MD force fields (color).
+The top panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in the six different MD force fields (color).
 
 Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails. Quantitatively, MD has a tendency to produce too slow dynamics in the glycerol region.
 CHARMM36 and Slipids show the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong (decreasing) trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
@@ -677,32 +677,27 @@ Were the simulations done at the experimental 298\,K, the overestimation of $\ta
 \begin{figure*}[!ht]
 \centering
 \includegraphics[width=\textwidth]{../Figs/normalcond5.pdf}
-\caption{Effective correlation times ($\tau_\mathrm{e}$, left panels) and $R_{1}$ rates (right panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
-Inset on the right shows the POPC structure and carbon segment labeling.
+\caption{Effective correlation times ($\tau_\mathrm{e}$, top panels) and $R_{1}$ rates (bottom panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
+Inset on the top right shows the POPC structure and carbon segment labeling.
 Each plotted value contains contributions from all the hydrogens within its carbon segment; the data for segments 8--11 are only from the sn-2 (oleoyl) chain, whereas the (experimentally non-resolved) contributions of both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
 %
-Simulation data are only shown for the segments for which there exists experimental data.
+Simulation results are only shown for the segments where experimental data is available.
 %
 For $\tau_\mathrm{e}$,
 a simulation data point indicates the average over C--H bonds; however,
 if $\tau_\mathrm{e}$ could not be determined for all bonds, only the error bar
 (extending from the mean of the lower to the mean of the upper error estimates) is shown.
 %
-The Berger data for methyl segments ($\gamma$, C18, and C16') are left out, because the protonation algorithm used to construct the hydrogens post-simulation in united atom models does not preserve the methyl C--H bond dynamics.
+The Berger data for segments $\gamma$, C18, and C16' are left out, because the protonation algorithm used to construct the hydrogens post-simulation in united atom models does not preserve the methyl C--H bond dynamics.
 %
-Table~\ref{tab:standr} provides further simulation details.
-%
-Error bars for the experimental values reflect error estimate of {\color{red}XXX}.
+Table~\ref{tab:standr} provides further simulation details, while information on the experiments is avaible at Ref.~citenum{Antila:2020a}.
 }
 \label{fig:teff_R1}
-
-\todo{Experimental error estimate changed since the data were originally published; needs to be explained to the reader.}\\
-\todo{How to refer to the experiments? Not really from previous publication because of re-analysis.}
 
 \end{figure*}
 
 \subsection*{$R_1$ rates at standard conditions.}
-The panels on the right side of Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for the $\tau_\mathrm{e}$ on the left.
+The lower on the right side of Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for the $\tau_\mathrm{e}$ on the left.
 
 There are certain qualitative features that all force fields predict correctly
 (for example that $\mathrm g_2$ has the smallest $R_1$ among the glycerol and C9 among the oleoyl double bond segments),
@@ -751,8 +746,8 @@ No force field provides both $\tau_\mathrm e$ and $R_1$ for $\gamma$.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{../Figs/cumulativeR1rev.pdf}
-\caption{
+\includegraphics[width=\columnwidth]{../Figs/cumulativeR1.pdf}
+\caption{Contributions to the dynamics of the headgroup segments.
 (A) Zoom on the headgroup $\tau_\mathrm e$ (left panel) and $R_1$ (right).
 (B) 'Cumulative' $R_1$ (see Methods for definition) of the
 $\gamma$ (top panel), $\beta$ (middle), and $\alpha$ (bottom) segments.
@@ -760,6 +755,7 @@ $\gamma$ (top panel), $\beta$ (middle), and $\alpha$ (bottom) segments.
 In B and C, a sliding average over 3 neighboring data points is shown.
 }
 \label{fig:cumulativeR1s}
+\todo{Note: samuli wanted to reverse B-C panel order}
 \end{figure}
 
 To investigate where the differences between force fields arise, we visualize the 
@@ -865,7 +861,7 @@ in acyl chain region rather well, but changes on and near glycerol backbone regi
 	\centering
 	\includegraphics[width=\columnwidth]{../Figs/cholesterol.pdf}  
 	\caption{Effect of bilayer cholesterol content.
-	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and full hydration.
+	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and full hydration, see Ref.~\citenum{Antila:2020a} for further details.
 	(B) The change in $\tau_\mathrm{e}$ ($\Delta\tau_\mathrm{e}$, top panels) and $R_{1}$ ($\Delta R_{1}$, bottom),
 	both in experiments and in MD simulations, when bilayer composition changes from pure POPC to 50\% cholesterol.
 	Berger not shown for $\Delta\tau_\mathrm{e}$, because the open data available were insufficient to determine meaningful error estimates.
@@ -903,7 +899,7 @@ in headgroup and glyc\-er\-ol backbone.
 (A) Experimental $\tau_\mathrm e$ for
 DMPC (from Ref.~\citenum{pham15}) at low hydration %(13\,w/l)
 do not significantly differ from the
-$\tau_\mathrm e$ for POPC at full hydration. %(28\,w/l)
+$\tau_\mathrm e$ for POPC at full hydration (from Ref.~\citenum{Antila:2020a}). %(28\,w/l)
 (B) Calculated $\tau_\mathrm e$  for
 POPC at decreasing hydration in three MD models.
 Note that three Berger data points (4, 12, 16, and 24~w/l) are from DLPC bilayers.
