@@ -156,9 +156,8 @@ but for all biomolecular systems.
 
 %we intentionally restrict ourselves to re-use existing, publicly available simulation trajectories. This is to demonstrate the power of open, well documented data in creating new knowledge at a lowered cost. The main source of data was the collection of lipid bilayer simulations originating from the NMRlipids project~\cite{botan15,catte16}
 
-\clearpage
 \section{Methods}
-\subsection*{Evaluation of lipid conformational dynamics in MD against NMR data.}\label{sec:theory}
+\subsection*{Lipid conformational dynamics in NMR data.}\label{sec:theory}
 %
 We analyzed the veracity of lipid dynamics in MD based on two quantities that are readily available
 from published~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} $^{13}$C-NMR experiments and
@@ -168,28 +167,27 @@ the spin-lattice relaxation rates $R_1$.
 
 
 \subsubsection*{Effective C--H bond correlation times $\tau_\mathrm{e}$.}
-In a lipid bilayer in liquid crystalline phase, each individual lipid samples its internal conformational
-ensemble and rotates around the axis normal to
-the membrane.
+In a lipid bilayer in liquid crystalline state, each individual lipid samples its internal conformational
+ensemble and rotates around the membrane normal.
 Lipid conformational dynamics are reflected in the second order autocorrelation functions of its C--H bonds
 \begin{equation}
 \label{eq:BCF}
 g(\tau)=\langle P_{2}\left(\vec{\mu}(t)\cdot \vec{\mu}(t+\tau)\right)\rangle ,
 \end{equation}
 where the angular brackets depict time average,
-$\vec{\mu}(t)$ is the unit vector in the direction of the C--H bond at time $t$, and $P_{2}$ is the second order Legendre polynomial $P_2(x)=\frac{1}{2}(3x^2-1)$.
+$\vec{\mu}(t)$ is the unit vector in the direction of the \mbox{C--H} bond at time $t$, and $P_{2}$ is the second order Legendre polynomial $P_2(x)=\frac{1}{2}(3x^2-1)$.
 %
 To analyze the internal dynamics of lipids, 
-the C--H bond autocorrelation function %(Eq.~\eqref{eq:BCF})
+the \mbox{C--H} bond autocorrelation function %(Eq.~\eqref{eq:BCF})
 is often written as a product %of two functions
 \begin{equation}
 g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 \end{equation}
-where $g_{\mathrm{f}}(\tau)$ characterizes the fast decays owing to, e.g., the internal dynamics and rotation around membrane normal, and $g_{\mathrm{s}}(\tau)$ the slow decays that originate from, e.g., lipid diffusion between lamellae with different orientations, and periodic motions due to the use of magic angle spinning conditions (Fig.~\ref{fig:schem_teff}).
+where $g_{\mathrm{f}}(\tau)$ characterizes the fast decays owing to, e.g., the internal dynamics and rotation around membrane normal, and $g_{\mathrm{s}}(\tau)$ the slow decays that originate from, e.g., lipid diffusion between lamellae with different orientations and periodic motions due to magic angle spinning conditions (Fig.~\ref{fig:schem_teff}).
 Ferreira et al.~\cite{ferreira15} have experimentally demonstrated that for all phospholipid carbons
 %the spin-lattice relaxation rate in the rotating frame, $R_{1\rho}$, becomes constant above a spin lock frequency of 50 kHz indicating that
-the motion correlation times contributing to $g_{\mathrm{f}}$ are well below $\mu$s and to $g_{\mathrm{s}}$ well above 100 $\mu$s.
-This separation of time-scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ illustrated in Fig.~\ref{fig:schem_teff}.
+the motional correlation times contributing to $g_{\mathrm{f}}$ are well below $\mu$s, and to $g_{\mathrm{s}}$ well above 100 $\mu$s.
+This separation of time scales gives rise to the plateau $g(1\,\mu\mathrm s  \lesssim \tau \lesssim 100\,\mu\mathrm s)=S^2_\mathrm{CH}$ illustrated in Fig.~\ref{fig:schem_teff}.
 %
 $S_{\rm{CH}}$ is the C-H bond order parameter
 \begin{equation}
@@ -197,20 +195,19 @@ $S_{\rm{CH}}$ is the C-H bond order parameter
 S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta(t)-1\rangle ,
 \end{equation}
 where $\theta(t)$ is the angle between the C--H bond and the bilayer normal.
-$S_\mathrm{CH}$ can be independently measured using dipolar coupling in $^{13}$C or quadrupolar coupling in $^{2}$H-NMR experiments,
-and it is highly useful in order to evaluate conformational ensembles of lipids \cite{Ollila:2016a}.
+$S_\mathrm{CH}$ can be independently measured using dipolar coupling in $^{13}$C or quadrupolar coupling in $^{2}$H-NMR experiments.
+Knowing the set of $S_\mathrm{CH}$ for all the \mbox{C--H} bonds in a lipid
+is highly useful in order to evaluate its conformational ensemble~\cite{Ollila:2016a}.
 
-
-
-Since $S_{\rm{CH}}$ describe the conformational ensemble of the lipid, the fast-decaying component $g_\mathrm f$ of the C--H bond autocorrelation function intuitively reflects the time needed to sample these conformations.
+As $S_{\rm{CH}}$ describe the conformational ensemble of the lipid, the fast-decaying component $g_\mathrm f$ of the C--H bond autocorrelation function intuitively reflects the time needed to sample these conformations.
 The complex internal dynamics containing multiple timescales can be conveniently summarized using the effective correlation time
 \begin{equation}
 \label{eq:teff}
 \tau_\mathrm{e}=\int_{0}^{\infty}\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}\mathrm d\tau,
 \end{equation}
 which is related to the gray-shaded area below the correlation function in Fig.~\ref{fig:schem_teff}.
-The $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid internal dynamics, and
-have an intuitive relation to dynamics: In the presence of more long-lived correlations $\tau_\mathrm{e}$ grows.
+The $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid conformational dynamics.
+Their relation to process speeds is intuitive: Increase of long-lived correlations increases $\tau_\mathrm{e}$.
 The integrand in Eq.~\eqref{eq:teff} defines the reduced and normalized correlation function
 \begin{equation}
 \label{eq:nBCF}
@@ -219,14 +216,14 @@ g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{../Figs/gfun_draft.pdf} 
-\caption{The C--H bond autocorrelation function $g(\tau)$. (A) Illustration of the fast (white background) and the slow (green) mode of the correlation function. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. Oscillations at the slow mode region are due to magic angle spinning. (B) Typical C--H bond autocorrelation function obtained from a MD simulation showing a decent towards $g(\tau)=S^2_{\mathrm{CH}}$. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
+\caption{C--H bond autocorrelation function $g(\tau)$. (A) Idealised illustration of the fast (white background) and the slow (green) mode of the correlation function. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. Oscillations at the slow mode region are due to magic angle spinning. (B) Typical $g(\tau)$ obtained from an MD simulation, showing the decay towards $S^2_{\mathrm{CH}}$. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
 \end{figure} 
 
 
 
 \subsubsection*{Spin-lattice relaxation rates $R_1$.}
-C--H bond dynamics is related to the spin-lattice relaxation rate through
+The \mbox{C--H} bond dynamics relate to $R_1$, the spin-lattice relaxation rate, through
 \begin{align}
 \label{eq:R1}
 \begin{split}
@@ -234,7 +231,8 @@ R_{1}=&\frac{d^2_{\mathrm{CH}}N_{\mathrm{H}}}{20}\left[j(\omega_{\mathrm{H}}-\om
 &\left.+3j(\omega_{\mathrm{C}})+6j(\omega_{\mathrm{H}}+\omega_{\mathrm{C}})\right],
 \end{split}
 \end{align}
-where $\omega_{\mathrm{H}}$ is the $^1$H and $\omega_{\mathrm{C}}$ the $^{13}$C-NMR Larmor frequency, $N_{\mathrm{H}}$ the number of bound hydrogens, and $d_{\mathrm{CH}}$ the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
+where $\omega_{\mathrm{H}}$ is the $^1$H and $\omega_{\mathrm{C}}$ the $^{13}$C-NMR Larmor frequency, and $N_{\mathrm{H}}$ the number of hydrogens covalently bonded to the carbon.
+The rigid dipolar coupling constant $d_{\mathrm{CH}}\approx-2\pi\times22$\,kHz for the methylene bond.
 %\todo{Why there is a minus sign above? TMF: because the horns of the Pake pattern come from the 90 degree orientation of the rigid C-H bond and P2(cos(90)) is negative. this is the convention in NMR simulation programs. not an important detail and skipping the negative sign is also fine.}
 %$^{13}$C NMR experiments investigating lipid conformational dynamics take advantage of the fact that the relaxation of $^{13}$C magnetization dominantly happens via the dipolar coupling of the carbon with the magnetic moments of the protons bound to it, with the symmetry axis of the interaction aligning with the C--H bond.
 The spectral density $j(\omega)$ is given by the Fourier transformation
@@ -853,9 +851,9 @@ all three all-atom force fields, whereas Berger fails to capture the trend at th
 
 In summary, the experiments suggest that acyl chain ordering upon cholesterol addition is accompanied
 with slower internal dynamics in hydrophobic core and glycerol backbone region, while headgroup dynamics is almost
-intact even with 50\% of cholesterol, supporting the idea~\cite{citetoarcihved} that acyl chains and headgroup can respond
+intact even with 50\% of cholesterol, supporting the idea~\cite{Antila:2020a} that acyl chains and headgroup can respond
 almost independently to change in conditions and composition.
-In line with general picture from order parameters \cite{ollila16}, MD simulations capture the changes
+In line with general picture from order parameters \cite{Ollila:2016a}, MD simulations capture the changes
 in acyl chain region rather well, but changes on and near glycerol backbone region can be overestimated.
 
 \begin{figure}[h!]
