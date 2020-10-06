@@ -159,7 +159,7 @@ but for all biomolecular systems.
 \section{Methods}
 \subsection*{Lipid conformational dynamics in NMR data.}\label{sec:theory}
 %
-We analyzed the veracity of lipid dynamics in MD based on two quantities that are readily available
+We analyzed the veracity of phosphatidylcholine (PC) lipid dynamics in MD based on two quantities that are readily available
 from published~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} $^{13}$C-NMR experiments and
 directly quantifiable from atomistic MD simulations:
 The effective C--H bond correlation times $\tau_\mathrm{e}$, and
@@ -208,11 +208,6 @@ The complex internal dynamics containing multiple timescales can be conveniently
 which is related to the gray-shaded area below the correlation function in Fig.~\ref{fig:schem_teff}.
 The $\tau_\mathrm{e}$ detect essentially an average over all the time scales relevant for the lipid conformational dynamics.
 Their relation to process speeds is intuitive: Increase of long-lived correlations increases $\tau_\mathrm{e}$.
-The integrand in Eq.~\eqref{eq:teff} defines the reduced and normalized correlation function
-\begin{equation}
-\label{eq:nBCF}
-g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}.
-\end{equation}
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{../Figs/gfun_draft.pdf} 
@@ -262,22 +257,21 @@ d_{\mathrm{CH}}=\frac{\hslash\gamma_{\mathrm{H}}\gamma_{\mathrm{C}}\mu_{0}}{4\pi
 where $\hslash$ is the reduced Planck constant, $\gamma_{\mathrm{C}}$ and $\gamma_{\mathrm{H}}$ are the gyromagnetic constants for $^{1}H$ and $^{13}C$, $\mu_{0}$ is the vacuum permeability, and $\langle r^{3}_{\mathrm{CH}}\rangle$ denotes the average cubic length of the C-H bond.
 \end{comment}
 
-\subsection*{Experimental data acquisition and analysis.}
+\subsection*{Data acquisition and analysis.}
 %
-All the experimental quantities were collected from the literature sources referred at the respective figures.   
+All the experimental quantities used in this work were collected from the literature sources cited at the respective figures.   
 
-\subsection*{Simulational data acquisition and analysis.}
+%\subsection*{Simulational data acquisition and analysis.}
 %
-The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen based on how well the simulation conditions matched the available experimental data (temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (lenght of simulation, system size).
-
-
-Table~\ref{tab:standr} details, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration, whereas
-Table~\ref{tab:chol} lists simulations including cholesterol, and
-Table~\ref{tab:hydr} simulations with varying hydration.
-Additional computational details for the simulations are available at the cited Zenodo entry. 
+The simulation trajectories were collected from the general-purpose open-access repository Zenodo (\url{zenodo.org}), with the majority of the data originating from the NMR\-lipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen by hand based on how well the simulation conditions matched the available experimental data (lipid type, temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (length of simulation, system size).
+%
+Table~\ref{tab:standr} lists the chosen trajectories of pure POPC (1-palmit\-oyl-2-oleoyl-glycero-3-phosphocholine) bilayers at/near room temperature and at full hydration;
+Table~\ref{tab:chol} lists the trajectories with cholesterol; and
+Table~\ref{tab:hydr} those with varying hydration.
+Full computational details for each simulation are available at the cited Zenodo entry.
 
 \begin{table}[t!]
-\caption{Analyzed simulations of POPC lipid bilayers at standard conditions.}
+\caption{Analyzed simulations of pure POPC lipid bilayers at full hydration.}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{lrrrrc}
@@ -291,7 +285,7 @@ files\footnote{Reference for the openly available simulation files.} \tabularnew
 \hline 
 %Berger-POPC-07~\cite{ollila07a}
 %	& 128 & 7290 & 298 & 50  & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline[1.0ex]
-Berger~\cite{berger97,bachar04}
+Berger-POPC-07~\cite{ollila07a} %\cite{berger97,bachar04}
 	& 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline[1.0ex]	
 CHARMM36~\cite{klauda10}
 	& 256 & 8704 & 300 & 300 & {[}\!\!\citenum{charmm36filesT300}{]} \tabularnewline
@@ -314,7 +308,7 @@ ECC~\cite{melcr18}
 \end{table}
 
 \begin{table}[]
-\caption{Analyzed simulations of cholesterol-containing POPC bilayers.}
+\caption{Analyzed simulations of cholesterol-containing POPC bilayers at full hydration.}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{lrrrrrrc}
@@ -356,7 +350,7 @@ Slipids~\cite{jambeck12b}
 \end{table}
 
 \begin{table}[]
-\caption{Analyzed simulations of lipid bilayers under varying hydration level.}
+\caption{Analyzed simulations of PC lipid bilayers under varying hydration level.}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{llrrrrrc}
@@ -373,10 +367,10 @@ files\footnote{Reference for the openly available simulation files.} \tabularnew
 Berger-POPC-07~\cite{ollila07a} 
 	& POPC  & 57  & 128  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
 	& POPC  & 7  & 128  & 896  & 298  & 60  & {[}\!\!\citenum{bergerDEHYDfiles}{]} \tabularnewline	
-Berger~\cite{berger97,bachar04}
+%Berger~\cite{berger97,bachar04}
 	& POPC & 40 & 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline[1.0ex]		
 Berger-DLPC-13~\cite{kanduc13}
-	& DLPC\footnote{1,2-didodecanoyl-sn-glycero-3-phosphocholine. \label{fn:DLPC}}  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
+	& DLPC\footnote{1,2-dilauroyl-sn-glycero-3-phosphocholine. \label{fn:DLPC}}  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 16  & 72  & 1152  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc16}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 12  & 72  & 864  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc12}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 4  & 72  & 288  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc4}{]} \tabularnewline[1.0ex]
@@ -456,23 +450,29 @@ Slipids \cite{jambeck12b}%/---
 %\end{multicols}
 \end{comment}
 
-The simulation data were analyzed using in-house scripts. These are available on GitHub (\url{https://github.com/hsantila/Corrtimes/tree/master/teff_analysis}) along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with different atom naming conventions, we employ mapping files and the related definition format developed within the NMRlipids project to recognize the atoms and bonds of interest when analyzing the trajectory.
+The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/tree/master/teff_analysis}), along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
 
-After downloading the necessary files from Zenodo, the trajectory was processed with Gromacs \texttt{gmx trjconv} to make the molecules whole.
-The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{OrderParameter.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
+After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole.
+We then calculated the  $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP}) with the \texttt{OrderParameter.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
 The \mbox{C--H} bond correlation functions
-$g(\tau)$ (see Eq.~\eqref{eq:BCF})
-were calculated with Gromacs5.1.4\cite{abraham2015gromacs} \texttt{gmx rotacf} (
-note that on simulational (fast) time scales $g = g_\mathrm{s} g_\mathrm{f}= g_\mathrm{f}$) after which
-the $S_\mathrm{CH}$ were used to
-normalize the $g_\mathrm f$ to obtain the $g'_\mathrm f$, following Eq.~\eqref{eq:nBCF}.
+$g(\tau)$ (Eq.~\eqref{eq:BCF})
+were calculated with Gromacs\,5.1.4~\cite{abraham2015gromacs} \texttt{gmx rotacf}
+(note that in MD $g_\mathrm s =1$ so that $g = g_\mathrm{f}$)
+after which the $S_\mathrm{CH}$ were used to
+normalize the $g_\mathrm f$ to obtain %the $g'_\mathrm f$, following Eq.~\eqref{eq:nBCF}.
+the reduced and normalized correlation function
+\begin{equation}
+\label{eq:nBCF}
+g'_{\mathrm{f}}(\tau)=\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}},
+\end{equation}
+that is, the integrand in Eq.~\eqref{eq:teff}. 
 
-The effective correlation times $\tau_\mathrm e$ were then calculated by integrating $g'_\mathrm f(\tau)$,
-(Eq.~\eqref{eq:nBCF}), from $\tau=0$ until $\tau = t_0$.
-Here, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached zero, $t_0 = \min
+The effective correlation times $\tau_\mathrm e$ were then calculated by integrating $g'_\mathrm f(\tau)$
+from $\tau=0$ until $\tau = t_0$.
+Here, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached zero: $t_0 = \min
 	\{
-	t\,|\,g'(t)=0
+	t\,|\,g'_\mathrm f(t)=0
 	\}
 $.
 %
@@ -481,9 +481,9 @@ $t_\mathrm{anal}/2$, the
 $\tau_\mathrm e$ was not determined,
 and we report only its upper and lower estimates.
 
-To quantify the error on $\tau_\mathrm e$, we first estimate the error on $g'_\mathrm f(\tau)$,%
+To quantify the error on $\tau_\mathrm e$, we first estimate the error on $g'_\mathrm f(\tau)$,
 %At a given timepoint $\tau$,
-where we account for two sources of uncertainty, $g_{\mathrm{f}}(\tau)$ and $S^2_\mathrm{CH}$.
+where we account for two sources of uncertainty: $g_{\mathrm{f}}(\tau)$ and $S^2_\mathrm{CH}$.
 %
 Performing linear error propagation on Eq.~\eqref{eq:nBCF} gives
 \begin{align}
@@ -532,7 +532,7 @@ t_\mathrm l= \min
 That is,
 $t_\mathrm l$ equals
 the first time point at which the lower error estimate of $g'_\mathrm f$ reached zero;
-or $t_\mathrm l=t_\mathrm{anal}/2$, if zero was not reached by that point.
+or $t_\mathrm l=t_\mathrm{anal}/2$, if zero was not reached before that point.
 %This is the one sigma error.
 
 To obtain the upper error estimate on $\tau_\mathrm e$, we first integrate the function
@@ -550,64 +550,60 @@ able to see. Although these would contribute to $\tau_\mathrm e$ with a low weig
 their contribution over long times could still add up to a sizable effect on $\tau_\mathrm e$.
 %
 That said, it is feasible to assume (see Fig. \ref{fig:schem_teff}A) that there are no longer-time contributions
-to $g_\mathrm f$ than something that decays with a time constant of $10^{-6}$~s.
+to $g_\mathrm f$ than something that decays with a time constant of $10^{-6}$\,s.
 %
-We use this as our worst case estimate to assess the upper bound for $\tau_\mathrm e$, and
+We use this as our worst case estimate to assess the upper bound for $\tau_\mathrm e$, that is,
 %
-assume that all the decay from the time point
+we assume that all the decay of $g_\mathrm f$ from the time point
 $
-t_\mathrm u= \min
-\left\{
-	t_0,
-	{t_\mathrm{anal}}/{2}
-\right\}
-$
-onwards comes solely from this slowest process.
+t_\mathrm u$ %=\min
+%\left\{
+%	t_0,
+%	{t_\mathrm{anal}}/{2}
+%\right\}
+%$
+onwards comes solely from this hypothetical slowest process that decays with a time constant of $10^{-6}$\,s.
 %
-
 The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
-\begin{equation}
+\begin{align}
 \begin{split}
-\left( g'_f(t_u)+\Delta g'_f(t_u) \right)
-\int_{t_u}^T \exp(-(t-t_u)/T) dt
-=\\
-\left( g'_f(t_u)+\Delta g'_f(t_u) \right)
-( 1 - \exp( (t_u-T)/T ) )T
+( g'_\mathrm f(t_\mathrm u)&+\Delta g'_\mathrm f(t_\mathrm u) )\\
+&\times \underbrace{\int_{t_\mathrm u}^{10^{-6}\,\mathrm s} \exp\left(-\frac{\tau-t_\mathrm u}{10^{-6}\,\mathrm s}\right)\mathrm{d}\tau}_{= \left( 1 - \exp\left( \frac{t_\mathrm u-10^{-6}\,\mathrm s}{10^{-6}\,\mathrm s} \right) \right) 10^{-6}\,\mathrm s}.
 \end{split}
-\end{equation}
+\end{align}
 
 %The effective correlation times $\tau_\mathrm e$ were calculated by integrating, see Eq.~\eqref{eq:teff}, $g'_\mathrm f(\tau)$ over time from $\tau=0$ until $\tau = t_0$.
 
 The $R_{1}$ rates were calculated using Eq.~\eqref{eq:R1}.
 %
 The spectral density $j(\omega)$ was obtained from the normalized correlation function $g'_\mathrm f$
-by fitting it with a sum of $N=61$ exponentials
+by fitting it with a sum of 61 exponentials
 \begin{equation}
 \label{eq:weights}
-g'_\mathrm{f}(\tau)\approx\sum_{i=1}^{N}\alpha_{i}e^{-\tau/\tau_{i}},
+g'_\mathrm{f}(\tau)\approx\sum_{i=1}^{61}\alpha_{i}e^{-\tau/\tau_{i}},
 \end{equation}
-with logarithmically spaced time-scales $\tau_{i}$ ranging from 1~ps to 1~$\mu$s, 
+with logarithmically spaced time-scales $\tau_{i}$ ranging from 1\,ps to 1\,$\mu$s, 
 and then calculating the spectral density of this fit
 based on the Fourier transformation\cite{ferreira15}
 \begin{equation}
 \label{eq:j}
-j{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{N}\alpha_{i}\frac{\tau_{i}}{1+\omega\tau_{i}} .
+j{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{61}\alpha_{i}\frac{\tau_{i}}{1+\omega\tau_{i}} .
 \end{equation}
 %
 The $R_{1}$ rate of a given C--H pair was
-first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per pair were then assumed independent:
+first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per \mbox{C--H} pair were then assumed independent:
 Their mean gave the $R_1$ rate of the C--H pair, and 
 standard error of the mean its uncertainty.
 %
 The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H pairs.
 %
-When several carbons contribute to a single experimental $R_1$ rate due to the overlapping peaks (for example in C$_2$ carbon in acyl chains and $\gamma$ carbons),
-the $R_1$ from simulations was obtained as an average over all overlapping carbons.
+When several carbons contribute to a single experimental $R_1$ rate due to the overlapping peaks (for example in C2 carbon in the acyl chains and the $\gamma$ carbons),
+the $R_1$ from simulations was obtained as an average over all such overlapping carbons.
 %
 The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H pairs.
 
 To gain some qualitative insight on the time scales at which the main contributions to the $R_{1}$ rates arise,
-we also calculated 'cumulative' $R_1$ rates, $R_1(\tau)$, which contained contributions of the sum in Eq.~\eqref{eq:j} for which $\tau_i<\tau$.
+we also calculated 'cumulative' $R_1$ rates, $R_1(\tau)$, which contained those terms of the sum in Eq.~\eqref{eq:j} for which $\tau_i<\tau$.
 Note that here the $g'_\mathrm{f}$ averaged over lipids was used;
 therefore, the 'cumulative' $R_1(\tau\to\infty)$ does not necessarily have exactly
 the same numerical value as the actual $R_1$.
@@ -618,7 +614,7 @@ to estimating $\tau_\mathrm{e}$, because
 \label{eq:TeffSum}
 \tau_\mathrm{e}
 	=\int_0^\infty\!g'_\mathrm f(\tau)\,\mathrm d\tau
-	\approx\sum_{i=1}^{N}\alpha_{i}\tau_{i}.
+	\approx\sum_{i}\alpha_{i}\tau_{i}.
 \end{equation}
 When the simulation trajectory is not long enough for the correlation function to reach the plateau, integrating $g'_\mathrm f$ gives a lower bound estimate for $\tau_\mathrm{e}$, while the sum of Eq.~\eqref{eq:TeffSum} includes also (some) contribution from the longer-time components via the fitting process.
 However, in practice the fit is often highly unreliable in depicting the long tails of the correlation function, and thus we chose to quantify $\tau_\mathrm{e}$ using the area under $g'_\mathrm f$, and estimate its uncertainty as detailed above.
