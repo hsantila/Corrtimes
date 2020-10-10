@@ -240,7 +240,14 @@ Clearly
 the connection between $R_1$ and molecular dynamics is not straightforward;
 the magnitude of $R_1$ does, however, reflect the relative significance of processes
 with timescales near the inverse of $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$. These two frequencies depend on the field strength used in the NMR experiments: Typically
-$R_1$ is most sensitive to motions with time scales $\sim$1--10\,ns.
+$R_1$ is most sensitive to motions with time scales $\sim$0.1--10\,ns.
+%
+(In our experimental data~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a}
+$\omega_\mathrm C=125$\,MHz and $\omega_\mathrm H=500$\,MHz,
+which gives
+$(2\pi\times125~\mathrm{MHz})^{-1}=1.3$\,ns and
+$(2\pi\times625~\mathrm{MHz})^{-1}=0.25$\,ns.)
+%
 A change in $R_{1}$, therefore, indicates a change in the relative amount of processes
 occurring in a window around the sensitive timescale, but does not give information on the direction (speedup/slowdown) to which the processes changed.
 % It is impossible to directly connect an increase/decrease of $R_1$ rates to speedup/slowdown of specific motions.
@@ -259,7 +266,7 @@ where $\hslash$ is the reduced Planck constant, $\gamma_{\mathrm{C}}$ and $\gamm
 
 \subsection*{Data acquisition and analysis.}
 %
-All the experimental quantities used in this work were collected from the literature sources cited at the respective figures.   
+All the experimental quantities used in this work were collected from the literature sources~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a} cited at the respective figures.   
 
 %\subsection*{Simulational data acquisition and analysis.}
 %
@@ -271,7 +278,9 @@ Table~\ref{tab:hydr} those with varying hydration.
 Full computational details for each simulation are available at the cited Zenodo entry.
 
 \begin{table}[t!]
-\caption{Analyzed simulations of pure POPC lipid bilayers at full hydration.}
+\caption{Analyzed open-access MD trajectories of pure POPC lipid bilayers at full hydration.
+Note that the temperature varied across these openly available simulation data, but in no case was $T$ lower than in the experiment. Thus, as dynamics slows down when temperature drops, any overestimation of $\tau_\mathrm{e}$ by MD (as typically seen in Fig.~\ref{fig:teff_R1}) would get worse if the simulations were done at the experimental 298\,K.
+}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{lrrrrc}
@@ -308,7 +317,7 @@ ECC~\cite{melcr18}
 \end{table}
 
 \begin{table}[]
-\caption{Analyzed simulations of cholesterol-containing POPC bilayers at full hydration.}
+\caption{Analyzed open-access MD trajectories of cholesterol-containing POPC bilayers at full hydration.}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{lrrrrrrc}
@@ -350,7 +359,7 @@ Slipids~\cite{jambeck12b}
 \end{table}
 
 \begin{table}[]
-\caption{Analyzed simulations of PC lipid bilayers under varying hydration level.}
+\caption{Analyzed open-access MD trajectories of PC lipid bilayers under varying hydration level.}
 \begin{minipage}[t]{\columnwidth}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{llrrrrrc}
@@ -566,6 +575,7 @@ onwards comes solely from this hypothetical slowest process that decays with a t
 %
 The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
 \begin{align}
+\label{eq:extraUpperError}
 \begin{split}
 ( g'_\mathrm f(t_\mathrm u)&+\Delta g'_\mathrm f(t_\mathrm u) )\\
 &\times \underbrace{\int_{t_\mathrm u}^{10^{-6}\,\mathrm s} \exp\left(-\frac{\tau-t_\mathrm u}{10^{-6}\,\mathrm s}\right)\mathrm{d}\tau}_{= \left( 1 - \exp\left( \frac{t_\mathrm u-10^{-6}\,\mathrm s}{10^{-6}\,\mathrm s} \right) \right) 10^{-6}\,\mathrm s}.
@@ -598,7 +608,7 @@ standard error of the mean its uncertainty.
 The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H pairs.
 %
 When several carbons contribute to a single experimental $R_1$ rate due to the overlapping peaks (for example in C2 carbon in the acyl chains and the $\gamma$ carbons),
-the $R_1$ from simulations was obtained as an average over all such overlapping carbons.
+the $R_1$ from simulations was obtained as an average over carbons with overlapping peaks.
 %
 The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H pairs.
 
@@ -619,7 +629,6 @@ to estimating $\tau_\mathrm{e}$, because
 When the simulation trajectory is not long enough for the correlation function to reach the plateau, integrating $g'_\mathrm f$ gives a lower bound estimate for $\tau_\mathrm{e}$, while the sum of Eq.~\eqref{eq:TeffSum} includes also (some) contribution from the longer-time components via the fitting process.
 However, in practice the fit is often highly unreliable in depicting the long tails of the correlation function, and thus we chose to quantify $\tau_\mathrm{e}$ using the area under $g'_\mathrm f$, and estimate its uncertainty as detailed above.
 
-
 \section{Results and Discussion}
 \begin{comment}
 The internal dynamics of lipids in MD simulations has been previously evaluated by comparing
@@ -631,96 +640,116 @@ magnetic fields or temperatures, are required to fully evaluate dynamics in simu
 from experiments \cite{Roberts:2009a,leftin11}.
 \end{comment}
 
-In the following, we discuss phospholipid conformational  dynamics in
-six different MD force fields. We do this first for %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36 
-standard conditions (pure POPC bilayers, full hydration, no salt;
-see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for results)
-%
-%An assessment of the bilayer dynamics under one set of conditions does not a give complete picture of the membrane functioning.
-and then proceed to
-cover a wider range of experimentally, biologically, and computationally relevant conditions, where we explore how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}) and when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}).
+Using open-access MD simulation trajectories,
+we benchmark phospholipid conformational  dynamics in six
+MD force fields. %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36
+We start with
+pure POPC bilayers in their liquid crystalline fully hydrated state
+(see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for the data), and
+% We
+then proceed to
+%cover a wider range of experimentally, biologically, and computationally relevant conditions, where we explore
+check the changes in dynamics when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}) and when the hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}).
+%We compared against
+Our yardsticks are
+the effective correlations times $\tau_\mathrm e$ (Eq.~\eqref{eq:teff}) and
+the $R_1$ rates (Eq.~\eqref{eq:R1})
+measured at 125\,MHz $^{13}$C (500\,MHz $^1$H) Larmor frequency;
+an MD model with correct rotational dynamics in a window around $\sim$1\,ns
+%$(2\pi\times125~\mathrm{MHz})^{-1}=1.3$\,ns and
+%$(2\pi\times625~\mathrm{MHz})^{-1}=0.25$\,ns
+will match the experimental $R_1$ rates, whereas
+the $\tau_\mathrm{e}$ reflect all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
 
-One should keep in mind that none of the force fields we study
-produces all the C--H bond order parameters, $S_\mathrm{CH}$, within experimental accuracy~\cite{botan15}.
+
+
+%\subsection*{Effective correlation times $\tau_\mathrm e$ at standard conditions.}
+\subsection*{Pure POPC at full hydration: Slipids and CHARMM36 reproduce $\tau_\mathrm e$ excellently.}
+The top panels of Fig.~\ref{fig:teff_R1} compare the effective correlation times $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in six different MD force fields (color).
+We see that---as implied by the discussion leading to Eq.~\eqref{eq:extraUpperError}---sub-$\mu$s MD simulations typically lead to asymmetric error bars on $\tau_\mathrm{e}$;
+if these open-access trajectories were extended,
+the $\tau_\mathrm{e}$ values would more likely increase than decrease.
+Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails.
+
+Quantitatively, most MD simulations tend to produce too slow dynamics in the glycerol region (Fig.~\ref{fig:teff_R1}).
+This %detected slow glycerol backbone dynamics in MD
+is consistent with previous results for the Berger model~\cite{ferreira15}, and with the
+insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMM\-c32b2~\cite{schlenkrich96,feller00} simulations of a PC lipid~\cite{vogel12}. %DOPC
+
+The best overall $\tau_\mathrm{e}$-performance is seen in
+Slipids and in particular CHARMM36 (Fig.~\ref{fig:teff_R1}). %---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong (decreasing) trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
 %
-%(In CHARMM36 the three headgroup segments have rather good $S_\mathrm{CH}$: $\gamma$ within $\pm0.01$, $\beta$ within $\pm0.04$, and $\alpha$ within $\pm0.02$.)
+This is in line with CHARMM36 reproducing the most realistic conformational ensembles
+for the headgroup and glycerol backbone among the MD simulation force fields benchmarked here~\cite{botan15,Antila:2019a}.
 %
-This means that the structural ensembles simulated do not exactly match
-the structural ensemble occurring in reality.%, that is, these simulations are not a true computational microscope.
-%
- Consequently, the
-$\tau_\mathrm{e}$ times and $R_1$ rates
-depict the dynamics of sampling a somewhat different phase space
+Indeed, it is important to keep in mind that the conformational ensembles %of glycerol backbone and headgroup 
+greatly differ between  force fields and are not exactly correct in any of them~\cite{botan15,Antila:2019a}.
+Consequently, the calculated $\tau_\mathrm{e}$ times and $R_1$ rates
+depict the dynamics of sampling a somewhat different and incorrect phase space
 for each model. %that differs from what is being observed in the experiments.
-%
-To this end, we avoid overly detailed discussion on the models and rather concentrate on common and qualitative trends.
+To this end, we try to avoid overly detailed discussion on the models and rather concentrate on common and qualitative trends.
+That said,
+there are a few carbon segments in the data for which
+the experimental order parameters, $R_1$, and $\tau_\mathrm{e}$ are all (almost) reproduced by simulations,
+suggesting that the conformational ensemble and dynamics is correctly captured by MD in these cases. 
+For example, 
+% LET'S MENTION ONLY THE VERY GOOD ONES,
+% AND WHERE ALSO THE S_CH MATCH (although they are not shown)
+% Lipid14, ECC, and MacRog perform well at the oleoyl double bond; % the S_CH are not within errors
+Slipids performs well at the $\beta$ and $\alpha$, and
+CHARMM36 at the g$_3$, g$_2$,  and C2 segments. % and % The C3 S_CH are not within exp error
+These are, however, exceptions.
 
-
-\subsection*{Effective correlation times $\tau_\mathrm e$ at standard conditions.}
-The top panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in the six different MD force fields (color).
-
-Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails. Quantitatively, MD has a tendency to produce too slow dynamics in the glycerol region.
-CHARMM36 and Slipids show the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong (decreasing) trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
-
-The detected slow glycerol backbone dynamics in MD is consistent with previous results for the Berger model~\cite{ferreira15}. It also in line with the insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
-
-%We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
-
-Note that the temperature varied across these openly available simulation data. However, it was in no case lower than in the experiment. 
-Were the simulations done at the experimental 298\,K, the overestimation of $\tau_\mathrm{e}$ at the glycerol backbone by MD would get worse as $\tau_\mathrm{e}$  increases at decreasing temperature.
-
-\begin{figure*}[!ht]
+\begin{figure*}[!h]
 \centering
-\includegraphics[width=\textwidth]{../Figs/normalcond5.pdf}
-\caption{Effective correlation times ($\tau_\mathrm{e}$, top panels) and $R_{1}$ rates (bottom panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
-Inset on the top right shows the POPC structure and carbon segment labeling.
+\includegraphics[width=0.81\textwidth]{../Figs/normalcond5.pdf}
+\caption{Effective correlation times ($\tau_\mathrm{e}$, top) and $R_{1}$ rates (bottom) in experiments~\cite{Antila:2020a} (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
+Inset shows the POPC chemical structure and carbon segment labeling.
 Each plotted value contains contributions from all the hydrogens within its carbon segment; the data for segments 8--11 are only from the sn-2 (oleoyl) chain, whereas the (experimentally non-resolved) contributions of both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
 %
-Simulation results are only shown for the segments where experimental data is available.
+Simulation results are only shown for the segments for which experimental data was available.
 %
 For $\tau_\mathrm{e}$,
 a simulation data point indicates the average over C--H bonds; however,
 if $\tau_\mathrm{e}$ could not be determined for all bonds, only the error bar
 (extending from the mean of the lower to the mean of the upper error estimates) is shown.
 %
-The Berger data for segments $\gamma$, C18, and C16' are left out, because the protonation algorithm used to construct the hydrogens post-simulation in united atom models does not preserve the methyl C--H bond dynamics.
+The Berger data for segments $\gamma$, C18, and C16' are left out, as the protonation algorithm used to construct the hydrogens post-simulation in united atom models does not preserve the methyl C--H bond dynamics.
 %
-Table~\ref{tab:standr} provides further simulation details, while information on the experiments is avaible at Ref.~citenum{Antila:2020a}.
+Table~\ref{tab:standr} provides further simulation details, while information on the experiments is available at Ref.~\citenum{Antila:2020a}.
 }
 \label{fig:teff_R1}
 
 \end{figure*}
 
-\subsection*{$R_1$ rates at standard conditions.}
-The lower on the right side of Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for the $\tau_\mathrm{e}$ on the left.
-
+%\subsection*{$R_1$ rates at standard conditions.}
+\subsection*{An excellent $\tau_\mathrm e$ can be accompanied by a poor $R_1$, or \emph{vice versa}.}
+The lower panels of Fig.~\ref{fig:teff_R1} compare the experimental and simulated $R_{1}$ rates under the same conditions that were used for the $\tau_\mathrm{e}$ above.
+%
+\begin{comment}
 There are certain qualitative features that all force fields predict correctly
 (for example that $\mathrm g_2$ has the smallest $R_1$ among the glycerol and C9 among the oleoyl double bond segments),
 and certain that they all miss (that $R_1$ rates for the oleoyl segments C8, C10, and C11 are all roughly equal).
-
-Quantitatively,
-there are a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match experiments, suggesting (almost) correct rotational dynamics at all relevant time scales.
+\end{comment}
 %
-%, and for the .
-%
-For example, 
-%LET'S MENTION ONLY THE VERY GOOD ONES
-Slipids performs well at the $\beta$ and $\alpha$ segments;
-CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
-Lipid14, ECC, and MacRog for the oleoyl double bond.
+Notably, there are several instances where the $R_1$ comparison distinctly differs from what was seen for $\tau_\mathrm{e}$.
 
-Notably, there are also instances where the $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$: Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. Conversely, a matching $R_{1}$ can be accompanied by a larger-than-experimental $\tau_\mathrm{e}$.
-% such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
+There are cases where
+a matching $R_{1}$ is accompanied by a larger-than-experimental $\tau_\mathrm{e}$.
 %Also examples to the contrary are seen: MacRog reproduces $R_{1}$ rates well for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
-To appreciate such differences,  recall that in order to capture our experimental $R_1$ rates (measured at 125\,MHz) a force field has to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale, whereas
-$\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
+MacRog for the $\beta$, $\alpha$, and g$_1$ segments provides a prominent example
+%where the $R_1$ rates are well reproduced, but $\tau_\mathrm e$ times systematically overestimated.
+of this.
+Such a combination suggests that MD has the correct relative weight of 1-ns-scale dynamics, but has too slow long-time dynamics.
 
-MacRog for the $\beta$, $\alpha$, and g$_1$ segments provides a prominent example where
-the $R_1$ rates are well reproduced, but $\tau_\mathrm e$ times systematically overestimated.
-Such a combination suggests that MD does well at the 1\,ns scale, but has too slow long-time dynamics.
-
-The opposite---where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not---is demonstrated by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at the other time scales.
-As CHARMM36 overall performs rather well for both $R_1$ and $\tau_\mathrm{e}$,
+There are also cases
+%Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. % such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments. The opposite---
+where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not, such as
+the $\beta$ and $\alpha$ segments in CHARMM36.
+Therein a cancellation of errors occurs in $\tau_\mathrm{e}$: The
+overestimation of the relative weight of
+1-ns-scale dynamics is compensated by wrong dynamics at the other time scales.
+As CHARMM36 overall performs rather well for C--H bond order parameters, $R_1$, and $\tau_\mathrm{e}$,
 we proceed to study this shortcoming on the headgroup $R_1$ rates
 in some more detail.
 %
@@ -987,7 +1016,7 @@ Importantly, this work demonstrates the potential of open data in achieving this
 \acknowledgement
 H.A gratefully acknowledges the support from Osk. Huttunen's foundation, Finnish Academy of Science and Letters (Foundations’ Post Doc Pool), Instrumentarium Science Foundation, and the AvH Foundation.
 
-\bibliography{lipids,ff,simu,pdb,journals,technical} %,bbRefs}
+\bibliography{lipids,ff,simu,pdb,journals,technical,bbRefs}
 
 \begin{tocentry}
  % \includegraphics[width=77mm]{abstract_figure}
