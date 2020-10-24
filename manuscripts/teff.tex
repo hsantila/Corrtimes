@@ -723,7 +723,7 @@ Table~\ref{tab:standr} provides further simulation details, while information on
 \end{figure*}
 
 %\subsection*{$R_1$ rates at standard conditions.}
-\subsection*{An excellent $\tau_\mathrm e$ can be accompanied by a poor $R_1$, or \emph{vice versa}.}
+\subsection*{An excellent $\tau_\mathrm e$ may be accompanied by a poor $R_1$, or \emph{vice versa}.}
 The lower panels of Fig.~\ref{fig:teff_R1} compare the experimental and simulated $R_{1}$ rates under the same conditions that were used for the $\tau_\mathrm{e}$ above.
 %
 \begin{comment}
@@ -758,69 +758,76 @@ in some more detail.
 %In the tail region, the MD models are in somewhat worse agreement with $R_{1}$ rates than what was seen for $\tau_\mathrm{e}$.
 %General tendency for MD to succeed in shorter time scales whereas rotations with slower dynamics are not depicted as well?
 
-\subsection*{Dynamics of headgroup segments in CHARMM36.}
+%\subsection*{Dynamics of headgroup segments in CHARMM36.}
+\subsection*{Conformational dynamics of PC headgroup segments in MD.}
 
 Figure~\ref{fig:cumulativeR1s}A zooms in on the headgroup ($\gamma$, $\beta$, $\alpha$) segments,
 whose $\tau_\mathrm e$ were not clearly visible on the scale of Fig.~\ref{fig:teff_R1}.
 %
-For $\beta$, $\alpha$, CHARMM36 matches the experimental $\tau_\mathrm e$,
-but overestimates $R_1$, while Slipids captures both measurables near perfectly.  
+We see that for $\gamma$,
+no force field provides both $\tau_\mathrm e$ and $R_1$,
+but Slipids comes closest.
 %
-No force field provides both $\tau_\mathrm e$ and $R_1$ for $\gamma$.
+For $\beta$ and $\alpha$,
+%CHARMM36 matches the experimental $\tau_\mathrm e$, but overestimates $R_1$, while
+Slipids captures both measurables near perfectly.  
+%
+In other words, among the benchmarked force fields Slipids gives the most realistic description of the conformational dynamics in the headgroup region.
+CHARMM36, e.g., overestimates ($R_1$) the relative weight of timescales around $\sim$1\,ns.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\columnwidth]{../Figs/cumulativeR1.pdf}
 \caption{Contributions to the dynamics of the headgroup segments.
 (A) Zoom on the headgroup $\tau_\mathrm e$ (left panel) and $R_1$ (right).
-(B) 'Cumulative' $R_1$ (see Methods for definition) of the
+(B) 'Cumulative' $R_1(\tau)$ of the
 $\gamma$ (top panel), $\beta$ (middle), and $\alpha$ (bottom) segments.
+$R_1(\tau)$ is obtained, as detailed in Methods,
+by including in the sum of Eq.~\eqref{eq:j} only terms with $\tau_i<\tau$.
+Consequently, at $\tau\to\infty$ the $R_1(\tau)$ approaches the actual $R_1$.
 (C) Prefactor weighs $\alpha_i$ from Eq.~\eqref{eq:weights} of $\gamma$ (top), $\beta$ (middle), and $\alpha$ (bottom).
-In B and C, a sliding average over 3 neighboring data points is shown.
+Note that panels B and C show a sliding average over 3 neighboring data points.
 }
 \label{fig:cumulativeR1s}
-\todo{Note: samuli wanted to reverse B-C panel order}
 \end{figure}
 
-To investigate where the differences between force fields arise, we visualize the 
-'cumulative' $R_1(\tau)$ in Fig.~\ref{fig:cumulativeR1s}B.
-It is obtained, as detailed in Methods,
-by including in the sum of Eq.~\eqref{eq:j} only terms with $\tau_i<\tau$.
-Consequently, at $\tau\to\infty$ the 'cumulative' $R_1(\tau)$ approaches the actual $R_1$. Ranges of steepest increase therefore indicate time scales that most strongly contribute to $R_1$ rates.
+To investigate closer how the differences between force fields arise, Fig.~\ref{fig:cumulativeR1s}B shows the 
+'cumulative' $R_1(\tau)$, where the ranges of steepest increase indicate time scales that most strongly contribute to $R_1$ rates.
 
-Figure~\ref{fig:cumulativeR1s}B shows
-that for models that overestimate the $R_1$ rate of $\gamma$
+For the $\gamma$ segment,
+Fig.~\ref{fig:cumulativeR1s}B shows
+that for models that overestimate the $R_1$ rate 
 (MacRog, CHARMM36, and Slipids, see Fig.~\ref{fig:cumulativeR1s}A)
-the major contribution to $R_1$ arises at $\tau>50$\,ps, whereas those underestimating the $R_1$ 
-(Lipid14 and ECC, see Fig.~\ref{fig:teff_R1})
+the major contribution to $R_1$ arises at $\tau>50$\,ps, whereas for models that underestimate $R_1$ 
+(Lipid14 and ECC)
 the major contribution comes from $\tau<50$\,ps. 
 %
 This also manifests in the
 distribution of fitting weights ($\alpha_i$ in Eq.~\eqref{eq:weights}) in Fig.~\ref{fig:cumulativeR1s}C:
-The earlier the non-zero weights occur, the smaller is the resulting $R_1$.
-
+The later non-zero weights occur, the larger is the resulting $R_1$ of $\gamma$.
 
 For the $\beta$ and $\alpha$ segments, Fig.~\ref{fig:cumulativeR1s}B shows
 that the main contribution to $R_1$ rates arises from processes
-between 200~ps and 2~ns.
+between 100\,ps and 1\,ns.
 %
-As CHARMM36 has the largest weights of all models in this window (Fig.~\ref{fig:cumulativeR1s}C),
-it overestimates $R_1$.
+CHARMM36 has the largest relative weights of all models in this window (Fig.~\ref{fig:cumulativeR1s}C),
+which explains its overestimation of $R_1$ of $\beta$ and $\alpha$.
 %
-%For example
-In contrast, Slipids, which has simultaneously $R_1$ and $\tau_\mathrm e$ correct,
-has its largest weights at $\tau<200$\,ps.
+All the other models have $R_1$ rates close to experiments,
+but only Slipids simultaneously gives also the $\tau_\mathrm e$ correctly.
+Notably, Slipids has its largest weights at $\tau<100$\,ps.
 %
-Indeed, considerable weights
-at short time scales ($<10$\,ps in $\alpha$ for Lipid14, ECC, Berger, CHARMM36) and
-at long time scales ($>10$\,ns in both $\beta$ and $\alpha$ for MacRog and Berger)
-do not manifest at all in the $R_1$ rates.
+Indeed, the considerable weights
+at short ($<10$\,ps) time scales  in all models except MacRog and
+at long ($>10$\,ns) time scales in %both $\beta$ and $\alpha$ for
+MacRog and Berger hardly manifest in $R_1$.
 %
-However, the latter contribute heavily on $\tau_\mathrm e$,
+However, the latter contribute heavily to $\tau_\mathrm e$,
 which is thus considerably overestimated by MacRog and Berger (Fig.~\ref{fig:teff_R1}).
 
-What are the motions in the 0.2--2\,ns window that are over-presented in CHARMM36?
-Identifying them and speeding them up would improve the model dynamics.
+It would be highly interesting to identify the origins of the observed artificial timescales,
+particularly for the 0.1--1\,ns window over-presented in CHARMM36, and
+propose how to correct those in the simulation models.
 However, the connection between the fitted correlation times and the correlation times of distinct motional processes, such as dihedral rotations and lipid wobbling, turns out to be highly non-trivial; we thus refrain from further analysis here.
 
 \subsection*{Effect of cholesterol.}
