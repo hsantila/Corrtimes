@@ -907,54 +907,55 @@ Of the benchmarked force fields, CHARMM36 appears most realistic in reproducing 
 	\label{fig:chol}
 \end{figure}
 
-\subsection*{Effect of dehydration.}
-Understanding the impact of dehydration on the structure and dynamics of lipid bilayers is of considerable biological interest. Most prominently, membrane fusion is always preceeded by removal of water between the opposing membrane and dehydration therefore may considerably affect the fusion characteristics such as the rate. Lipid bilayers in dehydrated states are also found, e.g., in skin tissue. 
+\subsection*{Effect of drying.}
+Understanding the impact of dehydration on the structure and dynamics of lipid bilayers is of considerable biological interest.
+Dehydrated states are found, e.g., in skin tissue.
+Most prominently, the process of membrane fusion is always preceeded by removal of water between the approaching surfaces, and thus the dehydration-imposed changes can considerably affect fusion characteristics, such as its rate.
 
 Figure~\ref{fig:hydration}A shows how a mild dehydration affects
 C--H bond dynamics in the PC headgroup and glycerol backbone;
 the plot compares the experimental effective correlation times $\tau_\mathrm e$
 measured for POPC at full hydration and for DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine)
 at 13 waters per lipid.
-
-
+%
 The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
-the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
-(Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
+the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are rather insensitive to the chemical identities of the tails. This is analogous to  what was seen experimentally when adding cholesterol
+(Fig.~\ref{fig:chol}A): Structural changes in the tail and glycerol regions do not (need to) affect the headgroup dynamics. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
 in the headgroup and glycerol regions. 
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\columnwidth]{../Figs/hydration.pdf} 
 
-\caption{Effect of drying on %the
-effective correlation times %$\tau_\mathrm e$
-in headgroup and glyc\-er\-ol backbone.
-(A) Experimental $\tau_\mathrm e$ for
-DMPC (from Ref.~\citenum{pham15}) at low hydration %(13\,w/l)
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=\textwidth]{../Figs/hydration_2columns.pdf} 
+
+\caption{Effect of drying on PC headgroup and glyc\-er\-ol backbone conformational dynamics.
+(A) Experimental effective correlation times $\tau_\mathrm e$ for
+DMPC at low hydration %(13\,w/l)
+(from Ref.~\citenum{pham15})
 do not significantly differ from the
 $\tau_\mathrm e$ for POPC at full hydration (from Ref.~\citenum{Antila:2020a}). %(28\,w/l)
 (B) Calculated $\tau_\mathrm e$  for
 POPC at decreasing hydration in three MD models.
-Note that three Berger data points (4, 12, 16, and 24~w/l) are from DLPC bilayers.
-Symbols give the mean of segment hydrogens,
-if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
-(extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
-the area delimited by the error bars is shaded for visualization. (C) Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
-in experiments and simulations, with experiments indicating an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from Ref.~\citenum{Antila:2020a} (filled square), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} (diamond), and DMPC data at 13 w/l from Ref.~\citenum{pham15} (hollow square). 
+Symbols indicate the mean of segment hydrogens
+if $\tau_\mathrm{e}$ could be determined for all of them; otherwise, only the error bar
+(extending from the mean of the lower to the mean of the upper uncertainty estimates) is drawn.
+The area limited by the error bars shaded for visualization.
+Note that four Berger data points (4, 12, 16, and 24\,w/l) are from DLPC.
+(C) $^{13}$C-NMR $R_1$ rates (at $\omega_\mathrm C=125$\,MHz) of the PC headgroup segments
+in experiments and simulations: Experiments indicate an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from Ref.~\citenum{Antila:2020a} ($\blacksquare$), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} ($\blacklozenge$), and DMPC at 13 w/l from Ref.~\citenum{pham15} ($\square$). 
 See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
 Combination of
-the unrealistically slow dynamics, especially in the glycerol backbone, (Fig.~\ref{fig:teff_R1}) and
-the relatively short lengths of the openly available trajectories %with dehydration conditions
+the unrealistically slow dynamics, especially in the glycerol backbone (Fig.~\ref{fig:teff_R1}), and
+the relatively short lengths of the available open-access trajectories %with dehydration conditions
 (Table~\ref{tab:hydr})
-led to large uncertainty estimates. %for simulation data are large. %which makes discussion challenging.
-%
-
-Owing to the uncertainties, we only point out the qualitative trends. For all carbons in the headgroup and glycerol segments, the simulated  $\tau_\mathrm e$ indicates slow down upon dehydration. This is manifested in the increase in the magnitude of the error estimate (cf. the Berger data for $\beta$ and $\alpha$) as well as in the increase of the lower limit of the error. 
-For CHARMM36 the lower error estimates stay almost constant all the way until 7\,w/l, whereas for Berger and MacRog they indicate a retardation of the dynamics starting already from $\sim$20\,w/l.
+led to large uncertainty estimates; %for simulation data are large. %which makes discussion challenging.
+%owing to which,
+thus we only point out qualitative trends here. For all headgroup and glycerol segments, the simulated  $\tau_\mathrm e$ indicate slowdown upon dehydration. This is manifested in the increase in the magnitude of the error estimate (cf. the Berger data for $\beta$ and $\alpha$) as well as in the increase of the lower limit of the error. 
+For CHARMM36 the lower error estimates stay almost constant all the way until 7\,w/l, whereas for Berger and MacRog they hint that a retardation of dynamics starts already between 15 and 10\,w/l.
 
 These simulational findings suggest that
 experiments reducing hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
@@ -964,11 +965,11 @@ exponential slow-down
 of the headgroup conformational dynamics
 upon dehydration that was indicated by $^2$H-NMR $R_{1}$ measurements
 of DOPC bilayers:
-$R_1\sim\exp(-n_{{\mathrm w\!}_{/\mathrm l}}/4)$~\cite{ulrich94}.
+$R_1\sim\exp(-n_{{\mathrm w\!}_{\!/\mathrm l}}/4)$~\cite{ulrich94}.
 %
-The slowdown was attributed to the reduction in the effective volume available for the headgroup~\cite{ulrich94}
-owing to its tilt towards the membrane upon dehydration;
-the tilt is observed via changes of the lipid headgroup order parameters~\cite{bechinger91},
+The slowdown was attributed to the reduced effective volume available for the headgroup~\cite{ulrich94}
+as it tilts towards the membrane upon dehydration;
+such tilt is observed via changes of the lipid headgroup order parameters~\cite{bechinger91},
 and is qualitatively reproduced by all the simulation models~\cite{botan15}.
 
 %{\color{red} Cite also the D$_2$O data. \cite{Volke:1994b}}
@@ -978,24 +979,26 @@ and is qualitatively reproduced by all the simulation models~\cite{botan15}.
 
 Figure~\ref{fig:hydration}C shows
 a collection of experimental $^{13}$C-NMR $R_1$ rates
-measured at 125\,MHz for the headgroup segments
-at different water contents;
+%measured at $\omega_\mathrm C=125$\,MHz
+for the headgroup segments at different water contents;
 in addition to the full hydration POPC data from Fig.~\ref{fig:teff_R1},
 DMPC at 13\,w/l~\cite{pham15}, % 125 MHz, 300K
 and POPC at 20 and 5\,w/l~\cite{Volke:1995a} %125.76 MHz, 298K
 are shown.
 %
-Experimentally, an increasing trend with decreasing hydration is observed for all the segments,
+Experimentally, an increasing trend with decreasing hydration is observed for all three segments,
 indicating changes of headgroup dynamics at short ($\sim$1\,ns) time scales.
 Interestingly, only CHARMM36 captures this,
 whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 %
 
-The characteristics of the slow down discussed here are of significance
-not only for computational studies of inter\-membrane interactions, such as membrane fusion,  but also when simulating a bilayer (stack) under low hydration. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
+The slowdown characteristics discussed here are of significance
+not only for computational studies of inter\-membrane interactions, such as fusion,  but also when simulating a bilayer (stack) under low hydration: Slower dynamics require longer simulation times for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
 
 \section{Conclusions}
+%ONNISTUU.
+%LYHYITA SIMUJA VOISI JATKAA, MUTTA TASSA SITA EI TEHTY DEMOAMISEN TAKIA.
 Open access databanks of MD trajectories enables the creation new scientific information without running a single new simulation. Here,
 we demonstrated this by investigating the dynamics of a wide range of phosphatidylcholine molecular dynamics models using the existing trajectories from the NMRlipids databank.
 
