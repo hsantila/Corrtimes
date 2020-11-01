@@ -37,31 +37,44 @@
 \title{Using open data to rapidly bench\-mark bio\-molecular simulations: Phospholipid conformational dynamics}
 %\title{Using open data to rapidly bench\-mark simulations of unstructured biomolecules}
 %\title{Using open data to rapidly bench\-mark internal dynamics of unstructured biomolecules in molecular dynamics simulations}
+
+\onecolumn
 \begin{document}
 
 
 \begin{abstract}
-Molecular dynamics (MD) simulations are widely used to
-    study the atomistic structure and dynamics of biomembranes. It
-    remains unknown, however, how well the conformational dynamics
-    observed in MD simulations correspond to those occurring in real
-    life phospholipids. The accuracy of such time scales in MD can be
-    assessed by comparing against the effective correlation times $\tau_\mathrm e$ of
-    the C-H bonds measured in nuclear magnetic resonance experiments
-    (J. Chem. Phys. 142 044905 (2015)).
+Molecular dynamics (MD) simulations are widely used to monitor time-resolved motions of biomacromolecules, although it often remains unknown how closely the conformational dynamics %in MD
+correspond to those occurring in real life.
+Here, we used a large set of open-access MD trajectories of phosphatidylcholine (PC) lipid bilayers to benchmark the conformational dynamics in several contemporary MD models (force fields) against nuclear magnetic resonance (NMR) data available in the literature: effective correlation times and spin-lattice relaxation rates.
 
-Here, we
-use a large set of open data trajectories made public by the NMRlipids project (\url{ nmrlipids.blogspot.fi}) to
-perform an unprecedented test on
-the conformational dynamics of phospholipids as
-produced by several commonly used MD models (force fields).
-We find that
-none of the tested force fields to reproduce all the effective correlation times within experimental error, much like they do
-not provide accurate conformational ensembles (J. Phys. Chem. B 119 15075 (2015)). However, the dynamics observed in CHARMM36 and Slipids were more realistic than those seen in the Amber Lipid14, OPLS-based MacRog, and
- GROMOS-based Berger force fields, where dynamics of the glycerol backbone was unrealistically slow. \todo{Tiago: We need a punchline highlighting that the results and findings obtained are extremely important for the lipid MD simulation community and that they were only possible due to the open data}
+We found none of the tested MD models to fully reproduce the conformational dynamics. That said, the dynamics in CHARMM36 and Slipids are more realistic than in the Amber Lipid14, OPLS-based MacRog, and GROMOS-based Berger force fields, whose sampling of the glycerol backbone conformations is too slow. The %(qualitatively) good
+performance of CHARMM36 persists when cholesterol is added to the bilayer, and when the hydration level is reduced.
+However, for conformational dynamics of the PC headgroup,
+both with and without cholesterol,
+Slipids provides the most realistic description,
+because CHARMM36 overestimates the relative weight of $\sim$1-ns processes in the headgroup dynamics.
+%
+%Slipids is the most realistic model to study headgroup dynamics.
+%
+%Slipids is the most realistic model to study changes headgroup dynamics caused by cholesterol.
 
+We stress that not a single new simulation was run for the present work.
+This demonstrates the power of open-access MD trajectory databanks for
+a step indispensable in any serious MD study:
+Benchmarking the %suitability of
+available force fields. %to the task at hand
+%
+We believe this proof of principle to
+inspire other novel applications of MD trajectory databanks,
+and thus aid in developing
+%hasten the evolution of
+biomolecular MD simulations into a true computational microscope---not only for lipid membranes,
+but for all biomacromolecular systems.
+
+%\todo{Tiago: We need a punchline highlighting that the results and findings obtained are extremely important for the lipid MD simulation community and that they were only possible due to the open data}
 \end{abstract}
 
+\twocolumn
 \section{Introduction}
 Ever since the conception of Protein Data Bank (PDB)~\cite{nnb1971,wwPDB2019} and GenBank~\cite{jordan1982,sayers2020},
 open access to standardised and searchable pools of experimental data has
