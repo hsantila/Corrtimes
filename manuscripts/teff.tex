@@ -58,13 +58,13 @@ because CHARMM36 overestimates the relative weight of $\sim$1-ns processes in th
 %
 %Slipids is the most realistic model to study changes headgroup dynamics caused by cholesterol.
 
+%Not a single new simulation was run for the present work. This demonstrates the power of open-access MD trajectory databanks in benchmarking the available force fields---an indispensable first step in any serious MD study
 We stress that not a single new simulation was run for the present work.
-This demonstrates the power of open-access MD trajectory databanks for
-a step indispensable in any serious MD study:
+This demonstrates the worth of open-access MD trajectory databanks for
+the indispensable step of any serious MD study:
 Benchmarking the %suitability of
 available force fields. %to the task at hand
-%
-We believe this proof of principle to
+We believe this proof of principle will
 inspire other novel applications of MD trajectory databanks,
 and thus aid in developing
 %hasten the evolution of
@@ -104,8 +104,10 @@ progress that is far beyond the resources of a single research group or institut
 Consequently,
 the call for public availability and conservation of data has extended to molecular dynamics (MD) simulation trajectories of biomolecules~\cite{Feig:1999a,Tai:2004a,Silva:2006a}, and the discussion on how and by whom such databanks for dynamic structures would be set up is currently active~\cite{Hildebrand:2019a,Abraham:2019a,Abriata:2020a,Hospital:2020a}.
 %
-While no general MD trajectory databank %, accepting submissions of MD trajectories of any type of biomolecular system,
-currently operates,
+% While no general MD trajectory databank %, accepting submissions of MD trajectories of any type of biomolecular system,
+% currently operates,
+%
+While there are currently no general MD databanks in operation,
 individual databanks are accepting contributions on
 nucleic acid~\cite{Hospital:2016a}, %BIGNASim
 protein/DNA/RNA~\cite{Bekker:2020a}, %BSM-Arc
@@ -114,7 +116,7 @@ G-protein-coupled receptor~\cite{Rodriguez-Espigares:2019a}, %GPCRmd
 and lipid bilayer~\cite{Miettinen:2019c} %NMRlipids Databank
 simulations.
 
-Since 2013, the NRMlipids Project (\url{nmrlipids.blogspot.fi}) has
+Since 2013, the NMRlipids Project (\url{nmrlipids.blogspot.fi}) has
 promoted a fully open collaboration approach, where
 the whole scientific research process---from initial ideas and discussions to
 analysis methods, data, and publications---is all the time publicly available~\cite{botan15}.
@@ -126,6 +128,7 @@ of atomistic MD trajectories of lipid bilayers and
 indexed at \url{nmrlipids.fi}.
 
 MD databanks are expected to be particularly relevant for disordered biomolecules, such as
+% disordered proteins and lipids composing cellular membranes
 biological lipids composing cellular membranes or intrinsically disordered proteins.
 These, in contrast to folded proteins or DNA strands,
 cannot be meaningfully described by the coordinates of a single structure alone.
@@ -143,7 +146,7 @@ For lipid bilayers, such evaluation is possible against NMR and scattering data~
 
 Here, we demonstrate the use of a pre-existing, publicly available set of MD trajectories to
 rapidly evaluate the fidelity of phospholipid conformational dynamics in state-of-the-art force fields.
-The speed at which individual molecules sample their conformational ensemble
+The rate at which individual molecules sample their conformational ensemble
 %against experimental data in different force fields with unprecedented extent. 
 %Using this freely available resource we demonstrate here, for the first time, the viability of creating new scientific knowledge solely through analysis of pre-existing, open access MD simulation data.
 is traditionally used to assess if a given MD simulation has converged.
@@ -224,7 +227,7 @@ Their relation to process speeds is intuitive: Increase of long-lived correlatio
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{../Figs/gfun_draft.pdf} 
-\caption{C--H bond autocorrelation function $g(\tau)$. (A) Idealised illustration of the fast (white background) and the slow (green) mode of the correlation function. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. Oscillations at the slow mode region are due to magic angle spinning. (B) Typical $g(\tau)$ obtained from an MD simulation, showing the decay towards $S^2_{\mathrm{CH}}$. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
+\caption{C--H bond autocorrelation function $g(\tau)$. (A) Idealised illustration of the fast (white background) and the slow (green) mode of the correlation function in solid-state NMR experiments. The fast mode decays to a plateau on which $g(\tau)=S^2_{\mathrm{CH}}$, while the slow mode gives the final descent to zero. Oscillations at the slow mode region are due to magic angle spinning. (B) Typical $g(\tau)$ obtained from an MD simulation, showing the decay towards $S^2_{\mathrm{CH}}$. The gray area under the curve is equal to $(1-S^2_{\mathrm{CH}})\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
 \end{figure} 
 
@@ -261,11 +264,18 @@ which gives
 $(2\pi\times125~\mathrm{MHz})^{-1}=1.3$\,ns and
 $(2\pi\times625~\mathrm{MHz})^{-1}=0.25$\,ns.)
 %
-A change in $R_{1}$, therefore, indicates a change in the relative amount of processes
-occurring in a window around the sensitive timescale, but does not give information on the direction (speedup/slowdown) to which the processes changed.
-% It is impossible to directly connect an increase/decrease of $R_1$ rates to speedup/slowdown of specific motions.
-% This is because $R_1$ values are only sensitive to processes whose timescales fall within a certain window.
-
+A change in given $R_{1}$, therefore, indicates a change in the relative amount of processes
+occurring in a window around the sensitive timescale;
+%
+% but does not give information on the direction (speedup/slowdown) to which the processes changed.
+%
+% Tiago 3.11.: A simple measurement changing T would clarify this, so it is not a big deal as sort of emphasised.
+% I would change the sentence after comma to:
+%
+% but does not give information on motions with time-scales outside this range.
+%
+inferring also the direction to which the processes changed (speedup/slowdown)
+requires measuring $R_1$ at various field strengths.
 
 \begin{comment}
  The dipolar coupling constant $d_{\mathrm{CH}}$ is defined as
@@ -475,12 +485,13 @@ Slipids \cite{jambeck12b}%/---
 The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/tree/master/teff_analysis}), along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
 
 After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole.
+For the united atom Berger model, hydrogens were added using the Gromacs\,4.0.2 tool \texttt{g\_protonate}.
 We then calculated the  $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP}) with the \texttt{OrderParameter.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
 The \mbox{C--H} bond correlation functions
 $g(\tau)$ (Eq.~\eqref{eq:BCF})
 were calculated with Gromacs\,5.1.4~\cite{abraham2015gromacs} \texttt{gmx rotacf}
-(note that in MD $g_\mathrm s =1$ so that $g = g_\mathrm{f}$)
+(note that on MD timescales \mbox{$g_\mathrm s =1$} so that $g = g_\mathrm{f}$)
 after which the $S_\mathrm{CH}$ were used to
 normalize the $g_\mathrm f$ to obtain %the $g'_\mathrm f$, following Eq.~\eqref{eq:nBCF}.
 the reduced and normalized correlation function
@@ -704,7 +715,7 @@ To this end, we try to avoid overly detailed discussion on the models and rather
 That said,
 there are a few carbon segments in the data for which
 the experimental order parameters, $R_1$, and $\tau_\mathrm{e}$ are all (almost) reproduced by simulations,
-suggesting that the conformational ensemble and dynamics is correctly captured by MD in these cases. 
+suggesting that both the conformational ensemble and the dynamics are correctly captured by MD in these cases. 
 For example, 
 % LET'S MENTION ONLY THE VERY GOOD ONES,
 % AND WHERE ALSO THE S_CH MATCH (although they are not shown)
@@ -1022,12 +1033,16 @@ but that most are prone to too slow dynamics of the glycerol backbone C--H bonds
 %
 While no force field perfectly reproduces all the experimental data,
 CHARMM36 and Slipids have overall impressive $\tau_\mathrm e$.
-This is a particularly exciting finding concerning CHARMM36, as it is also known to
-reproduce well the experimental conformational ensemble~\cite{botan15}.
+This is a particularly exciting finding concerning CHARMM36,
+%
+as it is also known to reproduce quite well the experimental conformational ensemble~\cite{botan15}.
+% as it almost reproduces the experimental conformational ensemble~\cite{botan15}.
 %
 That said, we do find that CHARMM36 struggles with the balance of dynamics in the headgroup region:
 The $R_1$ rates, sensitive for $\sim$1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments (Fig.~\ref{fig:cumulativeR1s}).
-In fact Slipids, which also describes well the headgroup conformational ensemble~\cite{botan15},
+In fact Slipids, which also
+%describes well the headgroup conformational ensemble~\cite{botan15},
+reproduces the experimental headgroup order parameters~\cite{botan15},
 appears to outperform CHARMM36 when it comes to headgroup conformational dynamics (Fig.~\ref{fig:cumulativeR1s}).
 %\todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
 
@@ -1054,9 +1069,9 @@ in developing better models through data-driven approaches.
 
 
 \acknowledgement
-H.\,A. gratefully acknowledges the support from Osk. Huttunen Foundation, Finnish Academy of Science and Letters (Foundations’ Post Doc Pool), Instrumentarium Science Foundation, and the Alexander von Humboldt Foundation.
-
-\bibliography{lipids,ff,simu,pdb,journals,technical,bbRefs}
+H.\,S.\,A. gratefully acknowledges the support from Osk. Huttunen Foundation, Finnish Academy of Science and Letters (Foundations’ Post Doc Pool), Instrumentarium Science Foundation, and the Alexander von Humboldt Foundation.
+O.\,H.\,S.\,O. acknowledges the Academy of Finland (315596, 319902) for financial support.
+\bibliography{lipids,ff,simu,pdb,journals,technical}
 
 \begin{tocentry}
   \vspace{-10mm}
