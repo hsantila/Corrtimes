@@ -308,7 +308,7 @@ Note that the temperature varied across these openly available simulation data, 
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{lrrrrc}
 %\hline
-force field  &
+force field lipid/water&
 $N_{\rm l}$\footnote{Number of POPC molecules.} &
 $N_{\rm w}$\footnote{Number of water molecules.}  &
 $T$\footnote{Simulation temperature.}(K) &
@@ -317,21 +317,21 @@ files\footnote{Reference for the openly available simulation files.} \tabularnew
 \hline 
 %Berger-POPC-07~\cite{ollila07a}
 %	& 128 & 7290 & 298 & 50  & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline[1.0ex]
-Berger-POPC-07~\cite{ollila07a} %\cite{berger97,bachar04}
+Berger-POPC-07~\cite{ollila07a}/ %\cite{berger97,bachar04}
 	& 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline[1.0ex]	
-CHARMM36~\cite{klauda10}
+CHARMM36~\cite{klauda10}/
 	& 256 & 8704 & 300 & 300 & {[}\!\!\citenum{charmm36filesT300}{]} \tabularnewline[1.0ex]
 %CHARMM36~\cite{klauda10}
 %	& 34 & 1020 & 300 & 140 & {[}\!\!\citenum{charmm36filesHA}{]}\tabularnewline[1.0ex]
 %MacRog~\cite{kulig15} 
 %	&  128  & 6400 & 310 & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]}\tabularnewline[1.0ex]
-MacRog~\cite{kulig15} 
+MacRog~\cite{kulig15}/TIP3P\cite{Jorgensen:1983a}
 	&  128  & 5120 & 300 & 500  & {[}\!\!\citenum{macrogfilesT300}{]}\tabularnewline[1.0ex]
-Lipid14 \cite{dickson14}
+Lipid14 \cite{dickson14}/
 	& 72 & 2234 & 303 & 50 & {[}\!\!\citenum{lipid14files}{]}\tabularnewline[1.0ex]
-Slipids~\cite{jambeck12b}
+Slipids~\cite{jambeck12b}/
 	& 200 & 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline[1.0ex]
-ECC~\cite{melcr18}
+ECC~\cite{melcr18}/
 	& 128 & 6400 & 300 & 300  & {[}\!\!\citenum{eccFILESpopc}{]}\tabularnewline
 \end{tabular}
 }
@@ -345,7 +345,7 @@ ECC~\cite{melcr18}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{lrrrrrrc}
 %\hline
-force field POPC/cholesterol &
+force field POPC/water+cholesterol &
 $c_{{\rm chol}}$\footnote{Bilayer cholesterol content (mol \%).}  &
 $N_{\rm chol}$\footnote{Number of cholesterol molecules.}  &
 $N_{\rm l}$\footnote{Number of POPC molecules.} &
@@ -355,25 +355,25 @@ $t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
 files\footnote{Reference for the openly available simulation files.} 
 \tabularnewline
 \hline 
-Berger-POPC-07~\cite{ollila07a}
+Berger-POPC-07~\cite{ollila07a}/
 	& 0\%	& 0	& 128	& 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
-/H\"{o}ltje-CHOL-13~\cite{holtje01,ferreira13} 
++H\"{o}ltje-CHOL-13~\cite{holtje01,ferreira13} 
 	& 50\%	& 64	& 64		& 10314  & 298  & 50  & {[}\!\!\citenum{bergerFILESpopc50chol}{]} \tabularnewline[1.0ex]
 %CHARMM36~\cite{klauda10} 
 %	& 0\%	& 0 	& 128 	& 5120  & 303  & 140  & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
 %/CHARMM36~\cite{lim12} 
 % 	& 50\%	& 80	& 80		& 4496  & 303  & 200  & {[}\!\!\citenum{charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
-CHARMM36~\cite{klauda10} 
+CHARMM36~\cite{klauda10}/
 	& 0\%	& 0 	& 200 	& 9000  & 310  & 500  & {[}\!\!\citenum{T310charmm36files}{]} \tabularnewline
-/CHARMM36~\cite{lim12} 
++CHARMM36~\cite{lim12} 
  	& 50\%	& 200	& 200		& 18000  & 310  & 500  & {[}\!\!\citenum{T310charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
-MacRog~\cite{kulig15}
+MacRog~\cite{kulig15}/TIP3P\cite{Jorgensen:1983a}
 	& 0\%	& 0	& 128	& 6400  & 310  & 500  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline
-/MacRog~\cite{kulig15}
++MacRog~\cite{kulig15}
  	& 50\%	& 64	& 64		& 6400  & 310  & 500  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline[1.0ex]
-Slipids~\cite{jambeck12b}
+Slipids~\cite{jambeck12b}/
 	& 0\%	& 0	& 200	& 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]} \tabularnewline
-/Slipids~\cite{jambeck13chol}
++Slipids~\cite{jambeck13chol}
  	& 50\%	&200& 200	& 18000 & 310 & 500 & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
 \end{tabular}
 }
@@ -387,7 +387,7 @@ Slipids~\cite{jambeck12b}
 \resizebox{\columnwidth}{!} {
 \begin{tabular}{llrrrrrc}
 %\hline
-force field  &
+force field lipid/water &
 lipid  &
 $n_{{\mathrm w\!}_{/\mathrm l}}$\footnote{Water/lipid molar ratio.}  &
 $N_{\rm l}$\footnote{Number of lipid molecules.}  &
@@ -396,24 +396,24 @@ $T$\footnote{Simulation temperature.}(K)  &
 $t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
 files\footnote{Reference for the openly available simulation files.} \tabularnewline
 \hline 
-Berger-POPC-07~\cite{ollila07a} 
+Berger-POPC-07~\cite{ollila07a}/
 %	& POPC  & 57  & 128  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
 	& POPC & 40 & 256 & 10240 & 300 & 300  & {[}\!\!\citenum{bergerFILESpopcT300}{]} \tabularnewline		
 	& POPC  & 7  & 128  & 896  & 298  & 60  & {[}\!\!\citenum{bergerDEHYDfiles}{]} \tabularnewline
 
-Berger-DLPC-13~\cite{kanduc13}
+Berger-DLPC-13~\cite{kanduc13}/
 	& DLPC\footnote{1,2-dilauroyl-sn-glycero-3-phosphocholine. \label{fn:DLPC}}  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 16  & 72  & 1152  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc16}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 12  & 72  & 864  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc12}{]} \tabularnewline
 	& DLPC\footref{fn:DLPC}  & 4  & 72  & 288  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc4}{]} \tabularnewline[1.0ex]
 	
-CHARMM36\cite{klauda10} 
+CHARMM36\cite{klauda10}/
 	& POPC  & 40  & 128  & 5120  & 303  & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
 	& POPC  & 34	&  128  & 5120 & 300 & 500  & {[}\!\!\citenum{macrogfilesT300}{]}\tabularnewline
 	& POPC  & 31 & 72 & 2232 & 303 & 20 & {[}\!\!\citenum{charmm36files31wPERl}{]}\tabularnewline
 	& POPC  & 15  & 72  & 1080  & 303  & 20  & {[}\!\!\citenum{charmm36files15wPERl}{]} \tabularnewline
 	& POPC  & 7  & 72  & 504  & 303  & 20  & {[}\!\!\citenum{charmm36files7wPERl}{]} \tabularnewline[1.0ex]
-MacRog\cite{kulig15} 
+MacRog\cite{kulig15}/TIP3P\cite{Jorgensen:1983a}
 	& POPC  & 50  & 288  & 14400  & 310  & 40  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
 	& POPC  & 25  & 288  & 7200  & 310  & 50  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline	
 	& POPC  & 15  & 288  & 4320  & 310  & 50 & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
@@ -964,9 +964,9 @@ Symbols indicate the mean of segment hydrogens
 if $\tau_\mathrm{e}$ could be determined for all of them; otherwise, only the error bar
 (extending from the mean of the lower to the mean of the upper uncertainty estimates) is drawn.
 The area limited by the error bars shaded for visualization.
-Note that four Berger data points (4, 12, 16, and 24\,w/l) are from DLPC.
+Note that four Berger data points (24, 16, 12, and 4\,w/l) are from DLPC.
 (C) $^{13}$C-NMR $R_1$ rates (at $\omega_\mathrm C=125$\,MHz) of the PC headgroup segments
-in experiments and simulations: Experiments indicate an increasing trend upon dehydration. Experimental POPC data at 28 w/l is from Ref.~\citenum{Antila:2020a} ($\blacksquare$), POPC at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} ($\blacklozenge$), and DMPC at 13 w/l from Ref.~\citenum{pham15} ($\square$). 
+in experiments and simulations: Experiments indicate an increasing trend upon dehydration. Experimental POPC ($T=298$\,K) data at 28 w/l is from Ref.~\citenum{Antila:2020a} ($\blacksquare$), POPC (298\,K) at 20 and 5\,w/l from Ref.~\citenum{Volke:1995a} ($\blacklozenge$), and DMPC (303\,K) at 13 w/l from Ref.~\citenum{pham15} ($\square$). 
 See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
 \end{figure*}
