@@ -484,7 +484,7 @@ Slipids \cite{jambeck12b}%/---
 
 The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/tree/master/teff_analysis}), along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
 
-After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole.
+After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole; that is, we made sure that for each covalent bond the partaking atoms are from the same periodic image of the molecule.
 For the united atom Berger model, hydrogens were added using the Gromacs\,4.0.2 tool \texttt{g\_protonate}.
 We then calculated the  $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP}) with the \texttt{OrderParameter.py} script that uses the MDanalysis\cite{agrawal11,gowers16} Python library.
 %
@@ -578,7 +578,7 @@ t_\mathrm u= \min
 \right\}.
 $
 Note, however,
-that this is not yet sufficient, because there could be slow processes that our simulation was not
+that this is not yet sufficient, because there could be slow processes that the simulation was not
 able to see. Although these would contribute to $\tau_\mathrm e$ with a low weight,
 their contribution over long times could still add up to a sizable effect on $\tau_\mathrm e$.
 %
@@ -950,7 +950,7 @@ in the headgroup and glycerol regions.
 
 \begin{figure*}[ht!]
 \centering
-\includegraphics[width=\textwidth]{../Figs/hydration_2columns.pdf} 
+\includegraphics[width=\textwidth]{../Figs/hydration_2columns2.pdf} 
 
 \caption{Effect of drying on PC headgroup and glyc\-er\-ol backbone conformational dynamics.
 (A) Experimental effective correlation times $\tau_\mathrm e$ for
@@ -1024,7 +1024,7 @@ not only for computational studies of inter\-membrane interactions, such as fusi
 % In a 'real' case, one could extend the short simulations / run also the models for which, say, dehydration data was not available.
 % Here we did not do this, because we wish to demonstrate the power of the already existing open-access trajectories.
 We have here demonstrated that
-open access databanks of MD trajectories enable the creation new scientific information without running a single new simulation.
+open access databanks of MD trajectories enable the creation of new scientific information without running a single new simulation.
 More specifically, we have bench\-marked (against published NMR data~\cite{ferreira15,pham15,Volke:1995a,Antila:2020a}) the conformational
 dynamics of a wide range of phosphatidylcholine MD models using existing open-access trajectories from the Zenodo repository, in particular those belonging to the NMRlipids Databank (\url{zenodo.org/communities/nmrlipids}).
 
