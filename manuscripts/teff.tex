@@ -1020,6 +1020,7 @@ The slowdown characteristics discussed here are of significance
 not only for computational studies of inter\-membrane interactions, such as fusion,  but also when simulating a bilayer (stack) under low hydration: Slower dynamics require longer simulation times for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
 
+\clearpage{}
 \section{Conclusions}
 % In a 'real' case, one could extend the short simulations / run also the models for which, say, dehydration data was not available.
 % Here we did not do this, because we wish to demonstrate the power of the already existing open-access trajectories.
@@ -1060,16 +1061,23 @@ upon reducing the water content below 10 waters per lipid, MD exhibits slowdown 
 qualitatively captures the experimentally detected increase of $R_1$ rates upon dehydration (Fig.~\ref{fig:hydration}).
 
 While work is still needed in capturing even the correct phospholipid conformations~\cite{botan15}, realistic dynamics will be an essential part of developing MD into a true computational microscope.
-Here we gathered a set of published experimental $^{13}$C-NMR data on phosphatidylcholine dynamics, and charted the typical features of the existing MD models against it, thus laying the foundation for further improvement of the force fields. 
+Here we gathered a set of published experimental $^{13}$C-NMR data on phosphatidylcholine conformational dynamics, and charted the typical features of the existing MD models against it, thus laying the foundation for further improvement of MD force fields. 
 %
-Importantly, our work demonstrates the potential of open-access MD trajectories in achieving such benchmarks at a reduced computational and labor cost. A pool of well indexed and documented open-access data provides an ideal platform for automation, which in turn will facilitate faster progress
+Importantly, our work demonstrates the potential of open-access MD trajectories in achieving such benchmarks at a reduced computational and labor cost---but
+%
+it also highlights the challenges inherent in using such data:
+Not all system permutations might readily exist (here the dehydration data for Lipid14 and Slipids were lacking, see Fig.~\ref{fig:hydration});
+the available sampling (simulation length and size) might vary, requiring extreme care with error estimation; and one has to remain aware of the subtle differences in the many simulation parameters (MD engines, barostats, temperatures, \ldots).
+%
+That said, it has not escaped our notice that
+a pool of well indexed and documented open-access data provides an ideal platform for automation, which in turn will facilitate faster progress
 in pinpointing the typical failures of the existing force fields,
 in identifying key differences in models describing chemical variations of the same molecule type (such as different lipid headgroups), and
 in developing better models through data-driven approaches.
 
 
 \acknowledgement
-H.\,S.\,A. gratefully acknowledges the support from Osk. Huttunen Foundation, Finnish Academy of Science and Letters (Foundations’ Post Doc Pool), Instrumentarium Science Foundation, and the Alexander von Humboldt Foundation.
+H.\,S.\,A. gratefully acknowledges the support from Osk.\,Huttunen Foundation, Finnish Academy of Science and Letters (Foundations’ Post Doc Pool), Instrumentarium Science Foundation, and the Alexander von Humboldt Foundation.
 O.\,H.\,S.\,O. acknowledges the Academy of Finland (315596, 319902) for financial support.
 \bibliography{lipids,ff,simu,pdb,journals,technical}
 
