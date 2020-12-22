@@ -295,10 +295,27 @@ All the experimental quantities used in this work were collected from the litera
 %
 The simulation trajectories were collected from the general-purpose open-access repository Zenodo (\url{zenodo.org}), with the majority of the data originating from the NMR\-lipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen by hand based on how well the simulation conditions matched the available experimental data (lipid type, temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (length of simulation, system size).
 %
+Figure~\ref{fig:systemSize} demonstrates that $\tau_\mathrm e$ and $R_1$ do not systematically depend on the simulation size.
 Table~\ref{tab:standr} lists the chosen trajectories of pure POPC (1-palmit\-oyl-2-oleoyl-glycero-3-phosphocholine) bilayers at/near room temperature and at full hydration;
 Table~\ref{tab:chol} lists the trajectories with cholesterol; and
 Table~\ref{tab:hydr} those with varying hydration.
 Full computational details for each simulation are available at the cited Zenodo entry.
+
+\begin{figure}[t]
+	\includegraphics[width=\columnwidth]{../Figs/systemSize.pdf} 
+	\caption{Effective correlation times ($\tau_\mathrm e$, upper panel)
+	and $R_1$ rates (lower panel) do not markedly depend on the system size.
+	Shown are two CHARMM36 POPC data sets that varied size while keeping other simulation parameters fixed:
+	Ref.\,\citenum{VenableSIMS}~\cite{Venable:2015a} (blue, system sizes 72 and 648 lipids), and
+	Ref.\,\citenum{JavanainenSIMS} (red, system sizes 200, 800, and 1800 lipids).
+	Both data sets are shown normalized against their smallest system.
+	The 15 datapoints shown for each system correspond, from left to right,
+	to the carbon segments $\gamma$, $\beta$, $\alpha$, g$_3$, \ldots, C17/C15', C18/C16',
+	cf. Fig.~\ref{fig:teff_R1}.
+	}
+	\label{fig:systemSize}
+\end{figure} 
+
 
 \begin{table}[t!]
 \caption{Analyzed open-access MD trajectories of pure POPC lipid bilayers at full hydration.
@@ -338,6 +355,7 @@ ECC~\cite{melcr18}/SPC-E\cite{berendsen87}
 \end{minipage}
 \label{tab:standr}
 \end{table}
+
 
 \begin{table}[]
 \caption{Analyzed open-access MD trajectories of cholesterol-containing POPC bilayers at full hydration.}

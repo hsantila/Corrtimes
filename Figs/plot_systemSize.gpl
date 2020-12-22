@@ -1,0 +1,162 @@
+set term pdfcairo enhanced color dashed dashlength 0.5 size 8.5cm, 8.5cm font "Arial,14" 
+set out "systemSize.pdf"
+
+set multiplot
+
+# Define the broken-axis mapping
+breakAt1=112.
+brkTill1=312.
+breakAt2=412.
+brkTill2=888.
+axis_gap = 10.
+
+f(x) = (x <= breakAt1) ? x : \
+       (x < brkTill1)  ? NaN : \
+       (x <= breakAt2) ? x - (brkTill1-breakAt1) + axis_gap : \
+       (x < brkTill2)  ? NaN : \
+                         x - (brkTill1-breakAt1) - (brkTill2-breakAt2) + 2*axis_gap
+
+g(x) = (x <= breakAt1) ? x : \
+       (x <= brkTill1) ? x + (brkTill1-breakAt1) - axis_gap : \
+       	     	       	 x + (brkTill1-breakAt1) + (brkTill2-breakAt2) - 2*axis_gap
+
+set nonlinear x via f(x) inverse g(x)
+
+# Create the broken axis marks
+  set arrow 500 from breakAt1, graph 0 to brkTill1, graph 0 nohead lw 3 lc bgnd front
+  set arrow 501 from breakAt1, graph 0 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 502 from breakAt1, graph 0 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 503 from brkTill1, graph 0 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 504 from brkTill1, graph 0 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 510 from breakAt1, graph 1 to brkTill1, graph 1 nohead lw 3 lc bgnd front
+  set arrow 511 from breakAt1, graph 1 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 512 from breakAt1, graph 1 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 513 from brkTill1, graph 1 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 514 from brkTill1, graph 1 length graph -.01 angle 75 nohead lw 1.5 front
+
+  set arrow 600 from breakAt2, graph 0 to brkTill2, graph 0 nohead lw 3 lc bgnd front
+  set arrow 601 from breakAt2, graph 0 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 602 from breakAt2, graph 0 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 603 from brkTill2, graph 0 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 604 from brkTill2, graph 0 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 610 from breakAt2, graph 1 to brkTill2, graph 1 nohead lw 3 lc bgnd front
+  set arrow 611 from breakAt2, graph 1 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 612 from breakAt2, graph 1 length graph -.01 angle 75 nohead lw 1.5 front
+  set arrow 613 from brkTill2, graph 1 length graph  .01 angle 75 nohead lw 1.5 front
+  set arrow 614 from brkTill2, graph 1 length graph -.01 angle 75 nohead lw 1.5 front
+
+top = 0.988
+heightY = 0.4
+widthX = 0.95
+right = 0.999
+left = 0.15
+bottom = 0.128
+
+set style fill solid 0.7 noborder
+
+set bars small
+
+set key at graph 0.07, graph 0.2 left reverse width -2.5
+
+set tics front
+
+#set xtics nomirror out ("" 36, "" 100, "" 324, "" 400, "" 900) out 
+unset xtics
+set ytics 100 nomirror out
+set mytics 5
+
+set rmargin at screen left+widthX
+set lmargin at screen left
+set tmargin at screen top
+set bmargin at screen top-1.6*heightY
+
+set ylabel "normalized {/Helvetica-Italic τ}_{e} (%)" offset 1.2,0
+d=0.9
+wt=0.8
+r=0.1
+
+plot [24:912][0:300] \
+     -100 w l lc 'light-blue'       lw 10*wt t "dataset from Ref. 44", \
+     -100 w l lc 'pink' lw 10*wt t "dataset from Ref. 46", \
+     "teffs.dat" u ($13+d*$3):(100):(100*$17/$16):(100*$18/$16) w ye lc 'pink'       lw wt ps 0 t "", \
+     "teffs.dat" u ($19+d*$3):(100):(100*$23/$16):(100*$24/$16) w ye lc 'pink'       lw wt ps 0 t "", \
+     "teffs.dat" u ($25+d*$3):(100):(100*$29/$16):(100*$30/$16) w ye lc 'pink'       lw wt ps 0 t "", \
+     "teffs.dat" u ($31+d*$3):(100):(100*$35/$34):(100*$36/$34) w ye lc 'light-blue' lw wt ps 0 t "", \
+     "teffs.dat" u ($37+d*$3):(100):(100*$41/$34):(100*$42/$34) w ye lc 'light-blue' lw wt ps 0 t "", \
+     "teffs.dat" u ($13+d*$3):(100*$16/$16) w p lc 'red'   ps r pt 7 t "", \
+     "teffs.dat" u ($19+d*$3):(100*$22/$16) w p lc 'red'   ps r pt 7 t "", \
+     "teffs.dat" u ($25+d*$3):(100*$28/$16) w p lc 'red'   ps r pt 7 t "", \
+     "teffs.dat" u ($31+d*$3):(100*$34/$34) w p lc 'blue'  ps r pt 7 t "", \
+     "teffs.dat" u ($37+d*$3):(100*$40/$34) w p lc 'blue'  ps r pt 7 t ""
+unset ylabel
+
+unset key
+set ylabel "normalized {/Helvetica-Italic R}_{1} (%)" offset 1.2,0
+set ytics 90,10,119 nomirror out
+set xtics nomirror out ("72" 36, "200" 100, "648" 324, "800" 400, "1800" 900) out 
+set xlabel "number of POPC molecules"
+set tmargin at screen top-1.6*heightY
+set bmargin at screen top-2.12*heightY
+
+plot [24:912][90:120] \
+     "R1s.dat" u ($11+d*$3) :(100*$14/$14):(100*$15/$14) w ye lc 'pink' lw wt ps 0,  \
+     "R1s.dat" u ($16+d*$3) :(100*$19/$14):(100*$20/$14) w ye lc 'pink' lw wt ps 0,  \
+     "R1s.dat" u ($21+d*$3) :(100*$24/$14):(100*$25/$14) w ye lc 'pink' lw wt ps 0,  \
+     "R1s.dat" u ($26+d*$3) :(100*$29/$29):(100*$30/$29) w ye lc 'light-blue' lw wt ps 0,  \
+     "R1s.dat" u ($31+d*$3) :(100*$34/$29):(100*$35/$29) w ye lc 'light-blue' lw wt ps 0,  \
+     "R1s.dat" u ($11+d*$3) :(100*$14/$14) w p lc 'red' ps r pt 7,  \
+     "R1s.dat" u ($16+d*$3) :(100*$19/$14) w p lc 'red' ps r pt 7,  \
+     "R1s.dat" u ($21+d*$3) :(100*$24/$14) w p lc 'red' ps r pt 7, \
+     "R1s.dat" u ($26+d*$3) :(100*$29/$29) w p lc 'blue' ps r pt 7, \
+     "R1s.dat" u ($31+d*$3) :(100*$34/$29) w p lc 'blue' ps r pt 7
+
+#     "teffs.dat" u ($7+d*$3) :(1):($11/$10):($12/$10) w ye lc 'light-gray' lw wt ps 0, \
+#     "teffs.dat" u ($13+d*$3):(1):($17/$10):($18/$10) w ye lc 'pink'       lw wt ps 0, \
+#     "teffs.dat" u ($19+d*$3):(1):($23/$10):($24/$10) w ye lc 'pink'       lw wt ps 0, \
+#     "teffs.dat" u ($25+d*$3):(1):($29/$10):($30/$10) w ye lc 'pink'       lw wt ps 0, \
+#     "teffs.dat" u ($7+d*$3) :($10/$10) w p lc 'black' ps r pt 7, \
+#     "teffs.dat" u ($13+d*$3):($16/$10) w p lc 'red'   ps r pt 7, \
+#     "teffs.dat" u ($19+d*$3):($22/$10) w p lc 'red'   ps r pt 7, \
+#     "teffs.dat" u ($25+d*$3):($28/$10) w p lc 'red'   ps r pt 7
+unset ylabel
+
+
+
+
+exit
+
+set label 1 "palmitoyl (sn-1) tail" at graph 0.03, graph 0.9 left
+unset xtics
+set x2tics 1 nomirror out
+set format x2 "%g'"
+set format x ""
+set rmargin at screen right-0.0715
+set lmargin at screen left+widthX
+set tmargin at screen top
+set bmargin at screen bottom+heightY
+
+unset xlabel
+plot [1.5:16.5][-0.24:0][1.5:16.5] \
+  "./EXP/palm.dat" u ($1):($2):($3) axes x2y1 w ye ls ls_exp, \
+  "./C36/palm.dat" u ($1):($2):($3)           w ye ls ls_c36, \
+  "./O3E/palm.dat" u ($1):($2):($4)           w ye ls ls_o3e
+
+set label 1 "oleoyl (sn-2) tail"
+
+unset x2tics
+set xtics nomirror 1 out
+set rmargin at screen right
+set lmargin at screen left+widthX
+set tmargin at screen top-heightY
+set bmargin at screen bottom
+set format x "%g"
+
+set key at graph 0.95, graph 0.35 reverse Left
+
+set xlabel "carbon segment"
+plot [1.5:18.5][-0.24:0] \
+  "./EXP/oleo.dat" u ($1):($2):($3) w ye ls ls_exp t "experimental", \
+  "./C36/oleo.dat" u ($1):($2):($3) w ye ls ls_c36 t "CHARMM36", \
+  "./O3E/oleo.dat" u ($1):($2):($4) w ye ls ls_o3e t "OPLS3e"
+
+unset multiplot
