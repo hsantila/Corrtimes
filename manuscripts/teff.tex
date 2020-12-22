@@ -887,6 +887,8 @@ In summary, these experimental findings
 support the idea~\cite{Antila:2020a} that the acyl chains and the headgroup can respond
 almost independently to changes in conditions and composition.
 
+The lack of coupling of the head group and chains of DPPC was demonstrated in simulations published by Klauda et al Biophysical Journal, 94, 3074-3083 (2008).
+
 All four benchmarked force fields (Fig.~\ref{fig:chol}B) qualitatively reproduce the experimental increase in $\tau_\mathrm e$:
 Slipids and CHARMM36 give rather decent magnitude estimates, while MacRog grossly overestimates the slowdown of glycerol, C2, and C3 segments. Notably, MacRog appears to predict slowdown also for the headgroup ($\beta$ and $\alpha$), for which experiments detect no change.
 %
@@ -1020,7 +1022,6 @@ The slowdown characteristics discussed here are of significance
 not only for computational studies of inter\-membrane interactions, such as fusion,  but also when simulating a bilayer (stack) under low hydration: Slower dynamics require longer simulation times for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
 
-\clearpage{}
 \section{Conclusions}
 % In a 'real' case, one could extend the short simulations / run also the models for which, say, dehydration data was not available.
 % Here we did not do this, because we wish to demonstrate the power of the already existing open-access trajectories.
@@ -1067,7 +1068,7 @@ Importantly, our work demonstrates the potential of open-access MD trajectories 
 %
 it also highlights the challenges inherent in using such data:
 Not all system permutations might readily exist (here the dehydration data for Lipid14 and Slipids were lacking, see Fig.~\ref{fig:hydration});
-the available sampling (simulation length and size) might vary, requiring extreme care with error estimation; and one has to remain aware of the subtle differences in the many simulation parameters (MD engines, barostats, temperatures, \ldots).
+the available sampling (simulation length and size) might vary, requiring extreme care with error estimation; and one has to remain aware of the subtle differences in the many simulation parameters (barostats, temperatures, characteristics of the MD engines, \ldots).
 %
 That said, it has not escaped our notice that
 a pool of well indexed and documented open-access data provides an ideal platform for automation, which in turn will facilitate faster progress
