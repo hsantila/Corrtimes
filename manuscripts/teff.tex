@@ -827,7 +827,7 @@ $\gamma$ (top panel), $\beta$ (middle), and $\alpha$ (bottom) segments.
 $R_1(\tau)$ is obtained, as detailed in Methods,
 by including in the sum of Eq.~\eqref{eq:j} only terms with $\tau_i<\tau$.
 Consequently, at $\tau\to\infty$ the $R_1(\tau)$ approaches the actual $R_1$.
-(C) Prefactor weighs $\alpha_i$ from Eq.~\eqref{eq:weights} of $\gamma$ (top), $\beta$ (middle), and $\alpha$ (bottom).
+(C) Prefactor weights $\alpha_i$ from Eq.~\eqref{eq:weights} of $\gamma$ (top), $\beta$ (middle), and $\alpha$ (bottom).
 Note that panels B and C show a sliding average over 3 neighboring data points.
 }
 \label{fig:cumulativeR1s}
@@ -870,7 +870,17 @@ which is thus considerably overestimated by MacRog and Berger (Fig.~\ref{fig:tef
 It would be highly interesting to identify the origins of the observed artificial timescales,
 particularly for the 0.1--1\,ns window over-presented in CHARMM36, and
 propose how to correct those in the simulation models.
-However, the connection between the fitted correlation times and the correlation times of distinct motional processes, such as dihedral rotations and lipid wobbling, turns out to be highly non-trivial; we thus refrain from further analysis here.
+%
+After all, it is known that the $R_1$ rates of mono- and disaccharides~\cite{Venable:2010a}
+and proteins~\cite{Ollila:2018a} in solution agree satisfactorily with
+experiments when the artificially low viscosity of TIP3P water is accounted for by a simple scaling.
+%
+Viscosity at the bilayer--water interface, however, remains an open question---although one which
+a careful comparison between spin relaxation rates of lipid headgroups in simulations
+and experiments might be able to answer.
+%
+Nevertheless, we refrain from further analysis here, as the connection between the fitted correlation times and the correlation times of distinct motional processes, such as dihedral rotations and lipid wobbling, turns out to be highly non-trivial.
+
 
 \subsection*{Effect of cholesterol.}
 An essential component in cell membranes, cholesterol has various biological functions.
@@ -902,10 +912,8 @@ there is a small but measurable impact on $R_1$ at $\gamma$.
 %
 In summary, these experimental findings
 %suggest that acyl chain ordering upon cholesterol addition is accompanied with slower internal dynamics in the hydrophobic core and the glycerol backbone regions, while the headgroup dynamics remains almost intact even with 50\% of cholesterol,
-support the idea~\cite{Antila:2020a} that the acyl chains and the headgroup can respond
-almost independently to changes in conditions and composition.
-
-The lack of coupling of the head group and chains of DPPC was demonstrated in simulations published by Klauda et al Biophysical Journal, 94, 3074-3083 (2008).
+support the idea~\cite{Antila:2020a} that the acyl chains and the headgroup can respond---in
+agreement with the relative uncoupling of the PC head and tails reported in simulations~\cite{Klauda:2008a}---almost independently to changes in conditions and composition.
 
 All four benchmarked force fields (Fig.~\ref{fig:chol}B) qualitatively reproduce the experimental increase in $\tau_\mathrm e$:
 Slipids and CHARMM36 give rather decent magnitude estimates, while MacRog grossly overestimates the slowdown of glycerol, C2, and C3 segments. Notably, MacRog appears to predict slowdown also for the headgroup ($\beta$ and $\alpha$), for which experiments detect no change.
@@ -1101,9 +1109,9 @@ O.\,H.\,S.\,O. acknowledges the Academy of Finland (315596, 319902) for financia
 \bibliography{lipids,ff,simu,pdb,journals,technical}
 
 \begin{tocentry}
-  \vspace{-10mm}
+  \vspace{-9mm}
   \hspace{-2mm}
-  \includegraphics[width=92mm]{../Figs/Markus_TOC_975x525px_1120_v1.png}
+  \includegraphics[width=92mm]{../Figs/TOC_inPNGforLatex.png}
 \end{tocentry}
 
 \end{document}
