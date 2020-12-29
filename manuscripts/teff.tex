@@ -10,6 +10,7 @@
 \usepackage{dutchcal}
 \usepackage{xfrac}
 \usepackage{footmisc}
+\setkeys{acs}{maxauthors=10, etalmode=truncate}
 
 \newcommand{\figurewidth}{.48\textwidth}
 \renewcommand{\epsilon}{\varepsilon}
@@ -500,7 +501,7 @@ Slipids \cite{jambeck12b}%/---
 %\end{multicols}
 \end{comment}
 
-The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/tree/master/teff_analysis}), along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
+The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/teff_analysis}), along with a Python notebook outlining an example analysis run~\cite{githubsnap}.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
 
 After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole; that is, we made sure that for each covalent bond the partaking atoms are from the same periodic image of the molecule.
 For the united atom Berger model, hydrogens were added using the Gromacs\,4.0.2 tool \texttt{g\_protonate}.
@@ -687,7 +688,7 @@ we benchmark phospholipid conformational  dynamics in six
 MD force fields. %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36
 We start with
 pure POPC bilayers in their liquid crystalline fully hydrated state
-(see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for the data), and
+(see Table~\ref{tab:standr} for simulation details and Figs.~\ref{fig:teff_R1} and~\ref{fig:cumulativeR1s} for the data), and
 % We
 then proceed to
 %cover a wider range of experimentally, biologically, and computationally relevant conditions, where we explore
