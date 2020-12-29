@@ -10,6 +10,7 @@
 \usepackage{dutchcal}
 \usepackage{xfrac}
 \usepackage{footmisc}
+\setkeys{acs}{maxauthors=10, etalmode=truncate}
 
 \newcommand{\figurewidth}{.48\textwidth}
 \renewcommand{\epsilon}{\varepsilon}
@@ -295,7 +296,7 @@ All the experimental quantities used in this work were collected from the litera
 %
 The simulation trajectories were collected from the general-purpose open-access repository Zenodo (\url{zenodo.org}), with the majority of the data originating from the NMR\-lipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). The trajectories were chosen by hand based on how well the simulation conditions matched the available experimental data (lipid type, temperature, cholesterol content, hydration), and how precisely one could extract the quantities of interest from the trajectory (length of simulation, system size).
 %
-Figure~\ref{fig:systemSize} demonstrates that $\tau_\mathrm e$ and $R_1$ do not systematically depend on the simulation size.
+Note that apart from the sampling accuracy, simulation size does not affect $\tau_\mathrm e$ and $R_1$ (Fig.~\ref{fig:systemSize}).
 Table~\ref{tab:standr} lists the chosen trajectories of pure POPC (1-palmit\-oyl-2-oleoyl-glycero-3-phosphocholine) bilayers at/near room temperature and at full hydration;
 Table~\ref{tab:chol} lists the trajectories with cholesterol; and
 Table~\ref{tab:hydr} those with varying hydration.
@@ -306,7 +307,7 @@ Full computational details for each simulation are available at the cited Zenodo
 	\caption{Effective correlation times ($\tau_\mathrm e$, upper panel)
 	and $R_1$ rates (lower panel) do not markedly depend on the system size.
 	Shown are two CHARMM36 POPC data sets that varied size while keeping other simulation parameters fixed:
-	Ref.\,\citenum{VenableSIMS}~\cite{Venable:2015a} (blue, system sizes 72 and 648 lipids), and
+	Ref.\,\citenum{VenableSIMS} (blue, system sizes 72 and 648 lipids)~\cite{Venable:2015a} and
 	Ref.\,\citenum{JavanainenSIMS} (red, system sizes 200, 800, and 1800 lipids).
 	Both data sets are shown normalized against their smallest system.
 	The 15 datapoints shown for each system correspond, from left to right,
@@ -500,7 +501,7 @@ Slipids \cite{jambeck12b}%/---
 %\end{multicols}
 \end{comment}
 
-The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/tree/master/teff_analysis}), along with a Python notebook outlining an example analysis run.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
+The trajectories were analyzed using in-house scripts. These are available on GitHub (\url{github.com/hsantila/Corrtimes/teff_analysis}), along with a Python notebook outlining an example analysis run~\cite{githubsnap}.  To enable automated analysis of several force fields with differing atom naming conventions, we used the mapping scheme developed within the NMR\-lipids Project to automatically recognise the atoms and bonds of interest for each  trajectory.
 
 After downloading the necessary files from Zenodo, we processed the trajectory with Gromacs \texttt{gmx trjconv} to make the molecules whole; that is, we made sure that for each covalent bond the partaking atoms are from the same periodic image of the molecule.
 For the united atom Berger model, hydrogens were added using the Gromacs\,4.0.2 tool \texttt{g\_protonate}.
@@ -687,7 +688,7 @@ we benchmark phospholipid conformational  dynamics in six
 MD force fields. %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36
 We start with
 pure POPC bilayers in their liquid crystalline fully hydrated state
-(see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for the data), and
+(see Table~\ref{tab:standr} for simulation details and Figs.~\ref{fig:teff_R1} and~\ref{fig:cumulativeR1s} for the data), and
 % We
 then proceed to
 %cover a wider range of experimentally, biologically, and computationally relevant conditions, where we explore
